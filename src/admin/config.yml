@@ -1,0 +1,320 @@
+# Sveltia CMS configuration. Each "collection" maps to a file (or folder)
+# in the repo. When the editor saves, the CMS commits the change to GitHub
+# and Vercel rebuilds the site.
+
+backend:
+  name: github
+  repo: Auhcylime/jkanorcal-redesign
+  branch: main
+  base_url: https://jkanorcal-redesign.vercel.app
+  auth_endpoint: api/auth
+
+publish_mode: simple  # save → commit immediately (no editorial workflow PRs)
+media_folder: src/images
+public_folder: /images
+
+site_url: https://jkanorcal-redesign.vercel.app
+display_url: https://jkanorcal-redesign.vercel.app
+logo_url: /images/jka-logo.jpg
+
+collections:
+  # === SITE-WIDE: nav, footer, contact, social ===
+  - name: site
+    label: "Site (nav, footer, contact)"
+    files:
+      - file: src/_data/site.yml
+        name: site
+        label: "Site settings"
+        editor: { preview: false }
+        fields:
+          - { name: name,     label: "Site name",  widget: string }
+          - { name: logo,     label: "Logo image", widget: image }
+          - name: nav
+            label: "Top navigation links"
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href,  label: URL,   widget: string }
+              - { name: id,    label: "ID (for current-page highlight)", widget: string, required: false }
+          - { name: join_url, label: "Join Us button URL", widget: string }
+          - name: contact
+            label: Contact
+            widget: object
+            fields:
+              - { name: phone,         label: Phone,                widget: string }
+              - { name: phone_tel,     label: "Phone (digits only for tel:)", widget: string }
+              - { name: address_line1, label: "Address line 1",     widget: string }
+              - { name: address_line2, label: "Address line 2",     widget: string }
+              - { name: email,         label: Email,                widget: string }
+          - name: social
+            label: Social links
+            widget: object
+            fields:
+              - { name: instagram, label: Instagram, widget: string }
+              - { name: facebook,  label: Facebook,  widget: string }
+              - { name: twitter,   label: "X (Twitter)", widget: string }
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: brand_jp, label: "Japanese brand text", widget: string }
+              - { name: brand_en, label: "English brand text",  widget: string }
+              - { name: copy,     label: "Copyright line",      widget: string }
+              - name: cols
+                label: "Footer columns"
+                widget: list
+                fields:
+                  - { name: heading, label: "Column heading", widget: string }
+                  - name: links
+                    label: Links
+                    widget: list
+                    fields:
+                      - { name: label, label: Label, widget: string }
+                      - { name: href,  label: URL,   widget: string, required: false }
+                      - { name: external, label: "Opens in new tab", widget: boolean, required: false, default: false }
+
+  # === HOMEPAGE: every editable section on / ===
+  - name: home
+    label: "Homepage sections"
+    files:
+      - file: src/_data/home.yml
+        name: home
+        label: "Homepage content"
+        editor: { preview: false }
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: image,         label: "Hero photo",           widget: image }
+              - { name: image_alt,     label: "Photo alt text",       widget: string }
+              - { name: heading_line1, label: "Heading line 1",       widget: string }
+              - { name: heading_line2, label: "Heading line 2",       widget: string }
+              - { name: subhead,       label: Subheadline,            widget: text }
+              - name: cta_primary
+                label: "Primary button (white)"
+                widget: object
+                fields:
+                  - { name: label,    label: Label, widget: string }
+                  - { name: href,     label: URL,   widget: string }
+                  - { name: external, label: "Opens in new tab", widget: boolean, default: true }
+              - name: cta_secondary
+                label: "Secondary button (outline)"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+          - name: photo_strip
+            label: "Photo strip (4 images under hero)"
+            widget: list
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt,   label: "Alt text", widget: string }
+          - name: about
+            label: "About section"
+            widget: object
+            fields:
+              - { name: label,      label: "Eyebrow label", widget: string }
+              - { name: heading,    label: Heading,         widget: string }
+              - { name: paragraphs, label: Paragraphs,      widget: list, field: { name: text, label: Paragraph (HTML allowed), widget: text } }
+              - name: cta
+                label: "CTA button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+              - { name: photo,     label: "Side photo",  widget: image }
+              - { name: photo_alt, label: "Photo alt",   widget: string }
+          - name: quote
+            label: "Funakoshi quote banner"
+            widget: object
+            fields:
+              - { name: text,        label: Quote,       widget: text }
+              - { name: attribution, label: Attribution, widget: string }
+          - name: feature
+            label: "Instructors feature"
+            widget: object
+            fields:
+              - { name: photo,         label: Photo,                widget: image }
+              - { name: photo_alt,     label: "Photo alt",          widget: string }
+              - { name: label,         label: "Eyebrow label",      widget: string }
+              - { name: heading_line1, label: "Heading line 1",     widget: string }
+              - { name: heading_line2, label: "Heading line 2",     widget: string }
+              - { name: body,          label: Body,                 widget: text }
+              - name: stats
+                label: "Stats (3 boxes)"
+                widget: list
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: label, label: Label, widget: string }
+          - name: updates
+            label: "Updates / Instagram section"
+            widget: object
+            fields:
+              - { name: label,           label: "Eyebrow label", widget: string }
+              - { name: heading,         label: Heading,         widget: string }
+              - { name: description,     label: "Description (HTML allowed)", widget: text }
+              - name: follow_button
+                label: "Follow button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+              - { name: lightwidget_id, label: "LightWidget widget ID", widget: string }
+          - name: recognition
+            label: "Recognition (dark band)"
+            widget: object
+            fields:
+              - { name: photo,     label: Photo,         widget: image }
+              - { name: photo_alt, label: "Photo alt",   widget: string }
+              - { name: caption,   label: Caption,       widget: string }
+              - { name: label,     label: "Eyebrow label", widget: string }
+              - { name: heading,   label: "Heading (HTML allowed)", widget: text }
+              - { name: body,      label: Body,          widget: text }
+          - name: location
+            label: "Visit / Find the Dojo"
+            widget: object
+            fields:
+              - { name: bg_image, label: "Background photo", widget: image }
+              - { name: bg_alt,   label: "Photo alt",        widget: string }
+              - { name: label,    label: "Eyebrow label",    widget: string }
+              - { name: heading,  label: Heading,            widget: string }
+              - name: items
+                label: "Info items (Address, Phone, etc.)"
+                widget: list
+                fields:
+                  - { name: heading, label: Heading, widget: string }
+                  - { name: content, label: "Content (HTML allowed)", widget: text }
+              - name: cta
+                label: "CTA button"
+                widget: object
+                fields:
+                  - { name: label,    label: Label, widget: string }
+                  - { name: href,     label: URL,   widget: string }
+                  - { name: external, label: "Opens in new tab", widget: boolean, default: true }
+
+  # === CLASS SCHEDULE ===
+  - name: schedule
+    label: "Class schedule"
+    files:
+      - file: src/_data/schedule.yml
+        name: schedule
+        label: "Schedule cards"
+        editor: { preview: false }
+        fields:
+          - { name: section_label, label: "Eyebrow label", widget: string }
+          - { name: heading,       label: Heading,         widget: string }
+          - { name: description,   label: Description,     widget: text }
+          - name: contact_button
+            label: "Contact Us button"
+            widget: object
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href,  label: URL,   widget: string }
+          - name: days
+            label: "Days (each renders as a card)"
+            widget: list
+            fields:
+              - { name: day, label: Day, widget: string }
+              - name: sessions
+                label: Sessions
+                widget: list
+                fields:
+                  - { name: tag,        label: "Tag (Youth / Adult / Advanced)", widget: string }
+                  - { name: tag_class,  label: "Tag CSS class (tag-youth / tag-adult / tag-advanced)", widget: string }
+                  - { name: time,       label: Time, widget: string }
+                  - { name: class_type, label: "Class type", widget: string }
+
+  # === SENSEI / INSTRUCTORS ===
+  - name: instructors
+    label: "Sensei / Instructors"
+    files:
+      - file: src/_data/instructors.yml
+        name: instructors
+        label: "Instructor list"
+        editor: { preview: false }
+        fields:
+          - name: list
+            label: Instructors
+            widget: list
+            fields:
+              - { name: id,           label: "ID (anchor slug, e.g. wauriman)", widget: string }
+              - { name: rank_kanji,   label: "Rank kanji (e.g. 五段 · Godan)",   widget: string }
+              - { name: role,         label: Role,                              widget: string }
+              - { name: layout,       label: "Layout (default | reverse)",      widget: select, options: ["default", "reverse"] }
+              - { name: first_name,   label: "First name",                      widget: string }
+              - { name: last_name,    label: "Last name",                       widget: string }
+              - { name: photo,        label: "Cutout photo (PNG with bg removed)", widget: image }
+              - { name: photo_alt,    label: "Photo alt",                       widget: string }
+              - { name: vertical_jp,  label: "Japanese name (vertical)",        widget: string }
+              - { name: bio,          label: "Bio paragraphs (HTML allowed)",   widget: list, field: { name: text, label: Paragraph, widget: text } }
+              - name: stats
+                label: "Stats (3 boxes)"
+                widget: list
+                fields:
+                  - { name: value,       label: Value, widget: string }
+                  - { name: value_class, label: "Value CSS class (italic optional)", widget: string, required: false }
+                  - { name: label,       label: "Label (HTML allowed)", widget: string }
+              - { name: credentials, label: "Credentials line (optional)", widget: string, required: false }
+              - { name: show_divider_after, label: "Show ornament divider after this entry?", widget: boolean, required: false, default: false }
+              - name: plate
+                label: "Action plate (optional, large photo after the chapter)"
+                widget: object
+                required: false
+                fields:
+                  - { name: photo,          label: Photo,        widget: image }
+                  - { name: photo_alt,      label: "Photo alt",  widget: string }
+                  - { name: caption_accent, label: "Caption accent line", widget: string }
+                  - { name: caption,        label: Caption,      widget: string }
+          - name: invitation
+            label: "Closing 'Welcome' CTA"
+            widget: object
+            fields:
+              - { name: logo,     label: Logo,           widget: image }
+              - { name: logo_alt, label: "Logo alt",     widget: string }
+              - { name: heading,  label: "Heading (HTML allowed)", widget: string }
+              - { name: subhead,  label: Subhead,        widget: string }
+              - name: primary
+                label: "Primary button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+              - name: secondary
+                label: "Secondary button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+
+  # === NEWSLETTER ===
+  - name: newsletters
+    label: "Newsletters"
+    files:
+      - file: src/_data/newsletters.yml
+        name: newsletters
+        label: "Newsletter issues"
+        editor: { preview: false }
+        fields:
+          - name: featured
+            label: "Featured (current) issue"
+            widget: object
+            fields:
+              - { name: pdf,         label: "PDF URL",       widget: string, hint: "Use a hosted PDF URL (e.g. on jkanorcal.org or Google Drive direct link)" }
+              - { name: issue_label, label: "Issue label (e.g. 'Issue · Jan / Feb')", widget: string }
+              - { name: month_line1, label: "Month line 1",   widget: string }
+              - { name: month_line2, label: "Month line 2",   widget: string }
+              - { name: eyebrow,     label: Eyebrow,          widget: string }
+              - { name: title,       label: Title,            widget: string }
+              - { name: excerpt,     label: Excerpt,          widget: text }
+              - { name: cta,         label: "CTA button text", widget: string }
+          - { name: archive_heading, label: "Archive section heading", widget: string }
+          - name: archive
+            label: "Archive issues"
+            widget: list
+            fields:
+              - { name: pdf,           label: "PDF URL",         widget: string }
+              - { name: issue_label,   label: "Issue label",     widget: string }
+              - { name: month_line1,   label: "Month line 1",    widget: string }
+              - { name: month_line2,   label: "Month line 2",    widget: string }
+              - { name: archive_month, label: "Display month",   widget: string }
