@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensei — JKA of Northern California</title>
+<meta name="description" content="The three instructors who lead the floor at JKA Northern California.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* Site-wide tokens (match index.html) */
+    --white:        #ffffff;
+    --off-white:    #f8f7f4;
+    --site-text:    #2d2a26;
+    --site-text-mid:#4a453e;
+    --site-text-light:#7a756e;
+    --accent:       #c8102e;
+    --accent-light: #e62e44;
+
+    /* Dark editorial body palette */
+    --ink:        #0a0907;
+    --ink-2:      #131009;
+    --ink-3:      #1a1611;
+    --paper:      #e8dfc6;
+    --bone:       #cabf9f;
+    --text:       #dcd1b3;
+    --text-mid:   #8a8472;
+    --text-dim:   #58513f;
+    --text-faint: #3a352a;
+
+    --hino:       #c8102e;
+    --hino-soft:  #8e0b20;
+    --brass:      #a8854a;
+
+    --hair:        rgba(220,209,179,0.14);
+    --hair-soft:   rgba(220,209,179,0.07);
+    --hair-bright: rgba(220,209,179,0.28);
+
+    /* Type */
+    --display: 'Fraunces', 'Source Serif 4', Georgia, serif;
+    --body:    'Instrument Sans', 'DM Sans', -apple-system, sans-serif;
+    --mono:    'JetBrains Mono', ui-monospace, monospace;
+    --jp:      'Shippori Mincho B1', 'Noto Serif JP', serif;
+
+    --site-serif: 'Source Serif 4', Georgia, serif;
+    --site-sans:  'DM Sans', -apple-system, sans-serif;
+
+    --side-pad:    clamp(24px, 5vw, 60px);
+    --col-pad:     clamp(28px, 5vw, 80px);
+    --content-width: 1180px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Photographic grain on the dark body */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch' seed='3'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.13 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  /* Warm vignette */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(168,133,74,0.05) 0%, transparent 60%);
+  }
+
+  ::selection { background: var(--hino); color: var(--paper); }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ─────────────────────────────────────────
+     Reading progress
+  ───────────────────────────────────────── */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--hino);
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(200,16,46,0.4);
+    transition: width 60ms linear;
+  }
+
+  /* ─────────────────────────────────────────
+     Nav (LIGHT — matches index.html exactly)
+  ───────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 64px;
+    padding: 0 var(--side-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .logo {
+    font-family: var(--site-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--site-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--site-sans);
+    font-size: 0.82rem;
+    color: var(--site-text-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--site-text); }
+  .nav-links a.current { color: var(--site-text); }
+  .nav-links a.current::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--accent);
+    margin-top: 4px;
+  }
+  .nav-links .join-btn {
+    background: var(--accent);
+    color: white;
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-links .join-btn:hover { background: var(--accent-light); color: white; }
+  .nav-links .join-btn::after { display: none; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 20px; height: 1.5px; background: var(--site-text); margin: 4px 0; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--site-serif);
+    font-size: 1.4rem;
+    color: var(--site-text);
+    text-decoration: none;
+  }
+
+  /* ─────────────────────────────────────────
+     Main wrapper — clears fixed nav
+  ───────────────────────────────────────── */
+  main { padding-top: 64px; position: relative; z-index: 2; }
+
+  /* ─────────────────────────────────────────
+     Chapter (sensei spread)
+  ───────────────────────────────────────── */
+  .chapter {
+    position: relative;
+    z-index: 2;
+    padding: clamp(56px, 8vw, 110px) var(--col-pad) clamp(40px, 6vw, 90px);
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .chapter.first {
+    padding-top: clamp(40px, 6vw, 80px);
+  }
+
+  .chapter-marker {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: clamp(28px, 4vw, 52px);
+    flex-wrap: wrap;
+  }
+  .chapter-marker .rank-kanji {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.4em;
+    color: var(--brass);
+    padding-right: 4px;
+  }
+  .chapter-marker .role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+  .chapter-marker .laurel {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brass);
+    padding: 5px 10px;
+    border: 1px solid var(--brass);
+    border-radius: 2px;
+  }
+  .chapter-marker .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--hair-soft);
+    min-width: 30px;
+  }
+
+  /* The composition: figure + name-stack */
+  .composition {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(20px, 4vw, 70px);
+    align-items: stretch;
+    min-height: clamp(540px, 76vh, 800px);
+  }
+  .chapter.reverse .composition {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+  .chapter.reverse .figure-wrap { order: 2; }
+  .chapter.reverse .name-stack { order: 1; }
+
+  /* Figure */
+  .figure-wrap {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100%;
+  }
+  .figure-glow {
+    position: absolute;
+    inset: 5% 0 0 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 65% 55% at 50% 32%, rgba(200,16,46,0.28) 0%, transparent 72%),
+      radial-gradient(ellipse 70% 65% at 50% 75%, rgba(168,133,74,0.14) 0%, transparent 72%);
+    filter: blur(22px);
+  }
+  .figure-disc {
+    position: absolute;
+    inset: 10% 12% 4% 12%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, var(--ink-3) 0%, transparent 65%);
+    z-index: 0;
+  }
+  .figure-frame {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 3/4;
+    max-width: 540px;
+  }
+  .figure-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter:
+      drop-shadow(0 36px 60px rgba(0,0,0,0.78))
+      drop-shadow(0 8px 18px rgba(0,0,0,0.55))
+      contrast(1.04)
+      saturate(0.95);
+    transition: filter 1.2s ease;
+  }
+
+  /* Sammi's cutout is padded for 3:4 aspect; scale a touch to match Harry's presence. */
+  #yeung .figure-frame img {
+    transform: scale(1.18);
+    transform-origin: center bottom;
+  }
+  .vertical-jp {
+    position: absolute;
+    top: 0;
+    writing-mode: vertical-rl;
+    font-family: var(--jp);
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1.05vw, 1.1rem);
+    letter-spacing: 0.25em;
+    color: var(--text-mid);
+    line-height: 1.05;
+    z-index: 4;
+  }
+  .chapter:not(.reverse) .vertical-jp { right: -2px; }
+  .chapter.reverse .vertical-jp        { left: -2px; }
+
+  /* Name stack */
+  .name-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    padding: 0;
+  }
+  .hero-name {
+    font-family: var(--display);
+    font-weight: 900;
+    font-variation-settings: "SOFT" 30, "opsz" 144;
+    color: var(--text);
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    margin-bottom: 22px;
+  }
+  .hero-name .line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.2em;
+  }
+  .hero-name .line span {
+    display: inline-block;
+    transform: translateY(102%);
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .hero-name.vis .line span { transform: translateY(0); }
+  .hero-name.vis .line.l2 span { transition-delay: 0.12s; }
+
+  .hero-name .l1 { font-size: clamp(2.6rem, 6.8vw, 6rem); }
+  .hero-name .l2 {
+    font-size: clamp(2.2rem, 6vw, 5.4rem);
+    font-variation-settings: "SOFT" 60, "opsz" 144;
+    color: var(--paper);
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-subtitle::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--hino);
+  }
+
+  /* Bio */
+  .bio {
+    max-width: 540px;
+    margin-bottom: 36px;
+  }
+  .bio p {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.78;
+    margin-bottom: 16px;
+  }
+  .bio p:last-child { margin-bottom: 0; }
+  .bio em {
+    font-style: normal;
+  }
+  .bio .lead::first-letter {
+    font-family: var(--display);
+    font-weight: 900;
+    font-variation-settings: "SOFT" 30;
+    font-size: 4.6em;
+    line-height: 0.85;
+    float: left;
+    margin: 8px 14px 0 -2px;
+    color: var(--paper);
+    text-shadow: 0 0 28px rgba(168,133,74,0.18);
+  }
+
+  /* Stat trio — three big highlights, no table feel */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 14px;
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    max-width: 540px;
+  }
+  .stat {
+    padding: 22px 0;
+  }
+  .stat + .stat {
+    padding-left: 22px;
+    border-left: 1px solid var(--hair-soft);
+  }
+  .stat .value {
+    font-family: var(--display);
+    font-weight: 700;
+    font-variation-settings: "SOFT" 30, "opsz" 144;
+    font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+    line-height: 1;
+    color: var(--paper);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+  .stat .value.italic {
+    font-style: italic;
+    font-variation-settings: "SOFT" 70, "opsz" 144;
+    color: var(--brass);
+  }
+  .stat .label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+
+  .credentials {
+    margin-top: 22px;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .credentials .label {
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .credentials .label::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--hair);
+  }
+
+  /* Pulled quote */
+  .pulled-quote {
+    margin-top: clamp(28px, 5vw, 56px);
+    max-width: 600px;
+  }
+
+  /* Quote used as a section divider (between chapters/sections) */
+  .quote-break {
+    padding: clamp(80px, 12vw, 160px) var(--col-pad);
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+  .quote-break .pulled-quote {
+    margin-top: 0;
+    max-width: none;
+    width: 100%;
+    text-align: center;
+  }
+  .quote-break .pulled-quote q {
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+  }
+  .pulled-quote q {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "SOFT" 70, "opsz" 144;
+    font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+    line-height: 1.4;
+    color: var(--paper);
+    quotes: '“' '”';
+  }
+  .pulled-quote q::before { content: open-quote; color: var(--hino); margin-right: 4px; }
+  .pulled-quote q::after  { content: close-quote; color: var(--hino); margin-left: 2px; }
+  .pulled-quote .attr {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Plate (action photo) — full-bleed cinematic divider */
+  .plate {
+    margin: clamp(60px, 8vw, 110px) 0 clamp(70px, 9vw, 130px);
+    position: relative;
+    z-index: 2;
+  }
+  .plate-frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/8.2;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 7%, black 92%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, black 7%, black 92%, transparent 100%);
+  }
+  .plate-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.92) contrast(1.06) saturate(0.94);
+    transform: scale(1.02);
+    transition: transform 1.6s ease, filter 1.6s ease;
+  }
+  .plate-frame:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.98) contrast(1.08) saturate(1);
+  }
+  .plate-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 50%, rgba(10,9,7,0.35) 100%);
+  }
+  figcaption.plate-cap {
+    margin: 18px auto 0;
+    max-width: 1320px;
+    padding: 0 var(--col-pad);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  figcaption.plate-cap .accent {
+    color: var(--hino);
+    margin-right: 14px;
+  }
+
+  /* Ornament divider between chapters */
+  .ornament-divider {
+    max-width: 1180px;
+    margin: clamp(60px, 9vw, 120px) auto;
+    padding: 0 var(--col-pad);
+    position: relative;
+    z-index: 2;
+  }
+  .ornament-divider .line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--hair), transparent);
+    position: relative;
+  }
+  .ornament-divider .line::before,
+  .ornament-divider .line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border: 1px solid var(--hino);
+    background: var(--ink);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .ornament-divider .line::before { left: calc(50% - 14px); }
+  .ornament-divider .line::after  { left: calc(50% + 9px); }
+
+  /* ─────────────────────────────────────────
+     Recognition
+  ───────────────────────────────────────── */
+  .recognition {
+    margin-top: clamp(80px, 12vw, 160px);
+    padding: clamp(70px, 10vw, 140px) var(--col-pad);
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(168,133,74,0.04) 50%, transparent 100%),
+      var(--ink);
+    border-top: 1px solid var(--hair-soft);
+    border-bottom: 1px solid var(--hair-soft);
+    position: relative;
+    z-index: 2;
+  }
+  .recognition-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(28px, 5vw, 70px);
+    align-items: center;
+  }
+  .recognition-photo {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border: 1px solid var(--hair);
+    max-width: 420px;
+  }
+  .recognition-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.94) contrast(1.04);
+  }
+  .recognition-photo .cap {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 18px;
+    background: linear-gradient(180deg, transparent, rgba(10,9,7,0.85));
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    z-index: 2;
+  }
+  .recognition-text .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .recognition-text .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--brass);
+  }
+  .recognition-text h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-variation-settings: "SOFT" 40, "opsz" 144;
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 22px;
+    letter-spacing: -0.012em;
+  }
+  .recognition-text h2 em {
+    font-style: italic;
+    font-variation-settings: "SOFT" 80;
+    color: var(--brass);
+  }
+  .recognition-text .lede {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.78;
+    margin-bottom: 28px;
+    max-width: 560px;
+  }
+
+  .roster-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 14px;
+    border-top: 1px solid var(--hair);
+    max-width: 560px;
+  }
+  .roster-list .row {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--hair-soft);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+  .roster-list .row .name { color: var(--text); font-weight: 500; }
+  .roster-list .row .country {
+    margin-left: auto;
+    color: var(--hino);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+  }
+
+  /* ─────────────────────────────────────────
+     Invitation (CTA)
+  ───────────────────────────────────────── */
+  .invitation {
+    padding: clamp(80px, 10vw, 140px) var(--col-pad);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .invitation::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(220px, 26vw, 380px);
+    height: clamp(220px, 26vw, 380px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(200,16,46,0.16) 0%, transparent 65%);
+    filter: blur(8px);
+    z-index: -1;
+  }
+  .invitation .jka-logo {
+    width: clamp(96px, 12vw, 160px);
+    height: clamp(96px, 12vw, 160px);
+    margin: 0 auto 36px;
+    display: block;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 60px rgba(200,16,46,0.32));
+  }
+  .invitation h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-variation-settings: "SOFT" 30;
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    color: var(--text);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .invitation h3 em {
+    font-style: italic;
+    font-variation-settings: "SOFT" 70;
+    color: var(--paper);
+  }
+  .invitation .sub {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    margin-bottom: 38px;
+  }
+  .invitation .actions {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    font-family: var(--body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  .btn .arrow {
+    width: 14px; height: 1px;
+    background: currentColor;
+    position: relative;
+    transition: width 0.3s;
+  }
+  .btn .arrow::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 50%;
+    width: 6px; height: 6px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .btn:hover .arrow { width: 22px; }
+  .btn-hino { background: var(--hino); color: var(--paper); }
+  .btn-hino:hover { background: var(--hino-soft); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--hair);
+  }
+  .btn-ghost:hover {
+    border-color: var(--paper);
+    background: rgba(220,209,179,0.04);
+  }
+
+  /* ─────────────────────────────────────────
+     Footer (matches index.html — dark warm bg)
+  ───────────────────────────────────────── */
+  footer {
+    background: var(--site-text);
+    color: rgba(255,255,255,0.7);
+    padding: clamp(48px, 6vw, 72px) var(--side-pad);
+    position: relative;
+    z-index: 3;
+  }
+  .footer-inner { max-width: var(--content-width); margin: 0 auto; }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand { max-width: 460px; }
+  .footer-brand-jp {
+    font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .footer-brand-en {
+    font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+    white-space: nowrap;
+  }
+
+  .footer-brand-name {
+    font-family: var(--site-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer-quote {
+    font-family: var(--site-serif);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-quote cite {
+    font-family: var(--site-sans);
+    font-size: 0.65rem;
+    font-style: normal;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col h5 {
+    font-family: var(--site-sans);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    font-family: var(--site-sans);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-copy {
+    font-family: var(--site-sans);
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-socials { display: flex; gap: 10px; }
+  .footer-socials a {
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-socials a:hover { color: white; border-color: rgba(255,255,255,0.3); }
+
+  /* ─────────────────────────────────────────
+     Reveal
+  ───────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .vis { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; }
+  .d2 { transition-delay: 0.16s; }
+  .d3 { transition-delay: 0.24s; }
+  .d4 { transition-delay: 0.32s; }
+  .d5 { transition-delay: 0.4s; }
+  .d6 { transition-delay: 0.48s; }
+
+  .develop {
+    filter: blur(18px) saturate(0.4) brightness(0.7);
+    opacity: 0;
+    transition: filter 1.6s ease, opacity 1.4s ease;
+  }
+  .develop.vis {
+    filter: blur(0) saturate(1) brightness(1);
+    opacity: 1;
+  }
+
+  /* ─────────────────────────────────────────
+     Responsive
+  ───────────────────────────────────────── */
+  @media (max-width: 980px) {
+    .composition,
+    .chapter.reverse .composition {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      min-height: auto;
+    }
+    .chapter.reverse .figure-wrap, .chapter.reverse .name-stack { order: initial; }
+    .figure-wrap { min-height: 540px; }
+    .recognition-grid { grid-template-columns: 1fr; gap: 32px; }
+    .recognition-photo { max-width: 320px; margin: 0 auto; }
+    .footer-cols { gap: 36px; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .figure-frame { max-width: 320px; }
+    .figure-wrap { min-height: 420px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat + .stat {
+      padding-left: 0;
+      padding-top: 18px;
+      border-left: none;
+      border-top: 1px solid var(--hair-soft);
+    }
+    .stat { padding: 18px 0; }
+    .credentials { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .credentials .label::after { display: none; }
+    .roster-list { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; }
+    .footer-cols { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .invitation .actions { flex-direction: column; align-items: stretch; }
+    .invitation .actions .btn { justify-content: center; width: 100%; }
+    .chapter-marker { gap: 12px; }
+    .chapter-marker .rule { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- Nav (light, matches index.html) -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
+    JKA NorCal
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#news">Updates</a></li>
+    <li><a href="index.html#schedule">Schedule</a></li>
+    <li><a href="index.html#location">Visit</a></li>
+    <li><a href="sensei.html" class="current">Sensei</a></li>
+    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mob">
+  <a href="index.html#about" onclick="closeM()">About</a>
+  <a href="index.html#news" onclick="closeM()">Updates</a>
+  <a href="index.html#schedule" onclick="closeM()">Schedule</a>
+  <a href="index.html#location" onclick="closeM()">Visit</a>
+  <a href="sensei.html" onclick="closeM()">Sensei</a>
+  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
+</div>
+
+<main>
+  <h1 class="visually-hidden">Sensei — Instructors at JKA Northern California</h1>
+
+  <!-- ═══════════════════════════════════════
+       Wauriman Borges — Chief Instructor
+  ═══════════════════════════════════════ -->
+  <article class="chapter first" id="wauriman">
+    <div class="chapter-marker reveal">
+      <span class="rank-kanji">五段 · Godan</span>
+      <span class="role">Chief Instructor</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="composition">
+
+      <div class="figure-wrap">
+        <div class="figure-glow" aria-hidden="true"></div>
+        <div class="figure-disc" aria-hidden="true"></div>
+        <div class="figure-frame">
+          <img class="develop" src="images/wauriman.png?v=2" alt="Sensei Wauriman Borges, 5th Dan">
+        </div>
+        <div class="vertical-jp" aria-hidden="true">ワウリマン・ボルジェス</div>
+      </div>
+
+      <div class="name-stack">
+        <h2 class="hero-name reveal">
+          <span class="line l1"><span>Wauriman</span></span>
+          <span class="line l2"><span>Borges</span></span>
+        </h2>
+
+        <div class="bio reveal d3">
+          <p class="lead">
+            Wauriman Borges is a 5th Dan and a member of the United States National Team. He trained under Oswaldo Mendonça Jr. Shihan and Yoshizo Machida Shihan, the President of JKA Brazil, a lineage that has carried him to multiple national championships in both the United States and Brazil.
+          </p>
+          <p>
+            His floor is built on a commanding presence in <em>kumite</em>, with a precise <em>mae-geri</em> and a relentless <em>ashi-barai</em> that emphasize power, timing, footwork, and indomitable spirit. In 2024 he represented the USA at the JKA World Championships in Takasaki, Japan, advancing through the first two rounds before facing a Japanese fighter in round three.
+          </p>
+          <p>
+            Since taking the helm in San Bruno he has shaped the dojo's culture around personal growth, discipline, and an open door for beginners and competitors alike. Favorite katas: <em>Jitte</em> and <em>Sōchin</em>.
+          </p>
+        </div>
+
+        <div class="stats reveal d4">
+          <div class="stat">
+            <div class="value">5th Dan</div>
+            <div class="label">Godan<br>JKA-certified</div>
+          </div>
+          <div class="stat">
+            <div class="value">2024</div>
+            <div class="label">JKA Worlds<br>Takasaki, Japan</div>
+          </div>
+          <div class="stat">
+            <div class="value">USA</div>
+            <div class="label">National Team<br>Active</div>
+          </div>
+        </div>
+        <div class="credentials reveal d5">
+          <span class="label">Cert.</span>
+          <span>Instructor C · Judge C · Examiner D</span>
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Plate — Wauriman action -->
+  <figure class="plate">
+    <div class="plate-frame reveal">
+      <img class="develop" src="https://jkanorcal.org/wp-content/uploads/2025/08/img_1_1733623445388-1-860x484.webp"
+           alt="Sensei Wauriman delivers a mae-geri at the 2024 JKA World Championships in Takasaki, Japan">
+    </div>
+    <figcaption class="plate-cap reveal d1">
+      <span class="accent">2024 JKA World Championships · Takasaki, Japan</span>
+      Sensei Wauriman's mae-geri against the Japanese fighter.
+    </figcaption>
+  </figure>
+
+  <!-- ═══════════════════════════════════════
+       Harrison Rahn — Assistant Instructor
+  ═══════════════════════════════════════ -->
+  <article class="chapter reverse" id="rahn">
+    <div class="chapter-marker reveal">
+      <span class="rank-kanji">四段 · Yondan</span>
+      <span class="role">Assistant Instructor</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="composition">
+
+      <div class="name-stack">
+        <h2 class="hero-name reveal">
+          <span class="line l1"><span>Harrison</span></span>
+          <span class="line l2"><span>Rahn</span></span>
+        </h2>
+
+        <div class="bio reveal d3">
+          <p class="lead">
+            Harry began studying martial arts as a child before taking up shotokan in 2013 at the Tulane Karate Club under Kyriakos and Dimitri Papadopoulos. He joined JKA NorCal in 2018, then spent several months at the JKA World Headquarters in Tokyo preparing for the 2024 World Championships.
+          </p>
+          <p>
+            A two-time Panamerican finalist and World semifinalist, he now helps foster the JKA NorCal Competition Team. He credits karate with the discipline behind every long goal he has set for himself, on the floor and off it.
+          </p>
+          <p>
+            One of his favorite memories is the roar of the US team after his first elimination-round win at the 2023 Panamerican Championships, the moment that crystallized why he keeps competing.
+          </p>
+        </div>
+
+        <div class="stats reveal d4">
+          <div class="stat">
+            <div class="value">4th Dan</div>
+            <div class="label">Yondan<br>JKA-certified</div>
+          </div>
+          <div class="stat">
+            <div class="value">2×</div>
+            <div class="label">Panamerican<br>Finalist</div>
+          </div>
+          <div class="stat">
+            <div class="value">1×</div>
+            <div class="label">World<br>Semifinalist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="figure-wrap">
+        <div class="figure-glow" aria-hidden="true"></div>
+        <div class="figure-disc" aria-hidden="true"></div>
+        <div class="figure-frame">
+          <img class="develop" src="images/harry.png?v=3" alt="Harrison Rahn, 4th Dan">
+        </div>
+        <div class="vertical-jp" aria-hidden="true">ハリソン・ラーン</div>
+      </div>
+
+    </div>
+  </article>
+
+  <div class="ornament-divider" aria-hidden="true">
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       Sammi Yeung — Assistant Instructor
+  ═══════════════════════════════════════ -->
+  <article class="chapter" id="yeung">
+    <div class="chapter-marker reveal">
+      <span class="rank-kanji">三段 · Sandan</span>
+      <span class="role">Assistant Instructor</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="composition">
+
+      <div class="figure-wrap">
+        <div class="figure-glow" aria-hidden="true"></div>
+        <div class="figure-disc" aria-hidden="true"></div>
+        <div class="figure-frame">
+          <img class="develop" src="images/sammi.png?v=2" alt="Sammi Yeung, 3rd Dan">
+        </div>
+        <div class="vertical-jp" aria-hidden="true">サミー・ヨン</div>
+      </div>
+
+      <div class="name-stack">
+        <h2 class="hero-name reveal">
+          <span class="line l1"><span>Sammi</span></span>
+          <span class="line l2"><span>Yeung</span></span>
+        </h2>
+
+        <div class="bio reveal d3">
+          <p class="lead">
+            Sammi Yeung has more than a decade with JKA NorCal. A women's <em>kumite</em> national champion and four-time United States National Team member, she has represented the country in <em>kata</em>, <em>kumite</em>, and team events at the highest levels of competition.
+          </p>
+          <p>
+            In 2025 she took individual gold in <em>kata</em> at the JKA Panamerican Championships and helped the US Women's team capture their first Team Kata and Team Kumite gold medals. At the 2024 Gichin Funakoshi World Cup the US Women's Team Kata placed 4th globally. Performing on the main tatami under the stadium lights, she remembers the adrenaline and the realization she was living a childhood dream.
+          </p>
+          <p>
+            Having graduated from the JKA-USA youth team to the adult team, she carries a perspective that resonates with younger students chasing the same path. She mentors members of the Competition Team and centers her teaching on a supportive, inclusive community.
+          </p>
+        </div>
+
+        <div class="stats reveal d4">
+          <div class="stat">
+            <div class="value">4×</div>
+            <div class="label">US National<br>Team Member</div>
+          </div>
+          <div class="stat">
+            <div class="value italic">Gold</div>
+            <div class="label">2025 Panam<br>Individual Kata</div>
+          </div>
+          <div class="stat">
+            <div class="value">4th</div>
+            <div class="label">2024 World Cup<br>Team Kata</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ═══════════════════════════════════════
+       Invitation (CTA)
+  ═══════════════════════════════════════ -->
+  <section class="invitation" id="invitation">
+    <img class="jka-logo reveal" src="images/jka-logo.jpg" alt="JKA NorCal">
+    <h3 class="reveal d1"><em>Welcome</em> to the dojo.</h3>
+    <p class="sub reveal d2">San Bruno · Five days a week · All levels</p>
+    <div class="actions reveal d3">
+      <a href="index.html#schedule" class="btn btn-ghost">
+        See Class Schedule
+        <span class="arrow"></span>
+      </a>
+      <a href="index.html#location" class="btn btn-hino">
+        Contact Us
+        <span class="arrow"></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- Footer (matches index.html) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-jp">日本空手協会</div>
+        <div class="footer-brand-en">Japan Karate Association</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Dojo</h5>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#schedule">Schedule</a></li>
+            <li><a href="sensei.html">Sensei</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:6505022902">(650) 502-2902</a></li>
+            <li><a href="#">356 El Camino Real</a></li>
+            <li><a href="#">San Bruno, CA 94066</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
+        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Reading progress */
+  const progress = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const total = h.scrollHeight - h.clientHeight;
+    progress.style.width = (total > 0 ? (h.scrollTop / total) * 100 : 0) + '%';
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Reveal observer */
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('vis');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .develop').forEach(el => obs.observe(el));
+
+  /* Mobile nav */
+  document.getElementById('ham').addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeM() {
+    document.getElementById('mob').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  (function fitFooterEN() {
+    const jp = document.querySelector('.footer-brand-jp');
+    const en = document.querySelector('.footer-brand-en');
+    if (!jp || !en) return;
+    const ctx = document.createElement('canvas').getContext('2d');
+    const range = document.createRange();
+    function inkMetrics(el, letterSpacing) {
+      const cs = getComputedStyle(el);
+      ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const text = cs.textTransform === 'uppercase' ? el.textContent.toUpperCase() : el.textContent;
+      let advance = 0;
+      for (const ch of text) advance += ctx.measureText(ch).width;
+      const first = ctx.measureText(text[0]);
+      const last = ctx.measureText(text.slice(-1));
+      const lastAdv = ctx.measureText(text.slice(-1)).width;
+      const inkLeft = -first.actualBoundingBoxLeft;
+      const inkRight = (advance - lastAdv) + (text.length - 1) * letterSpacing + last.actualBoundingBoxRight;
+      return { text, advance, lastAdv, first, last, inkLeft, inkRight };
+    }
+    function fit() {
+      en.style.letterSpacing = '';
+      en.style.transform = '';
+      const jpLS = parseFloat(getComputedStyle(jp).letterSpacing) || 0;
+      const jpM = inkMetrics(jp, jpLS);
+      const jpInkW = jpM.inkRight - jpM.inkLeft;
+      const enM0 = inkMetrics(en, 0);
+      const newLS = (jpInkW - (enM0.advance - enM0.lastAdv) - enM0.last.actualBoundingBoxRight - enM0.first.actualBoundingBoxLeft) / (enM0.text.length - 1);
+      if (newLS > 0) en.style.letterSpacing = newLS + 'px';
+      range.selectNodeContents(jp);
+      const jpRect = range.getBoundingClientRect();
+      range.selectNodeContents(en);
+      const enRect = range.getBoundingClientRect();
+      const offset = (jpRect.left + jpM.inkLeft) - (enRect.left + enM0.inkLeft);
+      if (Math.abs(offset) > 0.5) en.style.transform = `translateX(${offset}px)`;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  })();
+</script>
+</body>
+</html>

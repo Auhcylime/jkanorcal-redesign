@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — JKA of Northern California</title>
+<meta name="description" content="Privacy Policy for JKA of Northern California — what data we collect, how we use it, and your rights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --warm-gray: #f0eeea;
+    --border: #e4e1db;
+    --text: #2d2a26;
+    --text-mid: #4a453e;
+    --text-light: #7a756e;
+    --text-faint: #b5b0a8;
+    --accent: #c8102e;
+    --accent-light: #e62e44;
+    --red: #c8102e;
+    --navy: #1a3a5c;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, sans-serif;
+    --content-width: 760px;
+    --side-pad: clamp(24px, 5vw, 60px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: white; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  /* Nav (matches index) */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 64px;
+    padding: 0 var(--side-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark { width: 30px; height: 30px; border-radius: 50%; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links .join-btn {
+    background: var(--accent);
+    color: white;
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-links .join-btn:hover { background: var(--accent-light); color: white; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 20px; height: 1.5px; background: var(--text); margin: 4px 0; }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* Page */
+  .page-header {
+    padding: 130px var(--side-pad) clamp(28px, 5vw, 56px);
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .page-header .label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.18;
+  }
+
+  .legal {
+    padding: clamp(24px, 4vw, 48px) var(--side-pad) clamp(64px, 8vw, 100px);
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .legal h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin-top: 40px;
+    margin-bottom: 14px;
+  }
+  .legal h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .legal h2:first-child, .legal h3:first-child { margin-top: 0; }
+  .legal p {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.78;
+    margin-bottom: 16px;
+  }
+  .legal ul {
+    margin: 12px 0 22px 22px;
+    padding: 0;
+  }
+  .legal li {
+    font-size: 0.96rem;
+    color: var(--text-mid);
+    line-height: 1.78;
+    margin-bottom: 8px;
+  }
+  .legal a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200,16,46,0.3);
+  }
+  .legal a:hover { border-bottom-color: var(--accent); }
+
+  /* Footer (matches site) */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: clamp(48px, 6vw, 72px) var(--side-pad);
+  }
+  .footer-inner { max-width: 1080px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px; }
+  .footer-brand { max-width: 460px; }
+  .footer-brand-jp {
+    font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .footer-brand-en {
+    font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+    white-space: nowrap;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer-quote {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-quote cite {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-style: normal;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col h5 {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.3); }
+  .footer-socials { display: flex; gap: 10px; }
+  .footer-socials a {
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-socials a:hover { color: white; border-color: rgba(255,255,255,0.3); }
+
+  @media (max-width: 900px) { .footer-cols { gap: 36px; } }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .footer-top { flex-direction: column; }
+    .footer-cols { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
+    JKA NorCal
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#news">Updates</a></li>
+    <li><a href="index.html#schedule">Schedule</a></li>
+    <li><a href="index.html#location">Visit</a></li>
+    <li><a href="sensei.html">Sensei</a></li>
+    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mob">
+  <a href="index.html#about" onclick="closeM()">About</a>
+  <a href="index.html#news" onclick="closeM()">Updates</a>
+  <a href="index.html#schedule" onclick="closeM()">Schedule</a>
+  <a href="index.html#location" onclick="closeM()">Visit</a>
+  <a href="sensei.html" onclick="closeM()">Sensei</a>
+  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
+</div>
+
+<section class="page-header">
+  <div class="label">Legal</div>
+  <h1>Privacy Policy</h1>
+</section>
+
+<article class="legal">
+  <h2>Who we are</h2>
+  <p>JKA NorCal is a JKA-affiliated Shotokan Karate club based in San Bruno near San Francisco, CA. Our website address is <a href="https://jkanorcal.org">https://jkanorcal.org</a>.</p>
+
+  <h2>What personal data we collect and why we collect it</h2>
+  <p>While you visit the tournament registration site, we'll track:</p>
+  <ul>
+    <li>Events you've viewed: we'll use this to, for example, show you events you've recently viewed.</li>
+    <li>Location, IP address, and browser type: we'll use this for purposes like estimating taxes and shipping.</li>
+    <li>Shipping address: we'll ask you to enter this so we can, for instance, send you confirmation of your registration, or contact you if there are problems.</li>
+  </ul>
+  <p>We'll also use cookies to keep track of cart contents while you're browsing our site.</p>
+  <p>When you register for a tournament, we'll ask you to provide information including your name, billing address, shipping address, email address, phone number, credit card / payment details, and optional account information like username and password. We'll use this information for purposes such as:</p>
+  <ul>
+    <li>Sending you information about your account and order.</li>
+    <li>Responding to your requests, including refunds and complaints.</li>
+    <li>Verifying that you are registered for the correct events.</li>
+    <li>Processing payments and preventing fraud.</li>
+    <li>Setting up your account for our store.</li>
+    <li>Complying with any legal obligations we have, such as calculating taxes.</li>
+  </ul>
+  <p>If you create an account, we will store your name, address, email, and phone number, which will be used to populate the checkout for future orders.</p>
+  <p>We generally store information about you for as long as we need the information for the purposes for which we collect and use it, and we are not legally required to continue to keep it. For example, we will store order information for 3 years for tax and accounting purposes. This includes your name, email address, and billing and shipping addresses.</p>
+  <p>We will also store comments or reviews, if you choose to leave them.</p>
+
+  <h2>Comments</h2>
+  <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help spam detection.</p>
+  <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available at <a href="https://automattic.com/privacy/" target="_blank" rel="noopener">https://automattic.com/privacy/</a>. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
+
+  <h2>Media</h2>
+  <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. We attempt to scrub all EXIF data from images, but for various reasons this does not always succeed, so visitors to the website may be able to download and extract location data from images on the website.</p>
+
+  <h2>Contact forms</h2>
+  <p>Information you enter on forms on this website will be saved on this server. Additionally, it may be sent in email to you and the site administrators. See below for the length of time this information is retained.</p>
+
+  <h2>Cookies</h2>
+  <p>If you leave a comment on our site you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>
+  <p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>
+  <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select "Remember Me," your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>
+  <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>
+
+  <h2>Embedded content from other websites</h2>
+  <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
+  <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
+
+  <h2>Payments</h2>
+  <p>We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.</p>
+  <p>Please see the PayPal Privacy Policy for more details.</p>
+
+  <h2>Analytics</h2>
+
+  <h3>Who we share your data with</h3>
+  <p>If you register for an event, at your option, you can allow us to share your name with other registered participants on a listing of all divisions and registered participants. If you do not wish to share your name, your name will be shown as "anonymous." This listing of divisions will only show the number of registered participants to site visitors who are not registered with the site.</p>
+  <p>We use WooCommerce (<a href="https://woocommerce.com/" target="_blank" rel="noopener">https://woocommerce.com/</a>) for tournament registrations on this site.</p>
+  <p>We use Google reCAPTCHA v3 on this site to provide additional security for user logins. The use of reCAPTCHA v3 is subject to the Google Privacy Policy and Terms of Use.</p>
+  <p>We may also use Jetpack (<a href="https://jetpack.com/" target="_blank" rel="noopener">https://jetpack.com/</a>) for data analytics on the site.</p>
+  <p>Additionally, our server stores logs of all access requests, including your IP address and the page you attempt to access, along with any post data included in that request. This is to diagnose possible problems with the site, as well as to monitor for malicious activity.</p>
+
+  <h2>What rights you have over your data</h2>
+  <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>
+
+  <h2>Where we send your data</h2>
+  <p>Visitor comments may be checked through an automated spam detection service. Tournament registrations will be shared by email to the email address you provide, as well as with site administrators.</p>
+
+  <h2>Your contact information</h2>
+  <p>When you register for a tournament through this site, your address, name, and any information you enter in your registration is stored on this site. This information may also be shared with payment processors (e.g. PayPal) if you choose that payment method.</p>
+
+  <h2>Data Retention</h2>
+  <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>
+  <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>
+  <p>We do not store any payment, credit card, etc. information on this server. That is all handled through third-party payment processors (e.g. PayPal), and they share only whether the payment is successful with this site.</p>
+  <p>We save "inactive" accounts (i.e. accounts that have not been logged in or accessed this site) for 18 months.</p>
+  <p>We retain pending, failed, and cancelled orders (registrations) for 30 days.</p>
+  <p>We retain completed orders for 3 years.</p>
+  <p>Access and error logs are typically stored for up to seven (7) days, but may be stored indefinitely and shared with law enforcement if malicious activity (i.e. attempts to compromise the site or fraudulently obtain login credentials) is detected or suspected.</p>
+
+  <h2>Who on our team has access</h2>
+  <p>Members of our team have access to the information you provide us. For example, both Administrators and Shop Managers can access:</p>
+  <ul>
+    <li>Order information like what was purchased, when it was purchased, and where it should be sent.</li>
+    <li>Customer information like your name, email address, and billing and shipping information.</li>
+  </ul>
+  <p>Our team members have access to this information to help fulfill orders, process refunds, and support you.</p>
+
+  <h2>Additional information</h2>
+
+  <h3>How we protect your data</h3>
+  <p>Communication with the server is encrypted if you access the site through HTTPS, and the site uses 128-bit encryption to secure passwords and data shared with the server. Your password is stored as a hash, which may be possible for hackers to decrypt if they obtained access to the servers. Therefore, you should not use the same password on this site as on any other site.</p>
+
+  <h3>What data breach procedures we have in place</h3>
+  <p>We use multiple plugins to attempt to monitor and protect the site from malicious access attempts. We also attempt to keep all software up to date.</p>
+
+  <h3>What third parties we receive data from</h3>
+  <p>When you pay for registrations, we receive confirmation from the payment processor whether the payment was successful, and the shipping address (if applicable) you provided to them.</p>
+
+  <h3>What automated decision making and / or profiling we do with user data</h3>
+  <p>We use some plugins to try to reduce the amount of spam and malicious login attempts. These plugins may share your IP address with public blacklists.</p>
+
+  <h3>Industry regulatory disclosure requirements</h3>
+  <p>If you have any further questions or concerns, please contact us. We'd be happy to hear from you, and even happier if you come and train with us. Osu!</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-jp">日本空手協会</div>
+        <div class="footer-brand-en">Japan Karate Association</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Dojo</h5>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#schedule">Schedule</a></li>
+            <li><a href="sensei.html">Sensei</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:6505022902">(650) 502-2902</a></li>
+            <li><a href="#">356 El Camino Real</a></li>
+            <li><a href="#">San Bruno, CA 94066</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
+        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ham').addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeM() {
+    document.getElementById('mob').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  (function fitFooterEN() {
+    const jp = document.querySelector('.footer-brand-jp');
+    const en = document.querySelector('.footer-brand-en');
+    if (!jp || !en) return;
+    const ctx = document.createElement('canvas').getContext('2d');
+    const range = document.createRange();
+    function inkMetrics(el, letterSpacing) {
+      const cs = getComputedStyle(el);
+      ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const text = cs.textTransform === 'uppercase' ? el.textContent.toUpperCase() : el.textContent;
+      let advance = 0;
+      for (const ch of text) advance += ctx.measureText(ch).width;
+      const first = ctx.measureText(text[0]);
+      const last = ctx.measureText(text.slice(-1));
+      const lastAdv = ctx.measureText(text.slice(-1)).width;
+      const inkLeft = -first.actualBoundingBoxLeft;
+      const inkRight = (advance - lastAdv) + (text.length - 1) * letterSpacing + last.actualBoundingBoxRight;
+      return { text, advance, lastAdv, first, last, inkLeft, inkRight };
+    }
+    function fit() {
+      en.style.letterSpacing = '';
+      en.style.transform = '';
+      const jpLS = parseFloat(getComputedStyle(jp).letterSpacing) || 0;
+      const jpM = inkMetrics(jp, jpLS);
+      const jpInkW = jpM.inkRight - jpM.inkLeft;
+      const enM0 = inkMetrics(en, 0);
+      const newLS = (jpInkW - (enM0.advance - enM0.lastAdv) - enM0.last.actualBoundingBoxRight - enM0.first.actualBoundingBoxLeft) / (enM0.text.length - 1);
+      if (newLS > 0) en.style.letterSpacing = newLS + 'px';
+      range.selectNodeContents(jp);
+      const jpRect = range.getBoundingClientRect();
+      range.selectNodeContents(en);
+      const enRect = range.getBoundingClientRect();
+      const offset = (jpRect.left + jpM.inkLeft) - (enRect.left + enM0.inkLeft);
+      if (Math.abs(offset) > 0.5) en.style.transform = `translateX(${offset}px)`;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  })();
+</script>
+</body>
+</html>

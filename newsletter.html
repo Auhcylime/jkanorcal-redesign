@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — JKA of Northern California</title>
+<meta name="description" content="The JKA NorCal monthly newsletter archive. Camp recaps, training notes, members in the spotlight, and upcoming events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --warm-gray: #f0eeea;
+    --border: #e4e1db;
+    --text: #2d2a26;
+    --text-mid: #4a453e;
+    --text-light: #7a756e;
+    --text-faint: #b5b0a8;
+    --accent: #c8102e;
+    --accent-light: #e62e44;
+    --red: #c8102e;
+    --navy: #1a3a5c;
+    --navy-light: #2a5a8c;
+    --gold: #a8854a;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, sans-serif;
+    --content-width: 1080px;
+    --side-pad: clamp(24px, 5vw, 60px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: white; }
+  img { display: block; max-width: 100%; }
+
+  /* ─── Nav (matches index.html) ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 64px;
+    padding: 0 var(--side-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links .join-btn {
+    background: var(--accent);
+    color: white;
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-links .join-btn:hover { background: var(--accent-light); color: white; }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--text);
+    margin: 4px 0;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* ─── Featured (latest) — full-bleed navy gradient hero ─── */
+  .featured-section {
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(168,133,74,0.15) 0%, transparent 65%),
+      linear-gradient(165deg, #2d2a26 0%, #1a3a5c 100%);
+    padding: clamp(140px, 14vw, 180px) var(--side-pad) clamp(64px, 8vw, 100px);
+  }
+
+  .newsletter-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: clamp(28px, 4vw, 64px);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+  }
+
+  /* Cover — no own background, just floating content on the dark section */
+  .nl-cover {
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    box-shadow: none;
+  }
+  .nl-cover::after { content: none; }
+
+  .nl-mark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 26px;
+    box-shadow: 0 0 36px rgba(168,133,74,0.28);
+  }
+  .nl-issue-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(220,209,179,0.55);
+    margin-bottom: 16px;
+  }
+  .nl-month {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: #ece8e0;
+  }
+  .nl-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(220,209,179,0.35);
+    margin: 28px 0 24px;
+  }
+  .nl-publication {
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(220,209,179,0.78);
+  }
+
+  .nl-body { padding: 4px 0; }
+  .nl-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c9a86b;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .nl-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 600;
+    color: #ece8e0;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .nl-excerpt {
+    font-size: 0.95rem;
+    color: rgba(220,209,179,0.7);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 540px;
+    font-weight: 300;
+  }
+  .nl-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c9a86b;
+  }
+  .nl-link svg { transition: transform 0.3s ease; }
+  .newsletter-card:hover .nl-link svg { transform: translateX(6px); }
+
+  /* Scroll cue at bottom of featured section */
+  .scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: clamp(36px, 5vw, 64px) auto 0;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(220,209,179,0.6);
+    transition: color 0.3s ease;
+    width: max-content;
+  }
+  .scroll-cue:hover { color: rgba(220,209,179,0.95); }
+  .scroll-cue svg { animation: scroll-bob 2.2s ease-in-out infinite; }
+  @keyframes scroll-bob {
+    0%, 100% { transform: translateY(0); opacity: 0.85; }
+    50% { transform: translateY(7px); opacity: 1; }
+  }
+
+  /* ─── Archive grid ─── */
+  .archive {
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+    padding: clamp(64px, 8vw, 100px) var(--side-pad);
+  }
+  .archive-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .archive-header {
+    margin-bottom: clamp(36px, 5vw, 56px);
+  }
+  .archive-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+  }
+
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 32px);
+  }
+  .archive-card {
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .archive-card:hover {
+    box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+  }
+  .archive-cover {
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(168,133,74,0.16) 0%, transparent 60%),
+      linear-gradient(165deg, #2d2a26 0%, #1a3a5c 100%);
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 18px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .archive-cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.25) 100%);
+  }
+  .archive-cover .nl-mark {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+  .archive-cover .nl-issue-label {
+    font-size: 0.58rem;
+    margin-bottom: 8px;
+  }
+  .archive-cover .nl-month {
+    font-size: 1.25rem;
+  }
+  .archive-cover .nl-publication {
+    font-size: 0.62rem;
+    margin-top: 10px;
+  }
+
+  .archive-body {
+    padding: 18px 22px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .archive-month {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .archive-cta {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .archive-card:hover .archive-cta { color: var(--accent-light); }
+
+  /* ─── Footer (matches index.html) ─── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: clamp(48px, 6vw, 72px) var(--side-pad);
+  }
+  .footer-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand { max-width: 460px; }
+  .footer-brand-jp {
+    font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .footer-brand-en {
+    font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+    white-space: nowrap;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer-quote {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-quote cite {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-style: normal;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col h5 {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.3); }
+  .footer-socials { display: flex; gap: 10px; }
+  .footer-socials a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-socials a:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── Reveal ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.vis { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; }
+  .d2 { transition-delay: 0.16s; }
+  .d3 { transition-delay: 0.24s; }
+  .d4 { transition-delay: 0.32s; }
+  .d5 { transition-delay: 0.4s; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 900px) {
+    .archive-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-cols { gap: 36px; }
+  }
+
+  @media (max-width: 720px) {
+    .newsletter-card {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 480px;
+    }
+    .nl-cover {
+      padding: 8px 4px;
+    }
+    .nl-mark { width: 64px; height: 64px; margin-bottom: 18px; }
+    .nl-month { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+    .nl-issue-label { font-size: 0.66rem; margin-bottom: 12px; }
+    .nl-body { text-align: center; }
+    .nl-excerpt { max-width: none; margin-left: auto; margin-right: auto; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .archive-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+    .footer-top { flex-direction: column; }
+    .footer-cols { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .scroll-cue { font-size: 0.62rem; letter-spacing: 0.18em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
+    JKA NorCal
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#news">Updates</a></li>
+    <li><a href="index.html#schedule">Schedule</a></li>
+    <li><a href="index.html#location">Visit</a></li>
+    <li><a href="sensei.html">Sensei</a></li>
+    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mob">
+  <a href="index.html#about" onclick="closeM()">About</a>
+  <a href="index.html#news" onclick="closeM()">Updates</a>
+  <a href="index.html#schedule" onclick="closeM()">Schedule</a>
+  <a href="index.html#location" onclick="closeM()">Visit</a>
+  <a href="sensei.html" onclick="closeM()">Sensei</a>
+  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
+</div>
+
+<!-- Featured (latest issue) -->
+<section class="featured-section">
+  <a href="https://jkanorcal.org/wp-content/uploads/2026/02/Copy-of-JKA-NorCal-Announcement-Newsletter-February-Google-Docs.pdf"
+     target="_blank" rel="noopener"
+     class="newsletter-card reveal">
+    <div class="nl-cover" aria-hidden="true">
+      <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+      <div class="nl-issue-label">Issue · Jan / Feb</div>
+      <div class="nl-month">February<br>2026</div>
+    </div>
+    <div class="nl-body">
+      <div class="nl-eyebrow">Latest Issue · February 2026</div>
+      <h2 class="nl-title">Camp recap, upcoming events, and dispatches from the floor.</h2>
+      <p class="nl-excerpt">
+        The current edition: training notes, members in the spotlight, upcoming tournaments, and what's happening at the dojo this month.
+      </p>
+      <span class="nl-link">
+        Read the Issue
+        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M0 5h14M10 1l4 4-4 4"/>
+        </svg>
+      </span>
+    </div>
+  </a>
+
+  <a href="#archive" class="scroll-cue" aria-label="Scroll to the archives">
+    <span>From the Archives</span>
+    <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <path d="M7 1v18M1 13l6 6 6-6"/>
+    </svg>
+  </a>
+</section>
+
+<!-- Archive -->
+<section class="archive" id="archive">
+  <div class="archive-inner">
+    <div class="archive-header reveal">
+      <h2>From the Archives</h2>
+    </div>
+
+    <div class="archive-grid">
+      <a href="https://jkanorcal.org/wp-content/uploads/2025/12/JKA-NorCal-Announcement-Newsletter-December-Google-Docs-1.pdf"
+         target="_blank" rel="noopener" class="archive-card reveal d1">
+        <div class="archive-cover" aria-hidden="true">
+          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+          <div class="nl-issue-label">Issue · Dec</div>
+          <div class="nl-month">December<br>2025</div>
+          <div class="nl-divider"></div>
+          <div class="nl-publication">JKA NorCal</div>
+        </div>
+        <div class="archive-body">
+          <div class="archive-month">December 2025</div>
+          <span class="archive-cta">Read PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://jkanorcal.org/wp-content/uploads/2025/11/JKA-NorCal-Announcement-Newsletter-November-digital-ver.pdf"
+         target="_blank" rel="noopener" class="archive-card reveal d2">
+        <div class="archive-cover" aria-hidden="true">
+          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+          <div class="nl-issue-label">Issue · Nov</div>
+          <div class="nl-month">November<br>2025</div>
+          <div class="nl-divider"></div>
+          <div class="nl-publication">JKA NorCal</div>
+        </div>
+        <div class="archive-body">
+          <div class="archive-month">November 2025</div>
+          <span class="archive-cta">Read PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_10.pdf"
+         target="_blank" rel="noopener" class="archive-card reveal d3">
+        <div class="archive-cover" aria-hidden="true">
+          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+          <div class="nl-issue-label">Issue · Oct</div>
+          <div class="nl-month">October<br>2025</div>
+          <div class="nl-divider"></div>
+          <div class="nl-publication">JKA NorCal</div>
+        </div>
+        <div class="archive-body">
+          <div class="archive-month">October 2025</div>
+          <span class="archive-cta">Read PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_09.pdf"
+         target="_blank" rel="noopener" class="archive-card reveal d1">
+        <div class="archive-cover" aria-hidden="true">
+          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+          <div class="nl-issue-label">Issue · Sep</div>
+          <div class="nl-month">September<br>2025</div>
+          <div class="nl-divider"></div>
+          <div class="nl-publication">JKA NorCal</div>
+        </div>
+        <div class="archive-body">
+          <div class="archive-month">September 2025</div>
+          <span class="archive-cta">Read PDF →</span>
+        </div>
+      </a>
+
+      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_08-1.pdf"
+         target="_blank" rel="noopener" class="archive-card reveal d2">
+        <div class="archive-cover" aria-hidden="true">
+          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
+          <div class="nl-issue-label">Issue · Aug</div>
+          <div class="nl-month">August<br>2025</div>
+          <div class="nl-divider"></div>
+          <div class="nl-publication">JKA NorCal</div>
+        </div>
+        <div class="archive-body">
+          <div class="archive-month">August 2025</div>
+          <span class="archive-cta">Read PDF →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-jp">日本空手協会</div>
+        <div class="footer-brand-en">Japan Karate Association</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Dojo</h5>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#schedule">Schedule</a></li>
+            <li><a href="sensei.html">Sensei</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:6505022902">(650) 502-2902</a></li>
+            <li><a href="#">356 El Camino Real</a></li>
+            <li><a href="#">San Bruno, CA 94066</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
+        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  document.getElementById('ham').addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeM() {
+    document.getElementById('mob').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  (function fitFooterEN() {
+    const jp = document.querySelector('.footer-brand-jp');
+    const en = document.querySelector('.footer-brand-en');
+    if (!jp || !en) return;
+    const ctx = document.createElement('canvas').getContext('2d');
+    const range = document.createRange();
+    function inkMetrics(el, letterSpacing) {
+      const cs = getComputedStyle(el);
+      ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const text = cs.textTransform === 'uppercase' ? el.textContent.toUpperCase() : el.textContent;
+      let advance = 0;
+      for (const ch of text) advance += ctx.measureText(ch).width;
+      const first = ctx.measureText(text[0]);
+      const last = ctx.measureText(text.slice(-1));
+      const lastAdv = ctx.measureText(text.slice(-1)).width;
+      const inkLeft = -first.actualBoundingBoxLeft;
+      const inkRight = (advance - lastAdv) + (text.length - 1) * letterSpacing + last.actualBoundingBoxRight;
+      return { text, advance, lastAdv, first, last, inkLeft, inkRight };
+    }
+    function fit() {
+      en.style.letterSpacing = '';
+      en.style.transform = '';
+      const jpLS = parseFloat(getComputedStyle(jp).letterSpacing) || 0;
+      const jpM = inkMetrics(jp, jpLS);
+      const jpInkW = jpM.inkRight - jpM.inkLeft;
+      const enM0 = inkMetrics(en, 0);
+      const newLS = (jpInkW - (enM0.advance - enM0.lastAdv) - enM0.last.actualBoundingBoxRight - enM0.first.actualBoundingBoxLeft) / (enM0.text.length - 1);
+      if (newLS > 0) en.style.letterSpacing = newLS + 'px';
+      range.selectNodeContents(jp);
+      const jpRect = range.getBoundingClientRect();
+      range.selectNodeContents(en);
+      const enRect = range.getBoundingClientRect();
+      const offset = (jpRect.left + jpM.inkLeft) - (enRect.left + enM0.inkLeft);
+      if (Math.abs(offset) > 0.5) en.style.transform = `translateX(${offset}px)`;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  })();
+</script>
+</body>
+</html>
