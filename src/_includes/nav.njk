@@ -1,0 +1,22 @@
+<nav>
+  <a href="/" class="logo">
+    <img src="{{ site.logo }}" alt="" class="logo-mark">
+    {{ site.name }}
+  </a>
+  <ul class="nav-links">
+    {% for item in site.nav %}
+    <li><a href="{{ item.href }}"{% if item.id == currentPage %} class="current"{% endif %}>{{ item.label }}</a></li>
+    {% endfor %}
+    <li><a href="{{ site.join_url }}" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mob">
+  {% for item in site.nav %}
+  <a href="{{ item.href }}" onclick="closeM()">{{ item.label }}</a>
+  {% endfor %}
+  <a href="{{ site.join_url }}" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
+</div>

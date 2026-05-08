@@ -1,5 +1,6 @@
 ---
 permalink: "/sensei.html"
+currentPage: "sensei"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -1024,297 +1025,112 @@ permalink: "/sensei.html"
 
 <div class="progress" id="progress"></div>
 
-<!-- Nav (light, matches index.html) -->
-<nav>
-  <a href="index.html" class="logo">
-    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
-    JKA NorCal
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#news">Updates</a></li>
-    <li><a href="index.html#schedule">Schedule</a></li>
-    <li><a href="index.html#location">Visit</a></li>
-    <li><a href="sensei.html" class="current">Sensei</a></li>
-    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
-  </ul>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-nav" id="mob">
-  <a href="index.html#about" onclick="closeM()">About</a>
-  <a href="index.html#news" onclick="closeM()">Updates</a>
-  <a href="index.html#schedule" onclick="closeM()">Schedule</a>
-  <a href="index.html#location" onclick="closeM()">Visit</a>
-  <a href="sensei.html" onclick="closeM()">Sensei</a>
-  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
-</div>
+{% include "nav.njk" %}
 
 <main>
   <h1 class="visually-hidden">Sensei — Instructors at JKA Northern California</h1>
 
-  <!-- ═══════════════════════════════════════
-       Wauriman Borges — Chief Instructor
-  ═══════════════════════════════════════ -->
-  <article class="chapter first" id="wauriman">
+  {% for inst in instructors.list %}
+  <article class="chapter{% if loop.first %} first{% endif %}{% if inst.layout == 'reverse' %} reverse{% endif %}" id="{{ inst.id }}">
     <div class="chapter-marker reveal">
-      <span class="rank-kanji">五段 · Godan</span>
-      <span class="role">Chief Instructor</span>
+      <span class="rank-kanji">{{ inst.rank_kanji }}</span>
+      <span class="role">{{ inst.role }}</span>
       <span class="rule"></span>
     </div>
 
     <div class="composition">
 
+      {% if inst.layout != 'reverse' %}
       <div class="figure-wrap">
         <div class="figure-glow" aria-hidden="true"></div>
         <div class="figure-disc" aria-hidden="true"></div>
         <div class="figure-frame">
-          <img class="develop" src="images/wauriman.png?v=2" alt="Sensei Wauriman Borges, 5th Dan">
+          <img class="develop" src="{{ inst.photo }}" alt="{{ inst.photo_alt }}">
         </div>
-        <div class="vertical-jp" aria-hidden="true">ワウリマン・ボルジェス</div>
+        <div class="vertical-jp" aria-hidden="true">{{ inst.vertical_jp }}</div>
       </div>
+      {% endif %}
 
       <div class="name-stack">
         <h2 class="hero-name reveal">
-          <span class="line l1"><span>Wauriman</span></span>
-          <span class="line l2"><span>Borges</span></span>
+          <span class="line l1"><span>{{ inst.first_name }}</span></span>
+          <span class="line l2"><span>{{ inst.last_name }}</span></span>
         </h2>
 
         <div class="bio reveal d3">
-          <p class="lead">
-            Wauriman Borges is a 5th Dan and a member of the United States National Team. He trained under Oswaldo Mendonça Jr. Shihan and Yoshizo Machida Shihan, the President of JKA Brazil, a lineage that has carried him to multiple national championships in both the United States and Brazil.
-          </p>
-          <p>
-            His floor is built on a commanding presence in <em>kumite</em>, with a precise <em>mae-geri</em> and a relentless <em>ashi-barai</em> that emphasize power, timing, footwork, and indomitable spirit. In 2024 he represented the USA at the JKA World Championships in Takasaki, Japan, advancing through the first two rounds before facing a Japanese fighter in round three.
-          </p>
-          <p>
-            Since taking the helm in San Bruno he has shaped the dojo's culture around personal growth, discipline, and an open door for beginners and competitors alike. Favorite katas: <em>Jitte</em> and <em>Sōchin</em>.
-          </p>
+          {% for para in inst.bio %}
+          <p{% if loop.first %} class="lead"{% endif %}>{{ para | safe }}</p>
+          {% endfor %}
         </div>
 
         <div class="stats reveal d4">
+          {% for stat in inst.stats %}
           <div class="stat">
-            <div class="value">5th Dan</div>
-            <div class="label">Godan<br>JKA-certified</div>
+            <div class="value{% if stat.value_class %} {{ stat.value_class }}{% endif %}">{{ stat.value }}</div>
+            <div class="label">{{ stat.label | safe }}</div>
           </div>
-          <div class="stat">
-            <div class="value">2024</div>
-            <div class="label">JKA Worlds<br>Takasaki, Japan</div>
-          </div>
-          <div class="stat">
-            <div class="value">USA</div>
-            <div class="label">National Team<br>Active</div>
-          </div>
+          {% endfor %}
         </div>
+
+        {% if inst.credentials %}
         <div class="credentials reveal d5">
           <span class="label">Cert.</span>
-          <span>Instructor C · Judge C · Examiner D</span>
+          <span>{{ inst.credentials }}</span>
         </div>
-
+        {% endif %}
       </div>
 
-    </div>
-  </article>
-
-  <!-- Plate — Wauriman action -->
-  <figure class="plate">
-    <div class="plate-frame reveal">
-      <img class="develop" src="https://jkanorcal.org/wp-content/uploads/2025/08/img_1_1733623445388-1-860x484.webp"
-           alt="Sensei Wauriman delivers a mae-geri at the 2024 JKA World Championships in Takasaki, Japan">
-    </div>
-    <figcaption class="plate-cap reveal d1">
-      <span class="accent">2024 JKA World Championships · Takasaki, Japan</span>
-      Sensei Wauriman's mae-geri against the Japanese fighter.
-    </figcaption>
-  </figure>
-
-  <!-- ═══════════════════════════════════════
-       Harrison Rahn — Assistant Instructor
-  ═══════════════════════════════════════ -->
-  <article class="chapter reverse" id="rahn">
-    <div class="chapter-marker reveal">
-      <span class="rank-kanji">四段 · Yondan</span>
-      <span class="role">Assistant Instructor</span>
-      <span class="rule"></span>
-    </div>
-
-    <div class="composition">
-
-      <div class="name-stack">
-        <h2 class="hero-name reveal">
-          <span class="line l1"><span>Harrison</span></span>
-          <span class="line l2"><span>Rahn</span></span>
-        </h2>
-
-        <div class="bio reveal d3">
-          <p class="lead">
-            Harry began studying martial arts as a child before taking up shotokan in 2013 at the Tulane Karate Club under Kyriakos and Dimitri Papadopoulos. He joined JKA NorCal in 2018, then spent several months at the JKA World Headquarters in Tokyo preparing for the 2024 World Championships.
-          </p>
-          <p>
-            A two-time Panamerican finalist and World semifinalist, he now helps foster the JKA NorCal Competition Team. He credits karate with the discipline behind every long goal he has set for himself, on the floor and off it.
-          </p>
-          <p>
-            One of his favorite memories is the roar of the US team after his first elimination-round win at the 2023 Panamerican Championships, the moment that crystallized why he keeps competing.
-          </p>
-        </div>
-
-        <div class="stats reveal d4">
-          <div class="stat">
-            <div class="value">4th Dan</div>
-            <div class="label">Yondan<br>JKA-certified</div>
-          </div>
-          <div class="stat">
-            <div class="value">2×</div>
-            <div class="label">Panamerican<br>Finalist</div>
-          </div>
-          <div class="stat">
-            <div class="value">1×</div>
-            <div class="label">World<br>Semifinalist</div>
-          </div>
-        </div>
-      </div>
-
+      {% if inst.layout == 'reverse' %}
       <div class="figure-wrap">
         <div class="figure-glow" aria-hidden="true"></div>
         <div class="figure-disc" aria-hidden="true"></div>
         <div class="figure-frame">
-          <img class="develop" src="images/harry.png?v=3" alt="Harrison Rahn, 4th Dan">
+          <img class="develop" src="{{ inst.photo }}" alt="{{ inst.photo_alt }}">
         </div>
-        <div class="vertical-jp" aria-hidden="true">ハリソン・ラーン</div>
+        <div class="vertical-jp" aria-hidden="true">{{ inst.vertical_jp }}</div>
       </div>
+      {% endif %}
 
     </div>
   </article>
 
+  {% if inst.plate %}
+  <figure class="plate">
+    <div class="plate-frame reveal">
+      <img class="develop" src="{{ inst.plate.photo }}" alt="{{ inst.plate.photo_alt }}">
+    </div>
+    <figcaption class="plate-cap reveal d1">
+      <span class="accent">{{ inst.plate.caption_accent }}</span>
+      {{ inst.plate.caption }}
+    </figcaption>
+  </figure>
+  {% endif %}
+
+  {% if inst.show_divider_after %}
   <div class="ornament-divider" aria-hidden="true">
     <div class="line"></div>
   </div>
+  {% endif %}
+  {% endfor %}
 
-  <!-- ═══════════════════════════════════════
-       Sammi Yeung — Assistant Instructor
-  ═══════════════════════════════════════ -->
-  <article class="chapter" id="yeung">
-    <div class="chapter-marker reveal">
-      <span class="rank-kanji">三段 · Sandan</span>
-      <span class="role">Assistant Instructor</span>
-      <span class="rule"></span>
-    </div>
-
-    <div class="composition">
-
-      <div class="figure-wrap">
-        <div class="figure-glow" aria-hidden="true"></div>
-        <div class="figure-disc" aria-hidden="true"></div>
-        <div class="figure-frame">
-          <img class="develop" src="images/sammi.png?v=2" alt="Sammi Yeung, 3rd Dan">
-        </div>
-        <div class="vertical-jp" aria-hidden="true">サミー・ヨン</div>
-      </div>
-
-      <div class="name-stack">
-        <h2 class="hero-name reveal">
-          <span class="line l1"><span>Sammi</span></span>
-          <span class="line l2"><span>Yeung</span></span>
-        </h2>
-
-        <div class="bio reveal d3">
-          <p class="lead">
-            Sammi Yeung has more than a decade with JKA NorCal. A women's <em>kumite</em> national champion and four-time United States National Team member, she has represented the country in <em>kata</em>, <em>kumite</em>, and team events at the highest levels of competition.
-          </p>
-          <p>
-            In 2025 she took individual gold in <em>kata</em> at the JKA Panamerican Championships and helped the US Women's team capture their first Team Kata and Team Kumite gold medals. At the 2024 Gichin Funakoshi World Cup the US Women's Team Kata placed 4th globally. Performing on the main tatami under the stadium lights, she remembers the adrenaline and the realization she was living a childhood dream.
-          </p>
-          <p>
-            Having graduated from the JKA-USA youth team to the adult team, she carries a perspective that resonates with younger students chasing the same path. She mentors members of the Competition Team and centers her teaching on a supportive, inclusive community.
-          </p>
-        </div>
-
-        <div class="stats reveal d4">
-          <div class="stat">
-            <div class="value">4×</div>
-            <div class="label">US National<br>Team Member</div>
-          </div>
-          <div class="stat">
-            <div class="value italic">Gold</div>
-            <div class="label">2025 Panam<br>Individual Kata</div>
-          </div>
-          <div class="stat">
-            <div class="value">4th</div>
-            <div class="label">2024 World Cup<br>Team Kata</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </article>
-
-  <!-- ═══════════════════════════════════════
-       Invitation (CTA)
-  ═══════════════════════════════════════ -->
   <section class="invitation" id="invitation">
-    <img class="jka-logo reveal" src="images/jka-logo.jpg" alt="JKA NorCal">
-    <h3 class="reveal d1"><em>Welcome</em> to the dojo.</h3>
-    <p class="sub reveal d2">San Bruno · Five days a week · All levels</p>
+    <img class="jka-logo reveal" src="{{ instructors.invitation.logo }}" alt="{{ instructors.invitation.logo_alt }}">
+    <h3 class="reveal d1">{{ instructors.invitation.heading | safe }}</h3>
+    <p class="sub reveal d2">{{ instructors.invitation.subhead }}</p>
     <div class="actions reveal d3">
-      <a href="index.html#schedule" class="btn btn-ghost">
-        See Class Schedule
+      <a href="{{ instructors.invitation.primary.href }}" class="btn btn-ghost">
+        {{ instructors.invitation.primary.label }}
         <span class="arrow"></span>
       </a>
-      <a href="index.html#location" class="btn btn-hino">
-        Contact Us
+      <a href="{{ instructors.invitation.secondary.href }}" class="btn btn-hino">
+        {{ instructors.invitation.secondary.label }}
         <span class="arrow"></span>
       </a>
     </div>
   </section>
 </main>
 
-<!-- Footer (matches index.html) -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-brand-jp">日本空手協会</div>
-        <div class="footer-brand-en">Japan Karate Association</div>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h5>Dojo</h5>
-          <ul>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#schedule">Schedule</a></li>
-            <li><a href="sensei.html">Sensei</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Resources</h5>
-          <ul>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="tel:6505022902">(650) 502-2902</a></li>
-            <li><a href="#">356 El Camino Real</a></li>
-            <li><a href="#">San Bruno, CA 94066</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
-        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <script>
   /* Reading progress */

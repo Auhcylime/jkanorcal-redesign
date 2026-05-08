@@ -1,0 +1,36 @@
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-jp">{{ site.footer.brand_jp }}</div>
+        <div class="footer-brand-en">{{ site.footer.brand_en }}</div>
+      </div>
+      <div class="footer-cols">
+        {% for col in site.footer.cols %}
+        <div class="footer-col">
+          <h5>{{ col.heading }}</h5>
+          <ul>
+            {% for link in col.links %}
+            <li>
+              {% if link.href %}
+              <a href="{{ link.href }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+              {% else %}
+              <a href="#" tabindex="-1">{{ link.label }}</a>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">{{ site.footer.copy }}</div>
+      <div class="footer-socials">
+        <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
+        <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="{{ site.social.twitter }}" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>

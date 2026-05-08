@@ -1,0 +1,46 @@
+name: "JKA NorCal"
+logo: "/images/jka-logo.jpg"
+
+# Top nav and mobile nav share these items.
+# `id` is matched against page front-matter `currentPage` to apply .current.
+nav:
+  - { label: "About",    href: "/#about",     id: "about" }
+  - { label: "Updates",  href: "/#news",      id: "news" }
+  - { label: "Schedule", href: "/#schedule",  id: "schedule" }
+  - { label: "Visit",    href: "/#location",  id: "location" }
+  - { label: "Sensei",   href: "/sensei.html", id: "sensei" }
+
+join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866"
+
+contact:
+  phone: "(650) 502-2902"
+  phone_tel: "6505022902"
+  address_line1: "356 El Camino Real"
+  address_line2: "San Bruno, CA 94066"
+  email: "info@jkanorcal.com"
+
+social:
+  instagram: "https://www.instagram.com/jkanorcal/"
+  facebook: "https://www.facebook.com/jkanorcal/"
+  twitter: "https://x.com/JKANorCal"
+
+footer:
+  brand_jp: "日本空手協会"
+  brand_en: "Japan Karate Association"
+  copy: "© 2025 JKA of Northern California"
+  cols:
+    - heading: "Dojo"
+      links:
+        - { label: "About",    href: "/#about" }
+        - { label: "Schedule", href: "/#schedule" }
+        - { label: "Sensei",   href: "/sensei.html" }
+    - heading: "Resources"
+      links:
+        - { label: "Newsletter",     href: "/newsletter.html" }
+        - { label: "JKA/AF Website", href: "https://www.jkaaf.com", external: true }
+        - { label: "Privacy Policy", href: "/privacy.html" }
+    - heading: "Contact"
+      links:
+        - { label: "(650) 502-2902",     href: "tel:6505022902" }
+        - { label: "356 El Camino Real" }
+        - { label: "San Bruno, CA 94066" }

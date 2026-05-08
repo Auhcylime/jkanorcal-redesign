@@ -1,8 +1,13 @@
+const yaml = require("js-yaml");
+
 module.exports = function(eleventyConfig) {
   // Pass through static assets unchanged
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
+
+  // Enable YAML data files
+  eleventyConfig.addDataExtension("yml,yaml", (contents) => yaml.load(contents));
 
   // Local dev server
   eleventyConfig.setServerOptions({ port: 8765 });

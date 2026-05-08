@@ -1,0 +1,63 @@
+section_label: "Schedule"
+heading: "Class Times"
+description: "Weekday evenings and Sunday mornings. All levels welcome."
+contact_button:
+  label: "Contact Us"
+  href: "/#location"
+
+# Each day is a card. Sessions show a tag (Youth/Adult/Advanced) + time + class type.
+days:
+  - day: "Monday"
+    sessions:
+      - tag: "Youth"
+        tag_class: "tag-youth"
+        time: "5:00 – 6:15 PM"
+        class_type: "General"
+      - tag: "Adult"
+        tag_class: "tag-adult"
+        time: "6:30 – 7:30 PM"
+        class_type: "General"
+
+  - day: "Tuesday"
+    sessions:
+      - tag: "Youth"
+        tag_class: "tag-youth"
+        time: "5:00 – 6:15 PM"
+        class_type: "Kata / Kihon"
+      - tag: "Adult"
+        tag_class: "tag-adult"
+        time: "6:30 – 8:00 PM"
+        class_type: "Kata / Kihon"
+
+  - day: "Wednesday"
+    sessions:
+      - tag: "Youth"
+        tag_class: "tag-youth"
+        time: "5:00 – 6:15 PM"
+        class_type: "Kumite"
+      - tag: "Adult"
+        tag_class: "tag-adult"
+        time: "6:30 – 8:00 PM"
+        class_type: "Kumite"
+
+  - day: "Thursday"
+    sessions:
+      - tag: "Youth"
+        tag_class: "tag-youth"
+        time: "5:00 – 6:15 PM"
+        class_type: "Kata / Kihon"
+      - tag: "Adult"
+        tag_class: "tag-adult"
+        time: "6:30 – 7:30 PM"
+        class_type: "General"
+
+  - day: "Sunday"
+    sessions:
+      - tag: "Advanced"
+        tag_class: "tag-advanced"
+        time: "7:30 – 9:00 AM"
+        class_type: "Kumite"
+      - tag: "Advanced"
+        tag_class: "tag-advanced"
+        time: "9:00 – 10:00 AM"
+        class_type: "Kata"

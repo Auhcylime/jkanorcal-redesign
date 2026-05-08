@@ -1251,67 +1251,30 @@ permalink: "/index.html"
 </head>
 <body>
 
-<!-- Nav -->
-<nav>
-  <a href="#" class="logo">
-    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
-    JKA NorCal
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#news">Updates</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-    <li><a href="#location">Visit</a></li>
-    <li><a href="sensei.html">Sensei</a></li>
-    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
-  </ul>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-nav" id="mob">
-  <a href="#about" onclick="closeM()">About</a>
-  <a href="#news" onclick="closeM()">Updates</a>
-  <a href="#schedule" onclick="closeM()">Schedule</a>
-  <a href="#location" onclick="closeM()">Visit</a>
-  <a href="sensei.html" onclick="closeM()">Sensei</a>
-  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
-</div>
+{% include "nav.njk" %}
 
 <!-- Hero — full-bleed training photo -->
 <section class="hero">
   <div class="hero-img">
-    <img src="https://jkanorcal.org/wp-content/uploads/2025/11/20251025-DRG_3838-860x573.jpg"
-         alt="Karate training at JKA Northern California">
+    <img src="{{ home.hero.image }}" alt="{{ home.hero.image_alt }}">
   </div>
   <div class="hero-content">
-    <h1>Shotokan Karate in<br>San Bruno</h1>
-    <p class="hero-sub">
-      Authentic JKA training for adults and kids, five days a week.
-      Twenty minutes south of San Francisco.
-    </p>
+    <h1>{{ home.hero.heading_line1 }}<br>{{ home.hero.heading_line2 }}</h1>
+    <p class="hero-sub">{{ home.hero.subhead }}</p>
     <div class="hero-actions">
-      <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="btn btn-white">Join Us</a>
-      <a href="#schedule" class="btn btn-outline-white">See Class Schedule</a>
+      <a href="{{ home.hero.cta_primary.href }}"{% if home.hero.cta_primary.external %} target="_blank" rel="noopener"{% endif %} class="btn btn-white">{{ home.hero.cta_primary.label }}</a>
+      <a href="{{ home.hero.cta_secondary.href }}" class="btn btn-outline-white">{{ home.hero.cta_secondary.label }}</a>
     </div>
   </div>
 </section>
 
 <!-- Photo strip -->
 <div class="photo-strip">
+  {% for p in home.photo_strip %}
   <div class="photo-strip-item">
-    <img src="images/strip-1-kids-belts.jpg" alt="Kids program graduation with new belts">
+    <img src="{{ p.image }}" alt="{{ p.alt }}">
   </div>
-  <div class="photo-strip-item">
-    <img src="images/strip-3-class.jpg" alt="Partner training in the dojo">
-  </div>
-  <div class="photo-strip-item">
-    <img src="images/strip-4-group.jpg" alt="Sensei and students at Los Angeles JKA visit">
-  </div>
-  <div class="photo-strip-item">
-    <img src="images/strip-2-kata-kids.jpg" alt="Kids practicing kata in the dojo">
-  </div>
+  {% endfor %}
 </div>
 
 <!-- About -->
@@ -1319,26 +1282,17 @@ permalink: "/index.html"
   <div class="section-narrow">
     <div class="about-layout">
       <div class="about-eyebrow reveal">
-        <div class="label">About the Dojo</div>
+        <div class="label">{{ home.about.label }}</div>
       </div>
       <div class="about-text">
-        <h2 class="heading reveal">Training here since the beginning</h2>
-        <p class="reveal d1">
-          JKA of Northern California is the Bay Area's home for Shotokan karate,
-          affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo
-          in San Bruno has served the community for decades, developing students
-          of all ages through traditional, rigorous training.
-        </p>
-        <p class="reveal d2">
-          The curriculum follows JKA methodology: correct form, strong technique,
-          and the development of character. Beginners and experienced karateka
-          train side by side.
-        </p>
-        <a href="#schedule" class="btn btn-outline reveal d3" style="margin-top:8px">View Class Schedule</a>
+        <h2 class="heading reveal">{{ home.about.heading }}</h2>
+        {% for para in home.about.paragraphs %}
+        <p class="reveal d{{ loop.index }}">{{ para | safe }}</p>
+        {% endfor %}
+        <a href="{{ home.about.cta.href }}" class="btn btn-outline reveal d3" style="margin-top:8px">{{ home.about.cta.label }}</a>
       </div>
       <div class="about-photo reveal d2">
-        <img src="https://jkanorcal.org/wp-content/uploads/2025/11/casual-hirayama-class-friday-860x573.jpg"
-             alt="Friday class at the dojo" style="border-radius:4px">
+        <img src="{{ home.about.photo }}" alt="{{ home.about.photo_alt }}" style="border-radius:4px">
       </div>
     </div>
   </div>
@@ -1346,43 +1300,28 @@ permalink: "/index.html"
 
 <!-- Quote -->
 <div class="quote-banner">
-  <blockquote class="reveal">
-    "The ultimate aim of karate lies not in victory nor defeat,
-    but in the perfection of the character of its participants."
-  </blockquote>
-  <cite class="reveal d1">— Gichin Funakoshi</cite>
+  <blockquote class="reveal">{{ home.quote.text }}</blockquote>
+  <cite class="reveal d1">{{ home.quote.attribution }}</cite>
 </div>
 
 <!-- Feature: Instructors — photo left, text right -->
 <div class="feature">
   <div class="feature-photo">
-    <img src="images/about-usa-team.jpg"
-         alt="JKA Karate USA Team at the World Championships">
+    <img src="{{ home.feature.photo }}" alt="{{ home.feature.photo_alt }}">
   </div>
   <div class="feature-text">
     <div class="reveal">
-      <div class="label">Instructors</div>
-      <h2 class="heading">Taught by certified<br>black belts</h2>
+      <div class="label">{{ home.feature.label }}</div>
+      <h2 class="heading">{{ home.feature.heading_line1 }}<br>{{ home.feature.heading_line2 }}</h2>
     </div>
-    <p class="reveal d1">
-      Our instructors hold JKA-certified ranks and have trained under
-      some of the most respected masters in the Shotokan tradition.
-      In October 2025, we hosted Yuko Hirayama Sensei — 7th Dan
-      from JKA Headquarters in Tokyo — for our first-ever training camp.
-    </p>
+    <p class="reveal d1">{{ home.feature.body }}</p>
     <div class="feature-stats reveal d2">
+      {% for stat in home.feature.stats %}
       <div class="feature-stat">
-        <strong>5</strong>
-        <span>Days / week</span>
+        <strong>{{ stat.value }}</strong>
+        <span>{{ stat.label }}</span>
       </div>
-      <div class="feature-stat">
-        <strong>40+</strong>
-        <span>Years</span>
-      </div>
-      <div class="feature-stat">
-        <strong>JKA</strong>
-        <span>Affiliated</span>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -1392,16 +1331,16 @@ permalink: "/index.html"
   <div class="section-narrow">
     <div class="news-header reveal">
       <div>
-        <div class="label">Updates</div>
-        <h2 class="heading">From the dojo's Instagram</h2>
+        <div class="label">{{ home.updates.label }}</div>
+        <h2 class="heading">{{ home.updates.heading }}</h2>
       </div>
-      <a href="https://instagram.com/jkanorcal" target="_blank" rel="noopener" class="btn btn-outline reveal d1">Follow on Instagram</a>
+      <a href="{{ home.updates.follow_button.href }}" target="_blank" rel="noopener" class="btn btn-outline reveal d1">{{ home.updates.follow_button.label }}</a>
     </div>
-    <p class="desc reveal d2" style="margin-bottom: 32px">Camp news, competition moments, and class highlights, straight from <a href="https://instagram.com/jkanorcal" target="_blank" rel="noopener">@jkanorcal</a>.</p>
+    <p class="desc reveal d2" style="margin-bottom: 32px">{{ home.updates.description | safe }}</p>
 
     <div class="lightwidget-wrap reveal d2">
       <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-      <iframe src="//lightwidget.com/widgets/2b4c3aaed9a059fc933a292ca0262e1c.html"
+      <iframe src="//lightwidget.com/widgets/{{ home.updates.lightwidget_id }}.html"
               scrolling="no" allowtransparency="true"
               class="lightwidget-widget"
               style="width:100%;border:0;overflow:hidden;"></iframe>
@@ -1413,19 +1352,14 @@ permalink: "/index.html"
 <section class="recognition" id="recognition">
   <div class="recognition-grid">
     <div class="recognition-photo reveal">
-      <img src="https://jkanorcal.org/wp-content/uploads/2025/10/Sammi-with-Trophies.jpeg"
-           alt="Sammi Yeung with her Panamerican trophies">
-      <div class="cap">Sammi · Panam Trophies, 2025</div>
+      <img src="{{ home.recognition.photo }}" alt="{{ home.recognition.photo_alt }}">
+      <div class="cap">{{ home.recognition.caption }}</div>
     </div>
 
     <div class="recognition-text">
-      <div class="eyebrow reveal">Recognition</div>
-      <h2 class="reveal d1">
-        Home of the <em>2025 Panamerican Kata Champion</em>, Sammi Yeung, and a roster of athletes who train and compete on the world floor.
-      </h2>
-      <p class="lede reveal d2">
-        JKA NorCal is also proud to have had Sensei Wauriman, Harry Rahn, Abdallah and Amir Batshon, and Sensei Christina Foo represent the United States and Julia Ip represent Canada. Our dojo continues to produce high-level competitors in both kata and kumite that make their marks at the world level.
-      </p>
+      <div class="eyebrow reveal">{{ home.recognition.label }}</div>
+      <h2 class="reveal d1">{{ home.recognition.heading | safe }}</h2>
+      <p class="lede reveal d2">{{ home.recognition.body }}</p>
     </div>
   </div>
 </section>
@@ -1435,83 +1369,26 @@ permalink: "/index.html"
   <div class="section-narrow">
     <div class="schedule-header">
       <div class="reveal">
-        <div class="label">Schedule</div>
-        <h2 class="heading">Class Times</h2>
+        <div class="label">{{ schedule.section_label }}</div>
+        <h2 class="heading">{{ schedule.heading }}</h2>
       </div>
-      <a href="#location" class="btn btn-accent reveal d1">Contact Us</a>
+      <a href="{{ schedule.contact_button.href }}" class="btn btn-accent reveal d1">{{ schedule.contact_button.label }}</a>
     </div>
-    <p class="desc reveal d2" style="margin-bottom: 32px">Weekday evenings and Sunday mornings. All levels welcome.</p>
+    <p class="desc reveal d2" style="margin-bottom: 32px">{{ schedule.description }}</p>
 
     <div class="schedule-cards reveal d2">
+      {% for d in schedule.days %}
       <article class="day-card">
-        <h3 class="day-name">Monday</h3>
+        <h3 class="day-name">{{ d.day }}</h3>
+        {% for s in d.sessions %}
         <div class="session">
-          <span class="tag tag-youth">Youth</span>
-          <div class="session-time">5:00 – 6:15 PM</div>
-          <div class="session-class">General</div>
+          <span class="tag {{ s.tag_class }}">{{ s.tag }}</span>
+          <div class="session-time">{{ s.time }}</div>
+          <div class="session-class">{{ s.class_type }}</div>
         </div>
-        <div class="session">
-          <span class="tag tag-adult">Adult</span>
-          <div class="session-time">6:30 – 7:30 PM</div>
-          <div class="session-class">General</div>
-        </div>
+        {% endfor %}
       </article>
-
-      <article class="day-card">
-        <h3 class="day-name">Tuesday</h3>
-        <div class="session">
-          <span class="tag tag-youth">Youth</span>
-          <div class="session-time">5:00 – 6:15 PM</div>
-          <div class="session-class">Kata / Kihon</div>
-        </div>
-        <div class="session">
-          <span class="tag tag-adult">Adult</span>
-          <div class="session-time">6:30 – 8:00 PM</div>
-          <div class="session-class">Kata / Kihon</div>
-        </div>
-      </article>
-
-      <article class="day-card">
-        <h3 class="day-name">Wednesday</h3>
-        <div class="session">
-          <span class="tag tag-youth">Youth</span>
-          <div class="session-time">5:00 – 6:15 PM</div>
-          <div class="session-class">Kumite</div>
-        </div>
-        <div class="session">
-          <span class="tag tag-adult">Adult</span>
-          <div class="session-time">6:30 – 8:00 PM</div>
-          <div class="session-class">Kumite</div>
-        </div>
-      </article>
-
-      <article class="day-card">
-        <h3 class="day-name">Thursday</h3>
-        <div class="session">
-          <span class="tag tag-youth">Youth</span>
-          <div class="session-time">5:00 – 6:15 PM</div>
-          <div class="session-class">Kata / Kihon</div>
-        </div>
-        <div class="session">
-          <span class="tag tag-adult">Adult</span>
-          <div class="session-time">6:30 – 7:30 PM</div>
-          <div class="session-class">General</div>
-        </div>
-      </article>
-
-      <article class="day-card">
-        <h3 class="day-name">Sunday</h3>
-        <div class="session">
-          <span class="tag tag-advanced">Advanced</span>
-          <div class="session-time">7:30 – 9:00 AM</div>
-          <div class="session-class">Kumite</div>
-        </div>
-        <div class="session">
-          <span class="tag tag-advanced">Advanced</span>
-          <div class="session-time">9:00 – 10:00 AM</div>
-          <div class="session-class">Kata</div>
-        </div>
-      </article>
+      {% endfor %}
     </div>
 
   </div>
@@ -1519,77 +1396,26 @@ permalink: "/index.html"
 
 <!-- Location (full-bleed photo bg with text on the right) -->
 <section class="location" id="location">
-  <img class="loc-bg" src="https://jkanorcal.org/wp-content/uploads/2025/11/20251025-DRG_3846-1536x1024.jpg"
-       alt="Inside the JKA NorCal dojo">
+  <img class="loc-bg" src="{{ home.location.bg_image }}" alt="{{ home.location.bg_alt }}">
   <div class="loc-overlay" aria-hidden="true"></div>
   <div class="loc-inner">
     <div class="loc-content reveal">
-      <div class="label">Visit</div>
-      <h2 class="heading">Find the Dojo</h2>
+      <div class="label">{{ home.location.label }}</div>
+      <h2 class="heading">{{ home.location.heading }}</h2>
       <div class="loc-items">
+        {% for item in home.location.items %}
         <div class="loc-item">
-          <h4>Address</h4>
-          <p><a href="https://maps.google.com/?q=356+El+Camino+Real,+San+Bruno,+CA+94066" target="_blank" rel="noopener">356 El Camino Real<br>San Bruno, CA 94066</a></p>
+          <h4>{{ item.heading }}</h4>
+          <p>{{ item.content | safe }}</p>
         </div>
-        <div class="loc-item">
-          <h4>Phone</h4>
-          <p><a href="tel:6505022902">(650) 502-2902</a></p>
-        </div>
-        <div class="loc-item">
-          <h4>Getting Here</h4>
-          <p>About 20 minutes south of San Francisco, right off El Camino Real in San Bruno.</p>
-        </div>
+        {% endfor %}
       </div>
-      <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="btn btn-white">Join Us</a>
+      <a href="{{ home.location.cta.href }}"{% if home.location.cta.external %} target="_blank" rel="noopener"{% endif %} class="btn btn-white">{{ home.location.cta.label }}</a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-brand-jp">日本空手協会</div>
-        <div class="footer-brand-en">Japan Karate Association</div>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h5>Dojo</h5>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="sensei.html">Sensei</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Resources</h5>
-          <ul>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="tel:6505022902">(650) 502-2902</a></li>
-            <li><a href="#">356 El Camino Real</a></li>
-            <li><a href="#">San Bruno, CA 94066</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
-        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <script>
   const obs = new IntersectionObserver(es => {

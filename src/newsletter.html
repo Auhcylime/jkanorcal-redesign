@@ -535,52 +535,22 @@ permalink: "/newsletter.html"
 </head>
 <body>
 
-<!-- Nav -->
-<nav>
-  <a href="index.html" class="logo">
-    <img src="images/jka-logo.jpg" alt="" class="logo-mark">
-    JKA NorCal
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#news">Updates</a></li>
-    <li><a href="index.html#schedule">Schedule</a></li>
-    <li><a href="index.html#location">Visit</a></li>
-    <li><a href="sensei.html">Sensei</a></li>
-    <li><a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
-  </ul>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-nav" id="mob">
-  <a href="index.html#about" onclick="closeM()">About</a>
-  <a href="index.html#news" onclick="closeM()">Updates</a>
-  <a href="index.html#schedule" onclick="closeM()">Schedule</a>
-  <a href="index.html#location" onclick="closeM()">Visit</a>
-  <a href="sensei.html" onclick="closeM()">Sensei</a>
-  <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
-</div>
+{% include "nav.njk" %}
 
 <!-- Featured (latest issue) -->
 <section class="featured-section">
-  <a href="https://jkanorcal.org/wp-content/uploads/2026/02/Copy-of-JKA-NorCal-Announcement-Newsletter-February-Google-Docs.pdf"
-     target="_blank" rel="noopener"
-     class="newsletter-card reveal">
+  <a href="{{ newsletters.featured.pdf }}" target="_blank" rel="noopener" class="newsletter-card reveal">
     <div class="nl-cover" aria-hidden="true">
-      <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-      <div class="nl-issue-label">Issue · Jan / Feb</div>
-      <div class="nl-month">February<br>2026</div>
+      <img src="{{ site.logo }}" alt="" class="nl-mark">
+      <div class="nl-issue-label">{{ newsletters.featured.issue_label }}</div>
+      <div class="nl-month">{{ newsletters.featured.month_line1 }}<br>{{ newsletters.featured.month_line2 }}</div>
     </div>
     <div class="nl-body">
-      <div class="nl-eyebrow">Latest Issue · February 2026</div>
-      <h2 class="nl-title">Camp recap, upcoming events, and dispatches from the floor.</h2>
-      <p class="nl-excerpt">
-        The current edition: training notes, members in the spotlight, upcoming tournaments, and what's happening at the dojo this month.
-      </p>
+      <div class="nl-eyebrow">{{ newsletters.featured.eyebrow }}</div>
+      <h2 class="nl-title">{{ newsletters.featured.title }}</h2>
+      <p class="nl-excerpt">{{ newsletters.featured.excerpt }}</p>
       <span class="nl-link">
-        Read the Issue
+        {{ newsletters.featured.cta }}
         <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path d="M0 5h14M10 1l4 4-4 4"/>
         </svg>
@@ -589,7 +559,7 @@ permalink: "/newsletter.html"
   </a>
 
   <a href="#archive" class="scroll-cue" aria-label="Scroll to the archives">
-    <span>From the Archives</span>
+    <span>{{ newsletters.archive_heading }}</span>
     <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
       <path d="M7 1v18M1 13l6 6 6-6"/>
     </svg>
@@ -600,133 +570,30 @@ permalink: "/newsletter.html"
 <section class="archive" id="archive">
   <div class="archive-inner">
     <div class="archive-header reveal">
-      <h2>From the Archives</h2>
+      <h2>{{ newsletters.archive_heading }}</h2>
     </div>
 
     <div class="archive-grid">
-      <a href="https://jkanorcal.org/wp-content/uploads/2025/12/JKA-NorCal-Announcement-Newsletter-December-Google-Docs-1.pdf"
-         target="_blank" rel="noopener" class="archive-card reveal d1">
+      {% for issue in newsletters.archive %}
+      <a href="{{ issue.pdf }}" target="_blank" rel="noopener" class="archive-card reveal d{{ ((loop.index0 % 3) + 1) }}">
         <div class="archive-cover" aria-hidden="true">
-          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-          <div class="nl-issue-label">Issue · Dec</div>
-          <div class="nl-month">December<br>2025</div>
+          <img src="{{ site.logo }}" alt="" class="nl-mark">
+          <div class="nl-issue-label">{{ issue.issue_label }}</div>
+          <div class="nl-month">{{ issue.month_line1 }}<br>{{ issue.month_line2 }}</div>
           <div class="nl-divider"></div>
-          <div class="nl-publication">JKA NorCal</div>
+          <div class="nl-publication">{{ site.name }}</div>
         </div>
         <div class="archive-body">
-          <div class="archive-month">December 2025</div>
+          <div class="archive-month">{{ issue.archive_month }}</div>
           <span class="archive-cta">Read PDF →</span>
         </div>
       </a>
-
-      <a href="https://jkanorcal.org/wp-content/uploads/2025/11/JKA-NorCal-Announcement-Newsletter-November-digital-ver.pdf"
-         target="_blank" rel="noopener" class="archive-card reveal d2">
-        <div class="archive-cover" aria-hidden="true">
-          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-          <div class="nl-issue-label">Issue · Nov</div>
-          <div class="nl-month">November<br>2025</div>
-          <div class="nl-divider"></div>
-          <div class="nl-publication">JKA NorCal</div>
-        </div>
-        <div class="archive-body">
-          <div class="archive-month">November 2025</div>
-          <span class="archive-cta">Read PDF →</span>
-        </div>
-      </a>
-
-      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_10.pdf"
-         target="_blank" rel="noopener" class="archive-card reveal d3">
-        <div class="archive-cover" aria-hidden="true">
-          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-          <div class="nl-issue-label">Issue · Oct</div>
-          <div class="nl-month">October<br>2025</div>
-          <div class="nl-divider"></div>
-          <div class="nl-publication">JKA NorCal</div>
-        </div>
-        <div class="archive-body">
-          <div class="archive-month">October 2025</div>
-          <span class="archive-cta">Read PDF →</span>
-        </div>
-      </a>
-
-      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_09.pdf"
-         target="_blank" rel="noopener" class="archive-card reveal d1">
-        <div class="archive-cover" aria-hidden="true">
-          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-          <div class="nl-issue-label">Issue · Sep</div>
-          <div class="nl-month">September<br>2025</div>
-          <div class="nl-divider"></div>
-          <div class="nl-publication">JKA NorCal</div>
-        </div>
-        <div class="archive-body">
-          <div class="archive-month">September 2025</div>
-          <span class="archive-cta">Read PDF →</span>
-        </div>
-      </a>
-
-      <a href="https://jkanorcal.org/wp-content/uploads/2025/10/Announcement-Newsletter_2025_08-1.pdf"
-         target="_blank" rel="noopener" class="archive-card reveal d2">
-        <div class="archive-cover" aria-hidden="true">
-          <img src="images/jka-logo.jpg" alt="" class="nl-mark">
-          <div class="nl-issue-label">Issue · Aug</div>
-          <div class="nl-month">August<br>2025</div>
-          <div class="nl-divider"></div>
-          <div class="nl-publication">JKA NorCal</div>
-        </div>
-        <div class="archive-body">
-          <div class="archive-month">August 2025</div>
-          <span class="archive-cta">Read PDF →</span>
-        </div>
-      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-brand-jp">日本空手協会</div>
-        <div class="footer-brand-en">Japan Karate Association</div>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h5>Dojo</h5>
-          <ul>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#schedule">Schedule</a></li>
-            <li><a href="sensei.html">Sensei</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Resources</h5>
-          <ul>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="https://www.jkaaf.com" target="_blank" rel="noopener">JKA/AF Website</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="tel:6505022902">(650) 502-2902</a></li>
-            <li><a href="#">356 El Camino Real</a></li>
-            <li><a href="#">San Bruno, CA 94066</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2025 JKA of Northern California</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
-        <a href="https://www.facebook.com/jkanorcal/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://x.com/JKANorCal" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <script>
   const obs = new IntersectionObserver(es => {
