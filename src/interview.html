@@ -1980,7 +1980,12 @@ currentPage: "interview"
     margin: 0 auto;
     padding: clamp(30px, 5vw, 52px) var(--side-pad) clamp(64px, 9vw, 110px);
   }
-  .iv-lede { max-width: 820px; }
+  .iv-lede {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 56px);
+    align-items: start;
+  }
   .iv-lede p {
     font-family: var(--font-serif);
     font-size: 1.08rem;
@@ -1988,8 +1993,9 @@ currentPage: "interview"
     color: var(--text-mid);
     margin-bottom: 18px;
   }
-  @media (max-width: 760px) { .iv-lede { columns: 1; } }
-  .iv-lede p:first-of-type::first-letter {
+  .iv-lede-col > :last-child { margin-bottom: 0; }
+  @media (max-width: 760px) { .iv-lede { grid-template-columns: 1fr; gap: 0; } }
+  .iv-lede-col:first-child > p:first-child::first-letter {
     font-family: var(--display);
     font-size: 3.1em;
     float: left;
@@ -2063,6 +2069,21 @@ currentPage: "interview"
   }
   .iv-fig img { width: 100%; height: auto; display: block; }
   .iv-fig--sq { max-width: 540px; }
+  .iv-fig-pair {
+    margin: clamp(30px, 5vw, 48px) 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 680px;
+  }
+  .iv-fig-pair img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    background: var(--warm-gray);
+  }
 </style>
 </head>
 <body>
@@ -2078,12 +2099,16 @@ currentPage: "interview"
 
 <article class="iv-body">
   <div class="iv-lede reveal">
-    <p>Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among JKA's instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership—particularly in an era when female competitors were rare in high-level karate.</p>
-    <figure class="iv-fig">
-      <img src="/images/interview/iv-1-punch.jpg" alt="Hirayama Sensei holding a forward guard during training" loading="lazy">
-    </figure>
-    <p>Hirayama Sensei has also had considerable success in competition, including 1st place in kumite, 2nd place in kata, and selection as Best Competitor in the 45th All Japan Karate Championship (2002). Her tournament record testifies to a rare fluency in both the combative and artistic dimensions of karate.</p>
-    <p>Hirayama's academic background at Tokyo Women's College of Physical Education, known for being one of Japan's leading institutions for women's athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.</p>
+    <div class="iv-lede-col">
+      <p>Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among JKA's instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership—particularly in an era when female competitors were rare in high-level karate.</p>
+      <figure class="iv-fig">
+        <img src="/images/interview/iv-1-punch.jpg" alt="Hirayama Sensei holding a forward guard during training" loading="lazy">
+      </figure>
+    </div>
+    <div class="iv-lede-col">
+      <p>Hirayama Sensei has also had considerable success in competition, including 1st place in kumite, 2nd place in kata, and selection as Best Competitor in the 45th All Japan Karate Championship (2002). Her tournament record testifies to a rare fluency in both the combative and artistic dimensions of karate.</p>
+      <p>Hirayama's academic background at Tokyo Women's College of Physical Education, known for being one of Japan's leading institutions for women's athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.</p>
+    </div>
   </div>
 
   <p class="iv-note">The following questions are from an interview conducted with Sensei Hirayama at JKA HQ, Tokyo in collaboration with JKA Santa Monica.</p>
@@ -2126,9 +2151,6 @@ currentPage: "interview"
       <p class="iv-q">Could you explain "sunao" more concretely?</p>
       <p class="iv-a">Sunao—being open and receptive—isn't easy. To me it means a spirit of inquiry, an honest curiosity toward what the instructor says, and the willingness to suspend disbelief for a moment—setting aside 'I can't' or 'I don't want to,' and trying first. Even if you don't know how at the beginning or it doesn't quite click, repeated practice with your body deepens your understanding—even of the instructor's unspoken intent. Soon, the dots from many instructors connect into lines; learning grows more enjoyable, and technique improves. Even after all these years, I discover something new in every training because I try to be sunao.</p>
     </div>
-    <figure class="iv-fig">
-      <img src="/images/interview/iv-2-teaching.jpg" alt="Hirayama Sensei teaching, demonstrating with an open hand" loading="lazy">
-    </figure>
     <div class="iv-qa">
       <p class="iv-q">After decades on the dojo floor, do you still have moments that move you?</p>
       <p class="iv-a">Absolutely—the small discoveries still do it. Whether I'm being taught, teaching, or thinking back to my competitive days, I keep hitting "there's more to learn" moments. For example, when I myself am being instructed, when I'm the one instructing, or when I'll watch a younger instructor and think, "Ah, that's one intuitive way to teach that." Karate keeps proving that even after years, full understanding stays just out of reach. Those glimpses of its depth are my favorite—and exactly why it never stops being fascinating.</p>
@@ -2190,9 +2212,10 @@ currentPage: "interview"
       <p class="iv-q">Do you have special advice for women who want to enter tournament kumite? What kind of training and attention will help build the confidence to maybe compete?</p>
       <p class="iv-a">Training, of course—but above all, courage. It even takes courage to say, "I'm going to compete." The same is true when you decide to take the initiative in an exchange—every time you go in you need courage. In daily practice, face your partner with the mindset "I won't retreat; I'll drive in, even if I have to do it with my eyes closed."</p>
     </div>
-    <figure class="iv-fig iv-fig--sq">
+    <div class="iv-fig-pair">
+      <img src="/images/interview/iv-2-teaching-sq.jpg" alt="Hirayama Sensei teaching, demonstrating with an open hand" loading="lazy">
       <img src="/images/interview/iv-3-kick.jpg" alt="Hirayama Sensei executing a side kick in a studio portrait" loading="lazy">
-    </figure>
+    </div>
     <div class="iv-qa">
       <p class="iv-q">Some men think "karate isn't feminine." How would you respond?</p>
       <p class="iv-a">To men who say such boring things—first, "Good-bye." (laughs) What is "femininity"? Beauty come in many forms—strengths, kindness, grace, dignity. Someone who can't recognize that is not worth your time (laughs)</p>
