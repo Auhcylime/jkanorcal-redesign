@@ -1,15 +1,17 @@
 ---
-permalink: "/index.html"
+permalink: "/camp.html"
+currentPage: "camp"
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JKA of Northern California — Shotokan Karate</title>
+<title>{{ camp.meta.title }}</title>
+<meta name="description" content="{{ camp.meta.description }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,6 +29,13 @@ permalink: "/index.html"
     --red: #c8102e;
     --navy: #1a3a5c;
     --navy-light: #2a5a8c;
+    /* Poster / print system (matches Hirayama camp poster set) */
+    --poster-red: #f23f2c;
+    --poster-grey: #d9d8d4;
+    --poster-blue: #c6d4f1;
+    --poster-lilac: #ddd6f6;
+    --poster-ink: #1a1a1a;
+    --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
     --font-serif: 'Source Serif 4', Georgia, serif;
     --font-sans: 'DM Sans', -apple-system, sans-serif;
     --content-width: 1080px;
@@ -1247,158 +1256,710 @@ permalink: "/index.html"
     .loc-bg { object-position: 25% center; }
     .schedule-cards { grid-template-columns: 1fr; gap: 12px; }
   }
+
+  /* ─────────────────────────────────────────────
+     Camp page — event-specific styles
+     ───────────────────────────────────────────── */
+  .camp-hero {
+    position: relative;
+    margin-top: 64px;
+    background: var(--off-white);
+    color: var(--text);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  /* Big faint 七段 (7th dan) watermark behind the type */
+  .camp-hero-kanji {
+    position: absolute;
+    bottom: -0.14em;
+    right: 2%;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: clamp(13rem, 30vw, 32rem);
+    line-height: 0.78;
+    color: rgba(45,42,38,0.05);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+  }
+  .camp-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    /* viewport minus fixed nav (64) minus the marquee strip (~50) so the banner shows in the first screen */
+    min-height: calc(100vh - 114px);
+  }
+  /* Figure: absolute on the right so the giant name can run behind her shoulder */
+  .camp-figure {
+    position: absolute;
+    right: var(--side-pad);
+    top: 0;
+    bottom: 0;
+    width: clamp(330px, 40vw, 580px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 2;
+  }
+  /* Bridge as a faint, zoomed-in full-bleed backdrop — lightened so the type reads over it */
+  .camp-stage {
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/sf-golden-gate.jpg");
+    background-size: 165%;
+    background-position: 26% 56%;
+    opacity: 0.26;
+    z-index: 0;
+  }
+  .camp-figure img {
+    position: relative;
+    z-index: 1;
+    width: auto;
+    max-width: 130%;
+    height: 100%;
+    max-height: calc(100vh - 114px);
+    object-fit: contain;
+    object-position: center bottom;
+  }
+  .camp-hero-text {
+    align-self: center;
+    padding: clamp(48px, 6vw, 80px) clamp(8px, 1.2vw, 22px) clamp(48px, 6vw, 80px) var(--side-pad);
+    max-width: 760px;
+  }
+  .camp-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+  }
+  .camp-kicker::before {
+    content: '';
+    width: 26px; height: 1px;
+    background: var(--accent);
+  }
+  .camp-hero h1 {
+    font-family: 'Fraunces', var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(3.2rem, 8.5vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .camp-hero h1 .fn,
+  .camp-hero h1 .ln { display: block; }
+  .camp-hero h1 .hon {
+    display: block;
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+    margin-top: 14px;
+  }
+  .camp-cred {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin: 20px 0 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    max-width: 440px;
+  }
+  .camp-hero-sub {
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 440px;
+    margin-bottom: 24px;
+  }
+  /* Plain typographic meta line, dot-separated, no pills */
+  .camp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    margin-bottom: 30px;
+  }
+  .camp-meta-item { display: inline-flex; align-items: center; }
+  .camp-meta-item + .camp-meta-item::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 14px;
+  }
+  .camp-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* Marquee ticker */
+  .camp-marquee {
+    background: var(--accent);
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .camp-marquee-track {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    gap: 0;
+    animation: campMarquee 26s linear infinite;
+  }
+  .camp-marquee .mq-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 30px;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .camp-marquee .mq-label {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .camp-marquee .mq-icon {
+    width: 23px;
+    height: 23px;
+    flex: none;
+  }
+  .mq-icon.mq-rank { color: #ffffff; }
+  /* Flat ribboned medal */
+  .mq-medal .ribbon-a { fill: #ffffff; }
+  .mq-medal .ribbon-b { fill: #e2e3e6; }
+  .mq-medal .gloss    { fill: rgba(255,255,255,0.22); }
+  .mq-medal.is-gold   .disc { fill: #f5c542; } .mq-medal.is-gold   .rim { fill: #dca81d; }
+  .mq-medal.is-silver .disc { fill: #e4e8eb; } .mq-medal.is-silver .rim { fill: #b9c1c8; }
+  .mq-medal.is-bronze .disc { fill: #dc9460; } .mq-medal.is-bronze .rim { fill: #b97140; }
+  @keyframes campMarquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .camp-marquee-track { animation: none; }
+  }
+
+  /* About / instructor */
+  .camp-about {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: clamp(64px, 9vw, 110px) var(--side-pad);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
+  }
+  .camp-about-head .label { color: var(--accent); }
+  .camp-about-body p {
+    font-family: var(--font-serif);
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+  .camp-about-body p:first-child::first-letter {
+    font-family: 'Fraunces', var(--font-serif);
+    font-size: 3.4em;
+    font-weight: 600;
+    float: left;
+    line-height: 0.8;
+    padding: 8px 12px 0 0;
+    color: var(--accent);
+  }
+
+  /* Details cards */
+  .camp-details {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: clamp(64px, 9vw, 110px) var(--side-pad);
+  }
+  .camp-details-note {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 34px;
+  }
+  .camp-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .camp-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 26px;
+    background: #fff;
+    transition: border-color 0.25s, transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s;
+    display: flex;
+    flex-direction: column;
+  }
+  .camp-card:hover {
+    border-color: var(--text-faint);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.07);
+  }
+  .camp-card-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    background: rgba(200,16,46,0.08);
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .camp-card-icon svg { width: 20px; height: 20px; display: block; }
+  .camp-card-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .camp-card-value {
+    font-family: var(--font-serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .camp-card-note { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+  .camp-card-link {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .camp-card-link:hover { text-decoration: underline; }
+
+  /* Closing CTA band */
+  .camp-cta {
+    background: #1b1916;
+    color: #fff;
+    text-align: center;
+    padding: clamp(64px, 9vw, 110px) var(--side-pad);
+  }
+  .camp-cta h2 {
+    font-family: 'Fraunces', var(--font-serif);
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .camp-cta p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.78);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.8;
+  }
+  .camp-cta-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .camp-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,0.4); }
+  .camp-cta .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; }
+
+  /* ════════════════════════════════════════
+     POSTER / PRINT THEME  (matches camp posters)
+     Big grotesque caps · poster red · B&W photo · flat colour fields
+     ════════════════════════════════════════ */
+  /* Warm cream field — bridge is a faint full-bleed backdrop over it (see .camp-stage) */
+  .camp-hero {
+    background: linear-gradient(165deg, #f6f1e6 0%, #efe7d6 60%, #e8dfcc 100%);
+  }
+  .camp-hero-kanji { display: none; }
+
+  /* Eyebrow: JKA NORCAL PRESENTS */
+  .camp-kicker {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+    color: var(--poster-ink);
+    gap: 11px;
+    margin-bottom: 16px;
+  }
+  .camp-kicker::before { display: none; }
+  .camp-kicker-logo { width: 28px; height: 28px; border-radius: 50%; display: block; }
+
+  /* Name: oversized grotesque caps, poster red */
+  .camp-hero h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--poster-red);
+    line-height: 0.82;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+  }
+  .camp-hero h1 .fn {
+    display: block;
+    font-size: clamp(2.8rem, 6.4vw, 5.8rem);
+    line-height: 0.94;
+    margin-bottom: 0.02em;
+    letter-spacing: -0.015em;
+  }
+  .camp-hero h1 .ln {
+    display: block;
+    font-size: clamp(3.4rem, 9.6vw, 9rem);
+    letter-spacing: -0.035em;
+    line-height: 0.88;
+    white-space: nowrap;
+  }
+  .camp-hero h1 .hon {
+    display: block;
+    font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    margin-top: 8px;
+    color: var(--poster-red);
+  }
+
+  /* Rank line: 7TH DAN, JKA */
+  .camp-rank {
+    font-family: var(--display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    color: var(--poster-ink);
+    line-height: 1.1;
+    margin: 20px 0 18px;
+    padding-top: 0;
+    border-top: none;
+  }
+  .camp-rank sup {
+    font-size: 0.55em;
+    vertical-align: super;
+    font-weight: 800;
+    margin-left: 0.02em;
+  }
+  .camp-rank-sub {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.62em;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    color: var(--text-mid);
+    margin-top: 5px;
+  }
+  .camp-hero-sub { color: var(--text-mid); }
+
+  /* Full-colour photo, no shadow */
+  .camp-figure img { filter: contrast(1.02) saturate(1.03); }
+
+  /* Meta line: bold caps with red dots */
+  .camp-meta {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: clamp(0.72rem, 1vw, 0.82rem);
+    color: var(--poster-ink);
+  }
+  .camp-meta-item + .camp-meta-item::before { background: var(--poster-red); }
+
+  /* Buttons → grotesque caps, poster red */
+  .camp-hero-actions .btn,
+  .camp-cta .btn {
+    font-family: var(--display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.78rem;
+    border-radius: 2px;
+  }
+  .camp-hero-actions .btn-accent { background: var(--poster-red); }
+  .camp-hero-actions .btn-accent:hover { background: #d62f1d; }
+
+  /* Marquee → poster red */
+  .camp-marquee { background: var(--poster-red); }
+  .camp-marquee .mq-label { font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; }
+
+  /* Section eyebrows + headings → grotesque caps */
+  .camp-about .label, .camp-details .label {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--poster-red);
+    letter-spacing: 0.04em;
+  }
+  .camp-about .heading, .camp-details .heading {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+  }
+  .camp-about-body p:first-child::first-letter {
+    font-family: var(--display);
+    color: var(--poster-red);
+  }
+
+  /* Details on a clean white field — icon glyph only, no tinted box */
+  .camp-card-icon {
+    background: none;
+    color: var(--poster-red);
+    width: auto;
+    height: 30px;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+  .camp-card-icon svg { width: 28px; height: 28px; }
+  .camp-card-label { font-family: var(--display); font-weight: 700; }
+  .camp-card-value { font-family: var(--display); font-weight: 800; text-transform: uppercase; line-height: 1.12; }
+  .camp-card-link { color: var(--poster-red); }
+
+  /* Closing band → bold red poster block */
+  .camp-cta { background: var(--poster-red); color: #fff; }
+  .camp-cta h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
+  .camp-cta p { color: rgba(255,255,255,0.92); }
+  .camp-cta .btn-accent { background: var(--poster-ink); color: #fff; }
+  .camp-cta .btn-accent:hover { background: #000; }
+  .camp-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,0.6); }
+  .camp-cta .btn-outline:hover { background: rgba(255,255,255,0.14); border-color: #fff; color: #fff; }
+
+
+  @media (max-width: 860px) {
+    .camp-hero-inner { flex-direction: column; min-height: 0; align-items: center; }
+    .camp-hero-text { order: 2; align-self: auto; max-width: 100%; padding: 0 var(--side-pad) clamp(48px, 9vw, 64px); }
+    .camp-figure { order: 1; position: static; width: auto; justify-content: center; padding-top: clamp(20px, 6vw, 40px); }
+    .camp-stage { opacity: 0.22; }
+    .camp-figure img { height: clamp(360px, 56vh, 520px); object-position: center bottom; transform: none; }
+    .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 30%; }
+    .camp-about { grid-template-columns: 1fr; gap: 24px; }
+    .camp-cards { grid-template-columns: 1fr; }
+  }
+
+  /* ─── Save-the-Date band: emphasised date line ─── */
+  .camp-cta-dates {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.7rem, 4.5vw, 3.1rem);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 4px auto 20px;
+    color: #fff;
+  }
+
+  /* Save-the-Date band: shrink "Save the Date" to an eyebrow label; date is the anchor */
+  .camp-cta h2 {
+    font-size: clamp(0.74rem, 1.1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  /* ─── What you can expect: editorial photo + text rows ─── */
+  .camp-expect {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: clamp(64px, 9vw, 110px) var(--side-pad);
+    border-top: 1px solid var(--border);
+  }
+  .camp-expect .label {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--poster-red);
+    letter-spacing: 0.04em;
+  }
+  .camp-expect .heading {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+  }
+  .camp-expect-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin: 12px 0 0;
+  }
+  .expect-rows {
+    margin-top: clamp(40px, 6vw, 64px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6vw, 76px);
+  }
+  .expect-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .expect-row:nth-child(even) .expect-photo { order: 2; }
+  .expect-photo {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    background: var(--warm-gray);
+  }
+  .expect-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .expect-row:hover .expect-photo img { transform: scale(1.04); }
+  .expect-num {
+    display: block;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    color: var(--poster-red);
+    margin-bottom: 14px;
+  }
+  .expect-text h3 {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .expect-text p {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 460px;
+  }
+  @media (max-width: 760px) {
+    .expect-row { grid-template-columns: 1fr; gap: 18px; }
+    .expect-row:nth-child(even) .expect-photo { order: 0; }
+    .expect-photo { aspect-ratio: 16 / 10; }
+  }
 </style>
 </head>
 <body>
 
 {% include "nav.njk" %}
 
-<!-- Hero — full-bleed training photo -->
-<section class="hero">
-  <div class="hero-img">
-    <img src="{{ home.hero.image }}" alt="{{ home.hero.image_alt }}">
-  </div>
-  <div class="hero-content">
-    <h1>{{ home.hero.heading_line1 }}<br>{{ home.hero.heading_line2 }}</h1>
-    <p class="hero-sub">{{ home.hero.subhead }}</p>
-    <div class="hero-actions">
-      <a href="{{ home.hero.cta_primary.href }}"{% if home.hero.cta_primary.external %} target="_blank" rel="noopener"{% endif %} class="btn btn-white">{{ home.hero.cta_primary.label }}</a>
-      <a href="{{ home.hero.cta_secondary.href }}" class="btn btn-outline-white">{{ home.hero.cta_secondary.label }}</a>
-    </div>
-  </div>
-</section>
-
-<!-- Photo strip -->
-<div class="photo-strip">
-  {% for p in home.photo_strip %}
-  <div class="photo-strip-item">
-    <img src="{{ p.image }}" alt="{{ p.alt }}">
-  </div>
-  {% endfor %}
-</div>
-
-<!-- About -->
-<section class="about section" id="about">
-  <div class="section-narrow">
-    <div class="about-layout">
-      <div class="about-eyebrow reveal">
-        <div class="label">{{ home.about.label }}</div>
+<header class="camp-hero">
+  <div class="camp-stage" aria-hidden="true"></div>
+  <div class="camp-hero-kanji" aria-hidden="true">七段</div>
+  <div class="camp-hero-inner">
+    <div class="camp-hero-text">
+      <div class="camp-kicker">
+        <img src="{{ site.logo }}" alt="" class="camp-kicker-logo">
+        {{ camp.hero.kicker }}
       </div>
-      <div class="about-text">
-        <h2 class="heading reveal">{{ home.about.heading }}</h2>
-        {% for para in home.about.paragraphs %}
-        <p class="reveal d{{ loop.index }}">{{ para | safe }}</p>
+      <h1>
+        <span class="fn">{{ camp.hero.name.split(" ")[0] }}</span>
+        <span class="ln">{{ camp.hero.name.split(" ")[1] }}</span>
+        <span class="hon">{{ camp.hero.honorific }}</span>
+      </h1>
+      <div class="camp-rank">{{ camp.hero.rank | safe }}<span class="camp-rank-sub">{{ camp.hero.credential }}</span></div>
+      <div class="camp-meta">
+        {% for chip in camp.hero.chips %}
+        <span class="camp-meta-item">{{ chip }}</span>
         {% endfor %}
-        <a href="{{ home.about.cta.href }}" class="btn btn-outline reveal d3" style="margin-top:8px">{{ home.about.cta.label }}</a>
       </div>
-      <div class="about-photo reveal d2">
-        <img src="{{ home.about.photo }}" alt="{{ home.about.photo_alt }}" style="border-radius:4px">
+      <div class="camp-hero-actions">
+        <a href="{{ camp.hero.cta_primary.href }}" target="_blank" rel="noopener" class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
+        {% if camp.hero.cta_secondary %}<a href="{{ camp.hero.cta_secondary.href }}" class="btn btn-outline">{{ camp.hero.cta_secondary.label }}</a>{% endif %}
       </div>
     </div>
+    <div class="camp-figure">
+      <img src="{{ camp.hero.figure }}" alt="{{ camp.hero.figure_alt }}">
+    </div>
   </div>
-</section>
+</header>
 
-<!-- Feature: Instructors — photo left, text right -->
-<div class="feature">
-  <div class="feature-photo">
-    <img src="{{ home.feature.photo }}" alt="{{ home.feature.photo_alt }}">
-  </div>
-  <div class="feature-text">
-    <div class="reveal">
-      <div class="label">{{ home.feature.label }}</div>
-      <h2 class="heading">{{ home.feature.heading_line1 }}<br>{{ home.feature.heading_line2 }}</h2>
-    </div>
-    <p class="reveal d1">{{ home.feature.body }}</p>
-    <a href="{{ home.feature.cta.href }}" class="btn btn-outline reveal d2" style="margin-top:8px; align-self:flex-start">{{ home.feature.cta.label }}</a>
+<div class="camp-marquee" aria-hidden="true">
+  <div class="camp-marquee-track">
+    {% for i in [1, 2] %}{% for item in camp.marquee %}<span class="mq-item">{% if item.type == "rank" %}<svg class="mq-icon mq-rank" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.96 6 6.62.96-4.79 4.67 1.13 6.6L12 18.6l-5.92 3.13 1.13-6.6L2.42 9.46 9.04 8.5z"/></svg>{% else %}<svg class="mq-icon mq-medal is-{{ item.cls }}" viewBox="0 0 48 48"><polygon class="ribbon-a" points="13,3 21,3 27,25 19,25"/><polygon class="ribbon-b" points="35,3 27,3 21,25 29,25"/><circle class="rim" cx="24" cy="33" r="13"/><circle class="disc" cx="24" cy="33" r="10"/><path class="gloss" d="M17 26 A13 13 0 0 0 31 40 Z"/></svg>{% endif %}<span class="mq-label">{{ item.label }}</span></span>{% endfor %}{% endfor %}
   </div>
 </div>
 
-<!-- News -->
-<section class="news section" id="news">
-  <div class="section-narrow">
-    <div class="news-header reveal">
-      <div>
-        <div class="label">{{ home.updates.label }}</div>
-        <h2 class="heading">{{ home.updates.heading }}</h2>
-      </div>
-      <a href="{{ home.updates.follow_button.href }}" target="_blank" rel="noopener" class="btn btn-outline reveal d1">{{ home.updates.follow_button.label }}</a>
-    </div>
-    <p class="desc reveal d2" style="margin-bottom: 32px">{{ home.updates.description | safe }}</p>
-
-    <div class="lightwidget-wrap reveal d2">
-      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-      <iframe src="//lightwidget.com/widgets/{{ home.updates.lightwidget_id }}.html"
-              scrolling="no" allowtransparency="true"
-              class="lightwidget-widget"
-              style="width:100%;border:0;overflow:hidden;"></iframe>
-    </div>
+<section class="camp-about">
+  <div class="camp-about-head">
+    <div class="label reveal">{{ camp.about.label }}</div>
+    <h2 class="heading reveal d1">{{ camp.about.heading }}</h2>
+  </div>
+  <div class="camp-about-body">
+    {% for para in camp.about.paragraphs %}
+    <p class="reveal d{{ loop.index }}">{{ para }}</p>
+    {% endfor %}
   </div>
 </section>
 
-<!-- Recognition (dark inset) -->
-<section class="recognition" id="recognition">
-  <div class="recognition-grid">
-    <div class="recognition-photo reveal">
-      <img src="{{ home.recognition.photo }}" alt="{{ home.recognition.photo_alt }}">
-      <div class="cap">{{ home.recognition.caption }}</div>
-    </div>
-
-    <div class="recognition-text">
-      <div class="eyebrow reveal">{{ home.recognition.label }}</div>
-      <h2 class="reveal d1">{{ home.recognition.heading | safe }}</h2>
-      <p class="lede reveal d2">{{ home.recognition.body }}</p>
-    </div>
+<section class="camp-cta">
+  <h2>{{ camp.cta.heading }}</h2>
+  {% if camp.cta.dates %}<div class="camp-cta-dates">{{ camp.cta.dates }}</div>{% endif %}
+  <p>{{ camp.cta.body }}</p>
+  <div class="camp-cta-actions">
+    {% for b in camp.cta.buttons %}
+    <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
+    {% endfor %}
   </div>
 </section>
 
-<!-- Schedule -->
-<section class="schedule section" id="schedule">
-  <div class="section-narrow">
-    <div class="schedule-header">
-      <div class="reveal">
-        <div class="label">{{ schedule.section_label }}</div>
-        <h2 class="heading">{{ schedule.heading }}</h2>
+<section class="camp-details">
+  <div class="label reveal">{{ camp.details.label }}</div>
+  <h2 class="heading reveal d1">{{ camp.details.heading }}</h2>
+  <p class="camp-details-note reveal d1">{{ camp.details.note }}</p>
+  <div class="camp-cards">
+    {% for card in camp.details.cards %}
+    <div class="camp-card reveal d{{ loop.index }}">
+      <div class="camp-card-icon">
+        {% if card.icon == "location" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        {% elif card.icon == "calendar" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>{% endif %}
       </div>
-      <a href="{{ schedule.contact_button.href }}" class="btn btn-accent reveal d1">{{ schedule.contact_button.label }}</a>
+      <div class="camp-card-label">{{ card.label }}</div>
+      <div class="camp-card-value">{{ card.value }}</div>
+      <div class="camp-card-note">{{ card.note }}</div>
+      {% if card.href %}<a href="{{ card.href }}" target="_blank" rel="noopener" class="camp-card-link">View map →</a>{% endif %}
     </div>
-    <p class="desc reveal d2" style="margin-bottom: 32px">{{ schedule.description }}</p>
-
-    <div class="schedule-cards reveal d2">
-      {% for d in schedule.days %}
-      <article class="day-card">
-        <h3 class="day-name">{{ d.day }}</h3>
-        {% for s in d.sessions %}
-        <div class="session">
-          <span class="tag {{ s.tag_class }}">{{ s.tag }}</span>
-          <div class="session-time">{{ s.time }}</div>
-          <div class="session-class">{{ s.class_type }}</div>
-        </div>
-        {% endfor %}
-      </article>
-      {% endfor %}
-    </div>
-
+    {% endfor %}
   </div>
 </section>
 
-<!-- Location (full-bleed photo bg with text on the right) -->
-<section class="location" id="location">
-  <img class="loc-bg" src="{{ home.location.bg_image }}" alt="{{ home.location.bg_alt }}">
-  <div class="loc-overlay" aria-hidden="true"></div>
-  <div class="loc-inner">
-    <div class="loc-content reveal">
-      <div class="label">{{ home.location.label }}</div>
-      <h2 class="heading">{{ home.location.heading }}</h2>
-      <div class="loc-items">
-        {% for item in home.location.items %}
-        <div class="loc-item">
-          <h4>{{ item.heading }}</h4>
-          <p>{{ item.content | safe }}</p>
-        </div>
-        {% endfor %}
+<section class="camp-expect" id="expect">
+  <div class="camp-expect-head">
+    <div class="label reveal">{{ camp.expect.label }}</div>
+    <h2 class="heading reveal d1">{{ camp.expect.heading }}</h2>
+    {% if camp.expect.note %}<p class="camp-expect-note reveal d1">{{ camp.expect.note }}</p>{% endif %}
+  </div>
+  <div class="expect-rows">
+    {% for item in camp.expect.items %}
+    <div class="expect-row reveal">
+      <div class="expect-photo">
+        <img src="{{ item.src }}" alt="{{ item.alt }}" loading="lazy"{% if item.pos %} style="object-position: {{ item.pos }}"{% endif %}>
       </div>
-      <a href="{{ home.location.cta.href }}"{% if home.location.cta.external %} target="_blank" rel="noopener"{% endif %} class="btn btn-white">{{ home.location.cta.label }}</a>
+      <div class="expect-text">
+        <span class="expect-num">0{{ loop.index }}</span>
+        <h3>{{ item.headline }}</h3>
+        <p>{{ item.body }}</p>
+      </div>
     </div>
+    {% endfor %}
   </div>
 </section>
 
@@ -1460,8 +2021,5 @@ permalink: "/index.html"
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   })();
 </script>
-
-<!-- LightWidget auto-resize script (powers the IG embed) -->
-<script src="//lightwidget.com/widgets/lightwidget.js" async></script>
 </body>
 </html>

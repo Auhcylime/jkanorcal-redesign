@@ -8,7 +8,8 @@ nav:
   - { label: "Updates",  href: "/#news",      id: "news" }
   - { label: "Schedule", href: "/#schedule",  id: "schedule" }
   - { label: "Visit",    href: "/#location",  id: "location" }
-  - { label: "Sensei",   href: "/sensei.html", id: "sensei" }
+  - { label: "Instructors", href: "/sensei.html", id: "sensei" }
+  - { label: "Camp", href: "/camp.html", id: "camp", badge: "dot" }
 
 join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866"
 
@@ -17,7 +18,7 @@ contact:
   phone_tel: "6505022902"
   address_line1: "356 El Camino Real"
   address_line2: "San Bruno, CA 94066"
-  email: "info@jkanorcal.com"
+  email: "info@jkanorcal.org"
 
 social:
   instagram: "https://www.instagram.com/jkanorcal/"
@@ -33,7 +34,7 @@ footer:
       links:
         - { label: "About",    href: "/#about" }
         - { label: "Schedule", href: "/#schedule" }
-        - { label: "Sensei",   href: "/sensei.html" }
+        - { label: "Instructors", href: "/sensei.html" }
     - heading: "Resources"
       links:
         - { label: "Newsletter",     href: "/newsletter.html" }
@@ -42,5 +43,6 @@ footer:
     - heading: "Contact"
       links:
         - { label: "(650) 502-2902",     href: "tel:6505022902" }
+        - { label: "info@jkanorcal.org", href: "mailto:info@jkanorcal.org" }
         - { label: "356 El Camino Real" }
         - { label: "San Bruno, CA 94066" }

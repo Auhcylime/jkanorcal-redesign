@@ -1,0 +1,74 @@
+# Join Us page content.
+# All [TODO] fields need real data from Emily — do not publish with placeholders.
+
+meta:
+  title: "Join Us — JKA of Northern California"
+  description: "Tuition rates, payment options, and online registration for JKA NorCal. Traditional Shotokan karate in San Bruno, CA."
+
+# Closing photo band above the footer. All reused from existing pages for now.
+photo_strip:
+  - image: "/images/strip-bow-line.jpg"
+    alt: "Students and instructors bowing in at an outdoor ceremony"
+  - image: "/images/strip-kata-solo.jpg"
+    alt: "Black belt performing kata at a JKA tournament"
+  - image: "/images/strip-team-lineup.jpg"
+    alt: "JKA NorCal team at a kumite event"
+  - image: "/images/strip-kumite-match.jpg"
+    alt: "Men's black belt kumite match at a JKA tournament"
+
+tuition:
+  heading: "Tuition"
+  # Hierarchy: promise > anchor price (Monthly default) > commit-longer line > families > small print
+  promise: "Unlimited classes."
+  anchor:
+    price: "$180"
+    cadence: "/month"
+    fine: "Billed on the 1st of each month. Minimum 3-month commitment for new students."
+    commit_line: '<strong>3-month plan $167/mo</strong> ($500/quarter), <strong>annual plan $162/mo</strong> ($1,944/year).'
+  family:
+    label: "Family Discount"
+    rows:
+      - { who: "1st member", rate: "$180/mo" }
+      - { who: "2nd member", rate: "$150/mo" }
+      - { who: "3rd onwards", rate: "$100/mo each" }
+    # stepper math (monthly plan only)
+    first: 180
+    second: 150
+    additional: 100
+  dropin:
+    text: 'Not sure what your schedule will be like? <strong>Drop in for $25</strong> (one-time fee, one class).'
+  assistance:
+    text: 'We want karate to be open to everyone in our community. If you need financial assistance, reach out to Julia at <a href="mailto:julia@jkanorcal.org">julia@jkanorcal.org</a>.'
+
+register:
+  label: "How to Register"
+  new:
+    heading: "New to JKA NorCal?"
+    body: "Register for a free trial class here:"
+    button: "Register for a Free Trial Class"
+  returning:
+    heading: "Already registered?"
+    body: 'Go to "Activities" → "Find Classes" on the parent portal to sign up for any additional classes:'
+    button: "Parent Portal Login"
+    href: "https://app.jackrabbitclass.com/ParentPortal/jkanorcal"
+
+faq:
+  label: "FAQ"
+  heading: "Common Questions"
+  image: "/images/faq-competition.jpg"
+  image_alt: "JKA NorCal competitors after a kumite match"
+  items:
+    - q: "Who can join? Is this just for kids?"
+      a: "Everyone is welcome. We train students of all ages from 5 and up. Children under 14 join our Youth classes, and from age 14 onwards students train in the Adult classes."
+    - q: "How do I sign up?"
+      a: 'We encourage you to start with a free trial so we can find the right fit for you before you commit. We offer monthly, 3-month, and annual plans, and you can sign up and pay <a href="https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866" target="_blank" rel="noopener">here</a>.'
+    - q: "What do I need to wear and bring?"
+      a: "Just comfortable sports attire and a water bottle to start. Training is done barefoot on the mats. You're welcome to wear your own plain white, unmarked gi, or purchase one from us for $75, available on site."
+    - q: "How much physical contact is involved? Is there sparring?"
+      a: "Beginner classes focus on fundamentals with little to no contact. As students progress, more advanced classes introduce controlled contact and sparring in a safe, supervised setting."
+    - q: "How athletic do I need to be to start?"
+      a: "You don't need any prior fitness or experience. Karate builds your strength, coordination, and conditioning over time, and we'll meet you where you are. If you have any injuries or need accommodations, just let your instructor know before class begins."
+    - q: "What does JKA stand for?"
+      a: "JKA is the Japan Karate Association. Our dojo is affiliated with the JKA, which means your membership lets you train at any JKA-affiliated dojo anywhere in the world."
+    - q: "How do we stay in touch?"
+      a: "Our main communication channel is Slack. Once you join, we'll send a Slack invite to your email."

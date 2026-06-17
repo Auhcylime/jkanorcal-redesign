@@ -5,9 +5,9 @@
   </a>
   <ul class="nav-links">
     {% for item in site.nav %}
-    <li><a href="{{ item.href }}"{% if item.id == currentPage %} class="current"{% endif %}>{{ item.label }}</a></li>
+    <li><a href="{{ item.href }}"{% if item.id == currentPage %} class="current"{% endif %}>{{ item.label }}{% if item.badge == "dot" %}<span class="nav-dot" data-badge="{{ item.id }}" aria-hidden="true" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c8102e;vertical-align:super;margin-left:5px;"></span>{% endif %}</a></li>
     {% endfor %}
-    <li><a href="{{ site.join_url }}" target="_blank" rel="noopener" class="join-btn">Join Us</a></li>
+    <li><a href="/join.html" class="join-btn"{% if currentPage == "join" %} aria-current="page"{% endif %}>Join Us</a></li>
   </ul>
   <button class="hamburger" id="ham" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -16,7 +16,21 @@
 
 <div class="mobile-nav" id="mob">
   {% for item in site.nav %}
-  <a href="{{ item.href }}" onclick="closeM()">{{ item.label }}</a>
+  <a href="{{ item.href }}" onclick="closeM()">{{ item.label }}{% if item.badge == "dot" %}<span class="nav-dot" data-badge="{{ item.id }}" aria-hidden="true" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c8102e;vertical-align:super;margin-left:5px;"></span>{% endif %}</a>
   {% endfor %}
-  <a href="{{ site.join_url }}" target="_blank" rel="noopener" onclick="closeM()">Join Us</a>
+  <a href="/join.html" onclick="closeM()">Join Us</a>
 </div>
+
+<script>
+  /* Nav "new content" dot: hide once the user has opened that page this session.
+     sessionStorage clears when the browser session ends, so the dot returns next session. */
+  (function () {
+    var cur = "{{ currentPage }}";
+    try {
+      if (cur) sessionStorage.setItem('seen-badge-' + cur, '1');
+      document.querySelectorAll('.nav-dot').forEach(function (d) {
+        if (sessionStorage.getItem('seen-badge-' + d.dataset.badge)) d.style.display = 'none';
+      });
+    } catch (e) {}
+  })();
+</script>

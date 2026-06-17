@@ -15,7 +15,7 @@ list:
     vertical_jp: "ワウリマン・ボルジェス"
     bio:
       - 'Wauriman Borges is a 5th Dan and a member of the United States National Team. He trained under Oswaldo Mendonça Jr. Shihan and Yoshizo Machida Shihan, the President of JKA Brazil, a lineage that has carried him to multiple national championships in both the United States and Brazil.'
-      - 'His floor is built on a commanding presence in <em>kumite</em>, with a precise <em>mae-geri</em> and a relentless <em>ashi-barai</em> that emphasize power, timing, footwork, and indomitable spirit. In 2024 he represented the USA at the JKA World Championships in Takasaki, Japan, advancing through the first two rounds before facing a Japanese fighter in round three.'
+      - 'His floor is built on a commanding presence in <em>kumite</em>, with a precise <em>mae-geri</em> and a relentless <em>ashi-barai</em> that emphasize power, timing, footwork, and indomitable spirit. In 2024 he represented the USA at the JKA World Championships in Takasaki, Japan, advancing through the first two rounds before facing Japan in round three.'
       - "Since taking the helm in San Bruno he has shaped the dojo's culture around personal growth, discipline, and an open door for beginners and competitors alike. Favorite katas: <em>Jitte</em> and <em>Sōchin</em>."
     stats:
       - { value: "5th Dan", label: "Godan<br>JKA-certified" }
@@ -26,7 +26,7 @@ list:
       photo: "https://jkanorcal.org/wp-content/uploads/2025/08/img_1_1733623445388-1-860x484.webp"
       photo_alt: "Sensei Wauriman delivers a mae-geri at the 2024 JKA World Championships in Takasaki, Japan"
       caption_accent: "2024 JKA World Championships · Takasaki, Japan"
-      caption: "Sensei Wauriman's mae-geri against the Japanese fighter."
+      caption: "Sensei Wauriman's mae-geri against Japan."
 
   - id: "rahn"
     rank_kanji: "四段 · Yondan"

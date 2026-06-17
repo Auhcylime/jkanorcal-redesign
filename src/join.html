@@ -1,0 +1,850 @@
+---
+permalink: "/join.html"
+currentPage: "join"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ join.meta.title }}</title>
+<meta name="description" content="{{ join.meta.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --warm-gray: #f0eeea;
+    --border: #e4e1db;
+    --text: #2d2a26;
+    --text-mid: #4a453e;
+    --text-light: #7a756e;
+    --text-faint: #b5b0a8;
+    --accent: #c8102e;
+    --accent-light: #e62e44;
+    --red: #c8102e;
+    --navy: #1a3a5c;
+    --navy-light: #2a5a8c;
+    --gold: #a8854a;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, sans-serif;
+    --content-width: 1080px;
+    --side-pad: clamp(24px, 5vw, 60px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: white; }
+  img { display: block; max-width: 100%; }
+
+  /* ─── Nav (matches index.html) ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 64px;
+    padding: 0 var(--side-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links .join-btn {
+    background: var(--accent);
+    color: white;
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-links .join-btn:hover { background: var(--accent-light); color: white; }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--text);
+    margin: 4px 0;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* ─── Shared section vocabulary ─── */
+  .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+  }
+  .section-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  /* ─── Combined Registration + Tuition section ─── */
+  .join-main {
+    background: var(--white);
+    /* 130px top matches .page-header on privacy.html */
+    padding: 130px var(--side-pad) clamp(56px, 7vw, 90px);
+  }
+  .register-block { margin-top: clamp(40px, 5vw, 64px); }
+  /* One tuition card: promise + anchor on the left, families on the right */
+  .tuition-card {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.09), 0 4px 10px rgba(0,0,0,0.05);
+  }
+  .tuition-main {
+    padding: clamp(32px, 4vw, 48px);
+  }
+  .promise {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .promise::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 14px;
+  }
+  .promise-sub {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-top: 14px;
+  }
+  .anchor-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: clamp(24px, 3vw, 32px) 0 4px;
+  }
+  .anchor-amount {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 6vw, 4.4rem);
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 0.9;
+  }
+  .anchor-cadence {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+  .commit-line {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    font-size: 0.84rem;
+    color: var(--text-light);
+    font-weight: 300;
+    line-height: 1.65;
+    white-space: nowrap;
+  }
+  .commit-line strong { color: var(--text); font-weight: 600; }
+
+  /* Families panel */
+  .tuition-family {
+    background: var(--text);
+    padding: clamp(32px, 4vw, 48px);
+    display: flex;
+    flex-direction: column;
+  }
+  .family-head {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .family-rows { list-style: none; }
+  .family-rows li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .fam-who { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+  .fam-rate {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .family-calc {
+    margin-top: auto;
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .family-stepper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .step-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
+  .step-btn:disabled { opacity: 0.3; cursor: default; }
+  .step-btn:disabled:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); }
+  .family-count {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    min-width: 80px;
+    text-align: center;
+  }
+  .family-count strong { color: white; font-weight: 600; }
+  .family-total {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+  .family-total-amt {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: white;
+  }
+  .family-total-amt.bump { animation: price-bump 0.3s ease; }
+  .family-total-cad { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+  @keyframes price-bump {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  .fine-line {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* Drop-in: plain text, not a tile */
+  .dropin-line {
+    margin-top: clamp(18px, 2.5vw, 26px);
+    font-size: 0.92rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+  .dropin-line strong { color: var(--text); font-weight: 600; }
+  .assistance-line { margin-top: 6px; }
+  .assistance-line a { color: var(--accent); }
+
+  /* ─── Registration (two paths, mirrors the dojo flyer) ─── */
+  .register-header { margin-bottom: clamp(28px, 4vw, 40px); }
+  .register-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(18px, 2.5vw, 28px);
+  }
+  .register-card {
+    border-radius: 10px;
+    padding: clamp(28px, 3.5vw, 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.09), 0 4px 10px rgba(0,0,0,0.05);
+  }
+  .register-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .register-card p {
+    font-size: 0.92rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  /* Push CTAs to the bottom so both align on the same line */
+  .register-card .btn { margin-top: auto; }
+  .register-new {
+    background: var(--text);
+    color: rgba(255,255,255,0.85);
+  }
+  .register-new h3 { color: white; }
+  .register-returning {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+  }
+  .register-returning h3 { color: var(--text); }
+  /* Canonical button system (matches index.html) */
+  .btn {
+    display: inline-block;
+    padding: 12px 26px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      background 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  }
+  .btn-white { background: white; color: var(--text); }
+  .btn-white:hover { background: var(--off-white); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-mid);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover {
+    border-color: var(--text);
+    color: var(--text);
+    background: var(--white);
+  }
+
+  /* ─── FAQ accordion ─── */
+  .faq {
+    background: var(--off-white);
+    padding: clamp(56px, 7vw, 90px) var(--side-pad);
+  }
+  .faq-header { margin-bottom: clamp(28px, 4vw, 44px); }
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr clamp(280px, 28vw, 360px);
+    gap: clamp(36px, 5vw, 64px);
+    align-items: start;
+  }
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+  .faq-photo {
+    position: sticky;
+    top: 96px;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  .faq-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 4px;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--accent); }
+  .faq-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    position: relative;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--text-light);
+    transition: transform 0.25s ease;
+  }
+  .faq-icon::before {
+    width: 12px; height: 1.5px;
+    top: 10px; left: 5px;
+  }
+  .faq-icon::after {
+    width: 1.5px; height: 12px;
+    top: 5px; left: 10.25px;
+  }
+  .faq-item[open] .faq-icon::after { transform: scaleY(0); }
+  .faq-answer {
+    padding: 0 36px 22px 4px;
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 640px;
+  }
+  .faq-answer p + p { margin-top: 12px; }
+  .faq-answer a { color: var(--accent); }
+
+  /* ─── Photo strip (matches index.html) ─── */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    background: white;
+  }
+  .photo-strip-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .photo-strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .photo-strip-item:hover img { transform: scale(1.04); }
+
+  /* ─── Footer (matches index.html) ─── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: clamp(48px, 6vw, 72px) var(--side-pad);
+  }
+  .footer-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand { max-width: 460px; }
+  .footer-brand-jp {
+    font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .footer-brand-en {
+    font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+    white-space: nowrap;
+  }
+  .footer-brand-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer-quote {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-quote cite {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-style: normal;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-cols { display: flex; gap: 56px; }
+  .footer-col h5 {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.3); }
+  .footer-socials { display: flex; gap: 10px; }
+  .footer-socials a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-socials a:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── Reveal ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.vis { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; }
+  .d2 { transition-delay: 0.16s; }
+  .d3 { transition-delay: 0.24s; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 900px) {
+    .footer-cols { gap: 36px; }
+  }
+  @media (max-width: 900px) {
+    .photo-strip { grid-template-columns: repeat(2, 1fr); }
+    .register-grid { grid-template-columns: 1fr; }
+    .faq-layout { grid-template-columns: 1fr; }
+    .faq-photo { display: none; }
+    .tuition-card { grid-template-columns: 1fr; }
+    .tuition-family { border-left: none; border-top: 1px solid var(--border); }
+    .commit-line { white-space: normal; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .footer-top { flex-direction: column; }
+    .footer-cols { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+{% include "nav.njk" %}
+
+<!-- Registration + Tuition (one combined section) -->
+<section class="join-main" id="register">
+  <div class="section-inner">
+    <div class="register-header reveal">
+      <h1 class="label">{{ join.register.label }}</h1>
+    </div>
+
+    <div class="tuition-block" id="tuition">
+      <div class="tuition-card reveal">
+        <!-- Left: the promise + anchor price -->
+        <div class="tuition-main">
+          <div class="promise">{{ join.tuition.promise }}</div>
+          <div class="anchor-price">
+            <span class="anchor-amount">{{ join.tuition.anchor.price }}</span>
+            <span class="anchor-cadence">{{ join.tuition.anchor.cadence }}</span>
+          </div>
+          <p class="commit-line">{{ join.tuition.anchor.commit_line | safe }}</p>
+          <p class="fine-line">{{ join.tuition.anchor.fine }}</p>
+        </div>
+
+        <!-- Right: families -->
+        <div class="tuition-family" data-first="{{ join.tuition.family.first }}" data-second="{{ join.tuition.family.second }}" data-additional="{{ join.tuition.family.additional }}">
+          <div class="family-head">{{ join.tuition.family.label }}</div>
+          <ul class="family-rows">
+            {% for row in join.tuition.family.rows %}
+            <li><span class="fam-who">{{ row.who }}</span><span class="fam-rate">{{ row.rate }}</span></li>
+            {% endfor %}
+          </ul>
+          <div class="family-calc">
+            <div class="family-stepper">
+              <button type="button" class="step-btn" data-step="-1" aria-label="Fewer family members">&minus;</button>
+              <span class="family-count" aria-live="polite"><strong>1</strong> member</span>
+              <button type="button" class="step-btn" data-step="1" aria-label="More family members">+</button>
+            </div>
+            <div class="family-total" aria-live="polite"><span class="family-total-amt">$180</span><span class="family-total-cad">/month</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="dropin-line reveal">{{ join.tuition.dropin.text | safe }}</p>
+      <p class="dropin-line assistance-line reveal">{{ join.tuition.assistance.text | safe }}</p>
+    </div>
+
+    <div class="register-block">
+      <div class="register-grid">
+        <div class="register-card register-new reveal d1">
+          <h3>{{ join.register.new.heading }}</h3>
+          <p>{{ join.register.new.body }}</p>
+          <a href="{{ site.join_url }}" target="_blank" rel="noopener" class="btn btn-white">{{ join.register.new.button }}</a>
+        </div>
+        <div class="register-card register-returning reveal d2">
+          <h3>{{ join.register.returning.heading }}</h3>
+          <p>{{ join.register.returning.body }}</p>
+          <a href="{{ join.register.returning.href }}" target="_blank" rel="noopener" class="btn btn-outline">{{ join.register.returning.button }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="faq-header reveal">
+      <div class="label">{{ join.faq.label }}</div>
+      <h2 class="heading">{{ join.faq.heading }}</h2>
+    </div>
+    <div class="faq-layout">
+      <div class="faq-list reveal d1">
+        {% for item in join.faq.items %}
+        <details class="faq-item">
+          <summary>
+            {{ item.q }}
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">{{ item.a | safe }}</div>
+        </details>
+        {% endfor %}
+      </div>
+      <div class="faq-photo reveal d2">
+        <img src="{{ join.faq.image }}" alt="{{ join.faq.image_alt }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Photo strip -->
+<div class="photo-strip">
+  {% for p in join.photo_strip %}
+  <div class="photo-strip-item">
+    <img src="{{ p.image }}" alt="{{ p.alt }}">
+  </div>
+  {% endfor %}
+</div>
+
+{% include "footer.njk" %}
+
+<script>
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  document.getElementById('ham').addEventListener('click', () => {
+    const m = document.getElementById('mob');
+    m.classList.toggle('open');
+    document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeM() {
+    document.getElementById('mob').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Family-size calculator: live total from the per-member rates.
+  document.querySelectorAll('.tuition-family').forEach(fam => {
+    const countEl = fam.querySelector('.family-count');
+    const totalEl = fam.querySelector('.family-total-amt');
+    const [minusBtn, plusBtn] = fam.querySelectorAll('.step-btn');
+    const first = +fam.dataset.first, second = +fam.dataset.second, extra = +fam.dataset.additional;
+    const MAX = 6;
+    let n = 1;
+
+    function render() {
+      const total = first + (n >= 2 ? second : 0) + Math.max(0, n - 2) * extra;
+      totalEl.textContent = '$' + total;
+      totalEl.classList.remove('bump');
+      void totalEl.offsetWidth; // restart animation
+      totalEl.classList.add('bump');
+      countEl.innerHTML = '<strong>' + n + '</strong> member' + (n > 1 ? 's' : '');
+      minusBtn.disabled = n <= 1;
+      plusBtn.disabled = n >= MAX;
+    }
+
+    fam.querySelectorAll('.step-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        n = Math.min(MAX, Math.max(1, n + +btn.dataset.step));
+        render();
+      });
+    });
+    render();
+  });
+
+  // Only one FAQ open at a time.
+  document.querySelectorAll('.faq-item').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (d.open) document.querySelectorAll('.faq-item[open]').forEach(o => { if (o !== d) o.open = false; });
+    });
+  });
+
+  (function fitFooterEN() {
+    const jp = document.querySelector('.footer-brand-jp');
+    const en = document.querySelector('.footer-brand-en');
+    if (!jp || !en) return;
+    const ctx = document.createElement('canvas').getContext('2d');
+    const range = document.createRange();
+    function inkMetrics(el, letterSpacing) {
+      const cs = getComputedStyle(el);
+      ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const text = cs.textTransform === 'uppercase' ? el.textContent.toUpperCase() : el.textContent;
+      let advance = 0;
+      for (const ch of text) advance += ctx.measureText(ch).width;
+      const first = ctx.measureText(text[0]);
+      const last = ctx.measureText(text.slice(-1));
+      const lastAdv = ctx.measureText(text.slice(-1)).width;
+      const inkLeft = -first.actualBoundingBoxLeft;
+      const inkRight = (advance - lastAdv) + (text.length - 1) * letterSpacing + last.actualBoundingBoxRight;
+      return { text, advance, lastAdv, first, last, inkLeft, inkRight };
+    }
+    function fit() {
+      en.style.letterSpacing = '';
+      en.style.transform = '';
+      const jpLS = parseFloat(getComputedStyle(jp).letterSpacing) || 0;
+      const jpM = inkMetrics(jp, jpLS);
+      const jpInkW = jpM.inkRight - jpM.inkLeft;
+      const enM0 = inkMetrics(en, 0);
+      const newLS = (jpInkW - (enM0.advance - enM0.lastAdv) - enM0.last.actualBoundingBoxRight - enM0.first.actualBoundingBoxLeft) / (enM0.text.length - 1);
+      if (newLS > 0) en.style.letterSpacing = newLS + 'px';
+      range.selectNodeContents(jp);
+      const jpRect = range.getBoundingClientRect();
+      range.selectNodeContents(en);
+      const enRect = range.getBoundingClientRect();
+      const offset = (jpRect.left + jpM.inkLeft) - (enRect.left + enM0.inkLeft);
+      if (Math.abs(offset) > 0.5) en.style.transform = `translateX(${offset}px)`;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  })();
+</script>
+</body>
+</html>

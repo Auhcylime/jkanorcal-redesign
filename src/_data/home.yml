@@ -27,9 +27,9 @@ photo_strip:
 # About the dojo section. Each paragraph supports a single inline link.
 about:
   label: "About the Dojo"
-  heading: "Training here since the beginning"
+  heading: "Shotokan in San Bruno"
   paragraphs:
-    - 'JKA of Northern California is the Bay Area''s home for Shotokan karate, affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo in San Bruno has served the community for decades, developing students of all ages through traditional, rigorous training.'
+    - 'JKA of Northern California is the Bay Area''s home for Shotokan karate, affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo in San Bruno has served the community since 2009, developing students of all ages through traditional, rigorous training.'
     - 'The curriculum follows JKA methodology: correct form, strong technique, and the development of character. Beginners and experienced karateka train side by side.'
   cta:
     label: "View Class Schedule"
@@ -37,10 +37,6 @@ about:
   photo: "https://jkanorcal.org/wp-content/uploads/2025/11/casual-hirayama-class-friday-860x573.jpg"
   photo_alt: "Friday class at the dojo"
 
-# Funakoshi quote banner.
-quote:
-  text: "The ultimate aim of karate lies not in victory nor defeat, but in the perfection of the character of its participants."
-  attribution: "— Gichin Funakoshi"
 
 # Instructors feature section (photo + heading + paragraph + 3 stats).
 feature:
@@ -49,11 +45,10 @@ feature:
   label: "Instructors"
   heading_line1: "Taught by certified"
   heading_line2: "black belts"
-  body: "Our instructors hold JKA-certified ranks and have trained under some of the most respected masters in the Shotokan tradition. In October 2025, we hosted Yuko Hirayama Sensei — 7th Dan from JKA Headquarters in Tokyo — for our first-ever training camp."
-  stats:
-    - { value: "5",   label: "Days / week" }
-    - { value: "40+", label: "Years" }
-    - { value: "JKA", label: "Affiliated" }
+  body: "Our instructors hold JKA-certified ranks and have trained under some of the most respected masters in the Shotokan tradition."
+  cta:
+    label: "Meet the instructors"
+    href: "/sensei.html"
 
 # Updates / Instagram section. Embed is the LightWidget id.
 updates:
@@ -85,6 +80,8 @@ location:
       content: '<a href="https://maps.google.com/?q=356+El+Camino+Real,+San+Bruno,+CA+94066" target="_blank" rel="noopener">356 El Camino Real<br>San Bruno, CA 94066</a>'
     - heading: "Phone"
       content: '<a href="tel:6505022902">(650) 502-2902</a>'
+    - heading: "Email"
+      content: '<a href="mailto:info@jkanorcal.org">info@jkanorcal.org</a>'
     - heading: "Getting Here"
       content: "About 20 minutes south of San Francisco, right off El Camino Real in San Bruno."
   cta:
