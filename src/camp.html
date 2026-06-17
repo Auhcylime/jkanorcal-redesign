@@ -1741,9 +1741,9 @@ currentPage: "camp"
 
   @media (max-width: 860px) {
     .camp-hero-inner { flex-direction: column; min-height: 0; align-items: center; }
-    .camp-hero-text { order: 2; align-self: auto; max-width: 100%; padding: 0 var(--side-pad) clamp(48px, 9vw, 64px); }
-    .camp-figure { order: 1; position: static; width: auto; justify-content: center; padding-top: clamp(20px, 6vw, 40px); }
-    .camp-stage { opacity: 0.22; }
+    .camp-hero-text { order: 1; align-self: auto; max-width: 100%; padding: clamp(24px, 7vw, 40px) var(--side-pad) clamp(24px, 5vw, 34px); }
+    .camp-figure { order: 2; position: static; width: auto; justify-content: center; padding-top: clamp(8px, 3vw, 20px); }
+    .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
     .camp-figure img { height: clamp(360px, 56vh, 520px); object-position: center bottom; transform: none; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 30%; }
     .camp-about { grid-template-columns: 1fr; gap: 24px; }
@@ -1900,6 +1900,17 @@ currentPage: "camp"
     transition: color 0.2s;
   }
   .camp-about-link:hover { color: var(--accent); }
+  /* Photo under the instructor heading (fills the left-column white space) */
+  .camp-about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: clamp(24px, 4vw, 36px);
+    border-radius: 4px;
+  }
+  @media (max-width: 900px) {
+    .camp-about-photo { max-width: 520px; }
+  }
   /* Stronger white outline on the hero's secondary button */
   .camp-hero-actions .btn-outline {
     border: 1px solid #ffffff;
@@ -1989,6 +2000,7 @@ currentPage: "camp"
   <div class="camp-about-head">
     <div class="label reveal">{{ camp.about.label }}</div>
     <h2 class="heading reveal d1">{{ camp.about.heading }}</h2>
+    <img src="/images/camp-2025/camp2025-15-instructor-demo.jpg" alt="Hirayama Sensei demonstrating a technique to students" class="camp-about-photo reveal d2" loading="lazy">
   </div>
   <div class="camp-about-body">
     {% for para in camp.about.paragraphs %}

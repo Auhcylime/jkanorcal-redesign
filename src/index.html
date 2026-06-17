@@ -159,7 +159,7 @@ permalink: "/index.html"
     position: relative;
     height: 85vh;
     min-height: 500px;
-    margin-top: 64px;
+    margin-top: 0;
     overflow: hidden;
   }
 
@@ -1247,11 +1247,59 @@ permalink: "/index.html"
     .loc-bg { object-position: 25% center; }
     .schedule-cards { grid-template-columns: 1fr; gap: 12px; }
   }
+
+  /* ─── Hirayama Camp announcement banner ─── */
+  .camp-banner {
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 22px;
+    flex-wrap: wrap;
+    background: #f23f2c;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .camp-banner:hover { background: #d62f1d; }
+  .camp-banner strong { font-weight: 600; }
+  .camp-banner-tag {
+    background: rgba(255,255,255,0.22);
+    border-radius: 3px;
+    padding: 3px 9px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .camp-banner-arrow {
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    padding-bottom: 1px;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) { .camp-banner { font-size: 0.82rem; padding: 10px 18px; } }
 </style>
 </head>
 <body>
 
 {% include "nav.njk" %}
+
+<!-- Hirayama Camp announcement banner -->
+<a href="/camp.html" class="camp-banner">
+  <span class="camp-banner-tag">New</span>
+  <span><strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11&ndash;13 &middot; Japantown, San Francisco</span>
+  <span class="camp-banner-arrow">See details &rarr;</span>
+</a>
 
 <!-- Hero — full-bleed training photo -->
 <section class="hero">

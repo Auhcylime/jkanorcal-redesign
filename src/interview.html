@@ -1980,14 +1980,15 @@ currentPage: "interview"
     margin: 0 auto;
     padding: clamp(30px, 5vw, 52px) var(--side-pad) clamp(64px, 9vw, 110px);
   }
-  .iv-lede { max-width: 760px; }
+  .iv-lede { max-width: 820px; }
   .iv-lede p {
     font-family: var(--font-serif);
-    font-size: 1.14rem;
-    line-height: 1.8;
+    font-size: 1.08rem;
+    line-height: 1.78;
     color: var(--text-mid);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
+  @media (max-width: 760px) { .iv-lede { columns: 1; } }
   .iv-lede p:first-of-type::first-letter {
     font-family: var(--display);
     font-size: 3.1em;
@@ -2004,7 +2005,6 @@ currentPage: "interview"
     border-left: 2px solid var(--poster-red);
     padding-left: 16px;
     margin: 6px 0;
-    max-width: 760px;
   }
   .iv-sec { margin-top: clamp(40px, 6vw, 64px); }
   .iv-sec-label {
@@ -2020,7 +2020,7 @@ currentPage: "interview"
     display: grid;
     grid-template-columns: 280px minmax(0, 1fr);
     column-gap: clamp(28px, 4vw, 56px);
-    align-items: start;
+    align-items: baseline;
     margin-top: 36px;
   }
   .iv-q {
@@ -2054,6 +2054,15 @@ currentPage: "interview"
     padding-top: 24px;
     border-top: 1px solid var(--border);
   }
+  .iv-fig {
+    margin: clamp(30px, 5vw, 48px) 0;
+    max-width: 780px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--warm-gray);
+  }
+  .iv-fig img { width: 100%; height: auto; display: block; }
+  .iv-fig--sq { max-width: 540px; }
 </style>
 </head>
 <body>
@@ -2069,18 +2078,21 @@ currentPage: "interview"
 
 <article class="iv-body">
   <div class="iv-lede reveal">
-    <p>Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among the JKA's instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership, particularly in an era when female competitors were rare in high-level karate.</p>
+    <p>Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among JKA's instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership—particularly in an era when female competitors were rare in high-level karate.</p>
+    <figure class="iv-fig">
+      <img src="/images/interview/iv-1-punch.jpg" alt="Hirayama Sensei holding a forward guard during training" loading="lazy">
+    </figure>
     <p>Hirayama Sensei has also had considerable success in competition, including 1st place in kumite, 2nd place in kata, and selection as Best Competitor in the 45th All Japan Karate Championship (2002). Her tournament record testifies to a rare fluency in both the combative and artistic dimensions of karate.</p>
-    <p>Her academic background at Tokyo Women's College of Physical Education, one of Japan's leading institutions for women's athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.</p>
+    <p>Hirayama's academic background at Tokyo Women's College of Physical Education, known for being one of Japan's leading institutions for women's athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.</p>
   </div>
 
-  <p class="iv-note">The following questions are from an interview conducted with Sensei Hirayama at JKA HQ, Tokyo, in collaboration with JKA Santa Monica.</p>
+  <p class="iv-note">The following questions are from an interview conducted with Sensei Hirayama at JKA HQ, Tokyo in collaboration with JKA Santa Monica.</p>
 
   <section class="iv-sec">
     <h2 class="iv-sec-label reveal">Background</h2>
     <div class="iv-qa">
       <p class="iv-q">What first led you to begin karate?</p>
-      <p class="iv-a">I started karate in second grade. Back then I actually couldn't speak to anyone outside my family; my teachers and classmates had never heard my voice. My parents were worried and looked for activities that required a spirited kiai, like kendo or karate, and the three of us siblings began karate together. At first I still couldn't get my voice out, so my teacher thought I might be a child who didn't speak. But little by little, because a kiai demands that "Ei!" come out somehow, one day my friends said, "We heard Yu's voice!" and everyone was surprised. (laughs)</p>
+      <p class="iv-a">I started karate in second grade. Back then I actually couldn't speak to anyone outside my family—my teachers and classmates had never heard my voice. My parents were worried and looked for activities that required a spirited kiai, like kendo or karate, and the three of us siblings began karate together. At first I still couldn't get my voice out, so my teacher thought I might be a child who didn't speak. But little by little, because a kiai demands that "Ei!" come out somehow, one day my friends said, "We heard Yu's voice!" and everyone was surprised. (laughs)</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">As a child, did you also practice other martial arts in junior high or high school?</p>
@@ -2088,43 +2100,46 @@ currentPage: "interview"
     </div>
     <div class="iv-qa">
       <p class="iv-q">Do kendo and karate share common fundamentals?</p>
-      <p class="iv-a">Yes. Through enbu (like kata), you learn and commit to muscle memory the basic movements. For kumite, kendo and karate are also similar in their footwork, as well as in how attacks are "set-up."</p>
+      <p class="iv-a">Yes. Through enbu (like kata), you learn and commit to muscle memory the basic movements. For kumite, kendo and karate are also similar in their footwork, as well as how attacks are "set-up."</p>
     </div>
     <div class="iv-qa">
-      <p class="iv-q">Japan has many traditional budo. Why, among them, did you choose Shotokan karate-do (JKA) in particular?</p>
-      <p class="iv-a">I visited various dojo, and the best one for me was the JKA. What was good was how thoroughly they did basics. The basics that become the base of kata and kumite are taught strictly and carefully, even to children, and you can feel the power of it just watching.</p>
+      <p class="iv-q">Japan has many traditional budō. Why, among them, did you choose Shotokan karate-dō (JKA) in particular?</p>
+      <p class="iv-a">I visited various dojo, and the best one for me was the JKA. What was good was how thoroughly they did basics. The basics that become the base of kata and kumite are taught strictly and carefully—even to children—and you can feel the power of it just watching.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">What has sustained your dedication to the art over the decades?</p>
-      <p class="iv-a">I've never quit because I simply love training. Some people love tournaments and may stop once their competitive peak passes, but if you love training, there's no reason to quit (laughs). Karate has kept me in its grasp for decades because every session offers something new, even the most basic class. Even if you take the same class from the same instructor, you're never in the same exact physical condition, so if you have a radar for learning, you'll discover something new every time, whether it's a technique or something about your own body. Feeling the effects of aging can be stressful, but for me it's often exciting: as fewer things come easily, I must learn to be more deliberate about how I produce power and more clever in setting up techniques, instead of relying only on the speed and explosiveness that young muscles and joints allow. The longer I train, the more I realize there is to learn, and that keeps karate exciting every day.</p>
+      <p class="iv-a">I've never quit because I simply love training. Some people love tournaments and may stop once their competitive peak passes, but if you love training, there's no reason to quit (laughs). Karate has kept me in its grasp for decades because every session offers something new—even the most basic class. Even if you take the same class from the same instructor, you're never in the same exact physical condition, so if you have a radar for learning, you'll discover something new every time, whether it's a technique or something about your own body. Feeling the effects of aging can be stressful, but for me it's often exciting: as fewer things come easily, I must learn to be more deliberate about how I produce power and more clever in setting up techniques, instead of relying only on the speed and explosiveness that young muscles and joints allow. "The longer I train, the more I realize there is to learn—and that keeps karate exciting every day."</p>
     </div>
   </section>
 
   <section class="iv-sec">
-    <h2 class="iv-sec-label reveal">Philosophy and teaching</h2>
+    <h2 class="iv-sec-label reveal">Philosophy and Teaching</h2>
     <div class="iv-qa">
       <p class="iv-q">As the highest-ranked woman in the world with the JKA, what does this achievement mean to you personally, and how do you hope it inspires others?</p>
-      <p class="iv-a">I feel a tremendous responsibility. To pass on correct karate, both in technique and in spirit, I have to embody those qualities myself and be an example to anyone I train with.</p>
+      <p class="iv-a">I feel a tremendous responsibility. To pass on correct karate—both in technique and in spirit—I have to embody those qualities myself and be an example to anyone I train with.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Regardless of rank or experience, what qualities do you think are most important for a karate-ka?</p>
-      <p class="iv-a">In any discipline, being open and straightforward, sunao, is crucial.</p>
+      <p class="iv-a">In any discipline, being open and straightforward—sunao—is crucial.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Could you explain "sunao" more concretely?</p>
-      <p class="iv-a">Sunao, being open and receptive, isn't easy. To me it means a spirit of inquiry, an honest curiosity toward what the instructor says, and the willingness to suspend disbelief for a moment, setting aside "I can't" or "I don't want to," and trying first. Even if you don't know how at the beginning or it doesn't quite click, repeated practice with your body deepens your understanding, even of the instructor's unspoken intent. Soon, the dots from many instructors connect into lines; learning grows more enjoyable, and technique improves. Even after all these years, I discover something new in every training because I try to be sunao.</p>
+      <p class="iv-a">Sunao—being open and receptive—isn't easy. To me it means a spirit of inquiry, an honest curiosity toward what the instructor says, and the willingness to suspend disbelief for a moment—setting aside 'I can't' or 'I don't want to,' and trying first. Even if you don't know how at the beginning or it doesn't quite click, repeated practice with your body deepens your understanding—even of the instructor's unspoken intent. Soon, the dots from many instructors connect into lines; learning grows more enjoyable, and technique improves. Even after all these years, I discover something new in every training because I try to be sunao.</p>
     </div>
+    <figure class="iv-fig">
+      <img src="/images/interview/iv-2-teaching.jpg" alt="Hirayama Sensei teaching, demonstrating with an open hand" loading="lazy">
+    </figure>
     <div class="iv-qa">
       <p class="iv-q">After decades on the dojo floor, do you still have moments that move you?</p>
-      <p class="iv-a">Absolutely, the small discoveries still do it. Whether I'm being taught, teaching, or thinking back to my competitive days, I keep hitting "there's more to learn" moments. For example, when I myself am being instructed, when I'm the one instructing, or when I watch a younger instructor and think, "Ah, that's one intuitive way to teach that." Karate keeps proving that even after years, full understanding stays just out of reach. Those glimpses of its depth are my favorite, and exactly why it never stops being fascinating.</p>
+      <p class="iv-a">Absolutely—the small discoveries still do it. Whether I'm being taught, teaching, or thinking back to my competitive days, I keep hitting "there's more to learn" moments. For example, when I myself am being instructed, when I'm the one instructing, or when I'll watch a younger instructor and think, "Ah, that's one intuitive way to teach that." Karate keeps proving that even after years, full understanding stays just out of reach. Those glimpses of its depth are my favorite—and exactly why it never stops being fascinating.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">For your visit to San Francisco, what theme or learning would you most like participants to take away?</p>
-      <p class="iv-a">First and foremost, please ENJOY your karate journey; have fun! Karate is incredibly deep, and the real joy is steadily uncovering that depth. Start by watching others, researching karate from many angles, and experimenting with different techniques with a playful sense of discovery. When practice is enjoyable, growth becomes enjoyable too, and that joy fuels even more growth. Personally, I've often found that when I'm having fun, I improve almost without noticing. It reminds me again how powerful simple enjoyment really is.</p>
+      <p class="iv-a">First and foremost, please ENJOY your karate journey; have fun! Karate is incredibly deep. And the real joy is steadily uncovering that depth. Start by watching others, researching karate from many angles, and experimenting with different techniques with a playful sense of discovery. When practice is enjoyable, growth becomes enjoyable too—and that joy fuels even more growth. Personally, I've often found that when I'm having fun, I improve almost without noticing. It reminds me again how powerful simple enjoyment really is.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">In karate or in life, is there a "philosophy" or belief that guides your daily training, instruction, and living?</p>
-      <p class="iv-a">In English, "Seize the moment," or "carpe diem." The same applies in kumite; even when you're facing an opponent who outmatches you, there will always be split-second moments when you're in a better position to strike, like when they hesitate, or just after their attack. You either have to create those moments or be ready to seize them when they flash by. Likewise, in life there are many important things in each moment. Whether you can grasp them or not changes your growth. For that, I think you need to always have your antenna up. By staying hungry, important things come into view.</p>
+      <p class="iv-a">In English, "Seize the moment" or "carpe diem." The same applies in kumite; even when you're facing an opponent that outmatches you, there will always be split-second moments when you're in a better position to strike—like when they hesitate, after their attack, etc. You either have to create those moments or be ready seize them when they flash by. Likewise, in life there are many important things in each moment. Whether you can grasp them or not changes your growth. For that, I think you need to always have your antenna up. By staying hungry, important things come into view.</p>
     </div>
   </section>
 
@@ -2132,52 +2147,55 @@ currentPage: "interview"
     <h2 class="iv-sec-label reveal">Technical</h2>
     <div class="iv-qa">
       <p class="iv-q">Men and women have different body types, and karate training can put a heavy load on the body. Do you have any special tips for women to prevent injuries while getting the most out of practice?</p>
-      <p class="iv-a">It's a tricky question. As your level rises, training gets harder, and the risk of injury goes up a bit, too. That's why proper warm-ups are crucial, along with aftercare and mental preparation. The goal is to step onto the floor in good condition every time.</p>
+      <p class="iv-a">It's a tricky question. As your level rises, training gets harder—and the risk of injury goes up a bit, too. That's why proper warm-ups are crucial, along with aftercare and mental preparation. The goal is to step onto the floor in good condition every time.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Could you explain "mental preparation" a bit more?</p>
-      <p class="iv-a">If your mindset is open, ready to try things and take on challenges rather than holding back, you're surprisingly less likely to get hurt. A hungry, forward-leaning attitude shows up in your body. Most injuries happen when you let your guard down. So, when someone is within your arm's reach, don't switch off.</p>
+      <p class="iv-a">If your mindset is open—ready to try things and take on challenges, rather than holding back—you're surprisingly less likely to get hurt. A hungry, forward-leaning attitude shows up in your body. Most injuries happen when you let your guard down. So, when someone is within your arm's reach, don't switch off.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Coming back to injury prevention, what self-care do you personally consider essential?</p>
-      <p class="iv-a">Stretching, absolutely. Not just before practice: I'm careful to stretch during short breaks and after training, while the body is still warm. After practice I always go to get a massage at the chiropractor's as well.</p>
+      <p class="iv-a">Stretching—absolutely. Not just before practice: I'm careful to stretch during short breaks and after training, while the body is still warm. After practice I always go to get a massage at the chiropractor's as well.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">From a woman's perspective, do you have any advice when training with men, who are inevitably much stronger than we are?</p>
-      <p class="iv-a">Karate isn't divided by weight classes, and men and women train together, so you can't help but feel how size translates into differences in effectiveness and power. But with correct body use, women can generate plenty of force. As someone who's always at a physical disadvantage, you have to always think about two questions during training: first, how do I create effective force, and second, how do I dissipate or redirect incoming force?</p>
-      <p class="iv-a">For example, to maximize power output, you can experiment with "tame," or how to load potential energy into your lower body in the transition between techniques; a strong, stable support leg; explosive center-of-gravity shifts; and the timing of tension and release. It's just as important to understand how to redirect your opponent's incoming power. Use "tai-sabaki" to shift or rotate your body laterally, moving out of their line of power, and experiment with blocking angles and timing. What matters is not colliding head-on.</p>
+      <p class="iv-a">Karate isn't divided by weight classes, and men and women train together, so you can't help but feel how size translates into differences in effectiveness and power. But with correct body use, women can generate plenty of force. As someone that's always at a physical disadvantage, you have to always think about two questions during training: 1) how do I create effective force, and 2) how do I dissipate or redirect incoming force?</p>
+      <p class="iv-a">For example, to maximize power output, you can experiment with "tame"–or how to load potential energy into your lower body in transition between techniques; strong, stable support leg; explosive center-of-gravity shifts; timing of tension and release, etc. It's also just as important to understand how to redirect your opponent's incoming power. Use "tai-sabaki" to shift or rotate your body laterally to move your body out of their line of power, as well as experiment with blocking angles and timing. What matters is not colliding head-on.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">In general, women tend to have shorter limbs than men and therefore less reach. To overcome that disadvantage, which techniques should women prioritize?</p>
-      <p class="iv-a">There isn't one magic technique. Against a larger opponent who's fully primed and ready, your technique won't land if you go straight in. However, everyone has openings at some point; the key is either to create vulnerable moments or to capitalize on them the instant they appear. The smaller person should attack when their opponent pauses or hesitates, both moments that can be created by unexpected movements such as fakes or distractions. You can also create a moment where your opponent is in a suboptimal position to attack by knocking their guard down, forcing them to attack or block first, or sweeping. Catching your opponent on a "sen-no-sen" timing as they come in for an attack, or countering after the completion of their attack, are also examples of leveraging timing where your opponent is vulnerable.</p>
+      <p class="iv-a">There isn't one magic technique. Against a larger opponent who's fully primed and ready, your technique won't land if you go straight in. However, everyone has openings at some point; the key is to either to create vulnerable moments or to capitalize on them the instant they appear. The smaller person should attack when their opponent pauses or hesitates—both moments that can be created by unexpected movements such as fakes or distractions. You can also create a moment where your opponent is in a suboptimal position to attack by knocking their guard down, forcing them to attack/block first, or sweeping. Catching your opponent on a "sen-no-sen" timing as they come in for an attack or countering after the completion of their attack are also examples of leveraging timing where your opponent is vulnerable.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">In some parts of America there is much crime and violence, and many women worry about safety. For women learning karate for self-defense, what mindset or skills do you think are helpful?</p>
-      <p class="iv-a">Early detection of danger is key. It may sound obvious, but if something feels unsafe, leave immediately: "That person looks risky," "This area feels off." If you're at the point of needing to use karate, it's already late. The aim is to observe well enough that you don't have to use it, and to get away quickly. Karate can sharpen that kind of situational awareness. In training, when you face partners, you can sense whether someone is lively today or low on energy. Sparring demands that you take in subtle cues and respond: are they coming or not? It's the same outside; your sensitivity to changes in people and environment should sharpen. At the very least, that's what I want everyone to strive for.</p>
+      <p class="iv-a">Early detection of danger is key. It may sound obvious, but if something feels unsafe, leave immediately—"That person looks risky," "This area feels off." If you're at the point of needing to use karate, it's already late. The aim is to observe well enough that you don't have to use it, and to get away quickly. Karate can sharpen that kind of situational awareness. In training, when you face partners, you can sense if someone is lively today or low on energy. Sparring demands that you take in subtle cues and respond: are they coming or not? It's the same outside—your sensitivity to changes in people and environment should sharpen. At the very least, that's what I want everyone to strive for.</p>
     </div>
   </section>
 
   <section class="iv-sec">
-    <h2 class="iv-sec-label reveal">Messages to women</h2>
+    <h2 class="iv-sec-label reveal">Messages to Women</h2>
     <div class="iv-qa">
       <p class="iv-q">What message would you like to share with young women and girls who are beginning the path of karate?</p>
-      <p class="iv-a">Use training as an opportunity to understand yourself. Don't run from your weak points, but face them; and find your unexpected strengths and polish them.</p>
+      <p class="iv-a">Use training as opportunities to understand yourself—don't run from your weak points, but face them; and find your unexpected strengths and polish them.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">How does karate help with "understanding yourself" and "not running from weak areas"?</p>
-      <p class="iv-a">Well, training is tough; everyone's tempted to slack off sometimes. That's exactly why karate gives you so many chances, through practice, to face that urge to run. You're constantly put in front of your own weaknesses; the people who improve are the ones who set goals like "I want to change in this way," or "I want to become my best self by always doing this." In kumite, for instance, you might feel fear when you square up against a man, or anyone much bigger than you. The ones who can, in that moment, hold the resolve ("I won't back up," "I'll step in faster and harder") become better. Karate becomes a mirror that throws your raw "self" back at you. On the other hand, in the dojo, people of all ages and ranks, both young and old, train together. When practice feels brutal, we often draw strength from seeing others grinding hard. Seeing a clean, powerful technique makes you think, "I want to move like that," and it becomes real inspiration. Facing yourself is hard, but if you aim toward a positive image of who you want to be and learn to enjoy that process, you just keep growing.</p>
+      <p class="iv-a">Well, training is tough—everyone's tempted to slack off sometimes. That's exactly why "karate gives you so many chances, through practice, to face that urge to run." You're constantly put in front of your own weaknesses; the people who improve are the ones who set goals like "I want to change in this way" or "I want to become my best self by always doing this." In kumite, for instance, you might feel fear when you square up against a man or anyone much bigger than you. The ones that can, in that moment, have the resolve—"I won't back up," "I'll step in faster and harder."—become better. Karate becomes a mirror that throws your raw "self" back at you. On the other hand, in the dojo, people of all ages and ranks, both young and old, train together. When practice feels brutal, we often draw strength from seeing others grinding hard. Seeing a clean, powerful technique makes you think, 'I want to move like that,' and it becomes real inspiration. Facing yourself is hard, but if you aim toward a positive image of who you want to be and learn to enjoy that process, you just keep growing.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Suppose a young girl wants to learn karate, but her parents object that it is "too dangerous" or "not for girls." How should she appeal to them about karate's merits?</p>
-      <p class="iv-a">First, have them watch. In any sport, you don't start with dangerous things. Safety comes first. As you progress, risk exists, but because we drill the basics so thoroughly, control in kumite improves, so compared to other contact sports, I don't consider karate unusually dangerous.</p>
+      <p class="iv-a">First, have them watch. In any sport, you don't start with dangerous things. Safety comes first. As you progress, risk exists, but because we drill the basics so thoroughly, control in kumite improves—so compared to other contact sports, I don't consider karate unusually dangerous.</p>
     </div>
     <div class="iv-qa">
-      <p class="iv-q">Do you have special advice for women who want to enter tournament kumite? What kind of training and attention will help build the confidence to compete?</p>
-      <p class="iv-a">Training, of course, but above all, courage. It even takes courage to say, "I'm going to compete." The same is true when you decide to take the initiative in an exchange; every time you go in, you need courage. In daily practice, face your partner with the mindset, "I won't retreat; I'll drive in, even if I have to do it with my eyes closed."</p>
+      <p class="iv-q">Do you have special advice for women who want to enter tournament kumite? What kind of training and attention will help build the confidence to maybe compete?</p>
+      <p class="iv-a">Training, of course—but above all, courage. It even takes courage to say, "I'm going to compete." The same is true when you decide to take the initiative in an exchange—every time you go in you need courage. In daily practice, face your partner with the mindset "I won't retreat; I'll drive in, even if I have to do it with my eyes closed."</p>
     </div>
+    <figure class="iv-fig iv-fig--sq">
+      <img src="/images/interview/iv-3-kick.jpg" alt="Hirayama Sensei executing a side kick in a studio portrait" loading="lazy">
+    </figure>
     <div class="iv-qa">
       <p class="iv-q">Some men think "karate isn't feminine." How would you respond?</p>
-      <p class="iv-a">To men who say such boring things, first, "Good-bye." (laughs) What is "femininity"? Beauty comes in many forms: strength, kindness, grace, dignity. Someone who can't recognize that is not worth your time. (laughs)</p>
+      <p class="iv-a">To men who say such boring things—first, "Good-bye." (laughs) What is "femininity"? Beauty come in many forms—strengths, kindness, grace, dignity. Someone who can't recognize that is not worth your time (laughs)</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">Do you feel karate training is beneficial for women during pregnancy? If so, what adjustments do you recommend?</p>
@@ -2186,18 +2204,18 @@ currentPage: "interview"
   </section>
 
   <section class="iv-sec">
-    <h2 class="iv-sec-label reveal">Fun facts</h2>
+    <h2 class="iv-sec-label reveal">Fun Facts</h2>
     <div class="iv-qa">
-      <p class="iv-q">Most people know you as a karate instructor. What's something unexpected about you that people might be surprised to learn?</p>
-      <p class="iv-a">People say I seem very friendly, but I'm actually shy about entering new groups. As an instructor I needed to communicate with many people, so outwardly I've overcome it through karate, but my parents or old friends would be shocked to see.</p>
+      <p class="iv-q">Most people know you as a karate instructor—what's something unexpected about you that people might be surprised to learn?</p>
+      <p class="iv-a">People say I seem very friendly, but I'm actually shy about entering new groups. As an instructor I needed to communicate with many people, so outwardly I've overcome it through karate—but my parents or old friends would be shocked to see.</p>
     </div>
     <div class="iv-qa">
       <p class="iv-q">What is your favorite mode of transportation? What is the model of your dream bike?</p>
-      <p class="iv-a">I love vehicles in general: of course motorcycles, but also cars, buses, trains, and planes, across the board. As for a dream bike, I love the look of the Yamaha DragStar.</p>
+      <p class="iv-a">I love vehicles in general—of course motorcycles, but also cars, buses, trains, planes—across the board. As for a dream bike, I love the look of the Yamaha DragStar.</p>
     </div>
     <div class="iv-qa">
-      <p class="iv-q">I've heard you recently started hobbies other than karate. Could you tell us about them and what you find appealing in each?</p>
-      <p class="iv-a">I've ridden motorcycles for a long time, and I've always liked hiking. Since COVID, I also started surfing and hip-hop dance. On a bike, carving winding roads while feeling the wind and the smells around you, taking in the scenery, that's pure fun. Surfing is all about the incredible feeling of catching a wave. Hip-hop is great when the choreography clicks and you can ride the music. And hiking just feels good, being in nature, with views that are second to none.</p>
+      <p class="iv-q">I've heard you recently started hobbies other than karate—could you tell us about them and what you find appealing in each?</p>
+      <p class="iv-a">I've ridden motorcycles for a long time, and I've always liked hiking. Since COVID, I also started surfing and hip-hop dance. On a bike, carving winding roads while feeling the wind and the smells around you, taking in the scenery—that's pure fun. Surfing is all about the incredible feeling of catching a wave. Hip-hop is great when the choreography clicks and you can ride the music. And hiking just feels good—being in nature, with views that are second to none.</p>
     </div>
   </section>
 
