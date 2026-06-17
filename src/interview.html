@@ -1,14 +1,14 @@
 ---
-permalink: "/camp.html"
-currentPage: "camp"
+permalink: "/interview.html"
+currentPage: "interview"
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ camp.meta.title }}</title>
-<meta name="description" content="{{ camp.meta.description }}">
+<title>Interview: Yuko Hirayama Sensei — JKA of Northern California</title>
+<meta name="description" content="An interview with Yuko Hirayama Sensei, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, on training, teaching, and a lifetime in karate.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
@@ -1886,20 +1886,6 @@ currentPage: "camp"
   /* Hero meta line + buttons sit larger than the other small caps */
   .camp-meta { font-size: 0.98rem; }
   .camp-hero-actions .btn { font-size: 0.98rem; }
-  /* "Read her interview" link under the instructor bio — plain underlined text */
-  .camp-about-link {
-    display: inline-block;
-    margin-top: 20px;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-    transition: color 0.2s;
-  }
-  .camp-about-link:hover { color: var(--accent); }
   /* Stronger white outline on the hero's secondary button */
   .camp-hero-actions .btn-outline {
     border: 1px solid #ffffff;
@@ -1942,115 +1928,281 @@ currentPage: "camp"
   .camp-expect-note,
   .expect-num,
   .camp-marquee .mq-label { letter-spacing: 0.1em; }
+
+  /* ════════════════════════════════════════
+     INTERVIEW PAGE
+     ════════════════════════════════════════ */
+  .iv-header {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    margin-top: 64px;
+    padding: clamp(44px, 7vw, 88px) var(--side-pad) clamp(26px, 4vw, 40px);
+    border-bottom: 1px solid var(--border);
+  }
+  .iv-back {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--text-light);
+    text-decoration: none;
+    margin-bottom: 26px;
+    transition: color 0.2s;
+  }
+  .iv-back:hover { color: var(--accent); }
+  .iv-eyebrow {
+    font-family: var(--display);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.92rem;
+    color: var(--poster-red);
+    margin-bottom: 14px;
+  }
+  .iv-title {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 0.96;
+    letter-spacing: 0.015em;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .iv-byline {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    color: var(--text-light);
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+  }
+  .iv-body {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 52px) var(--side-pad) clamp(64px, 9vw, 110px);
+  }
+  .iv-lede { max-width: 760px; }
+  .iv-lede p {
+    font-family: var(--font-serif);
+    font-size: 1.14rem;
+    line-height: 1.8;
+    color: var(--text-mid);
+    margin-bottom: 22px;
+  }
+  .iv-lede p:first-of-type::first-letter {
+    font-family: var(--display);
+    font-size: 3.1em;
+    float: left;
+    line-height: 0.78;
+    padding: 6px 12px 0 0;
+    color: var(--poster-red);
+  }
+  .iv-note {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    border-left: 2px solid var(--poster-red);
+    padding-left: 16px;
+    margin: 6px 0;
+    max-width: 760px;
+  }
+  .iv-sec { margin-top: clamp(40px, 6vw, 64px); }
+  .iv-sec-label {
+    font-family: var(--display);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--poster-red);
+  }
+  .iv-qa {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    column-gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+    margin-top: 36px;
+  }
+  .iv-q {
+    grid-column: 1;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 0;
+  }
+  .iv-a {
+    grid-column: 2;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+  }
+  @media (max-width: 760px) {
+    .iv-qa { grid-template-columns: 1fr; column-gap: 0; margin-top: 26px; }
+    .iv-q { margin-bottom: 10px; }
+  }
+  .iv-credits {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-top: clamp(48px, 7vw, 72px);
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
 <body>
 
 {% include "nav.njk" %}
 
-<header class="camp-hero">
-  <div class="camp-stage" aria-hidden="true"></div>
-  <div class="camp-hero-kanji" aria-hidden="true">七段</div>
-  <div class="camp-hero-inner">
-    <div class="camp-hero-text">
-      <div class="camp-kicker">
-        <img src="{{ site.logo }}" alt="" class="camp-kicker-logo">
-        {{ camp.hero.kicker }}
-      </div>
-      <h1>
-        <span class="fn">{{ camp.hero.name.split(" ")[0] }}</span>
-        <span class="ln">{{ camp.hero.name.split(" ")[1] }}</span>
-        <span class="hon">{{ camp.hero.honorific }}</span>
-      </h1>
-      {% if camp.hero.rank %}<div class="camp-rank">{{ camp.hero.rank | safe }}{% if camp.hero.credential %}<span class="camp-rank-sub">{{ camp.hero.credential }}</span>{% endif %}</div>{% endif %}
-      <div class="camp-meta">
-        {% for chip in camp.hero.chips %}
-        <span class="camp-meta-item">{{ chip }}</span>
-        {% endfor %}
-      </div>
-      <div class="camp-hero-actions">
-        <a href="{{ camp.hero.cta_primary.href }}" target="_blank" rel="noopener" class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
-        {% if camp.hero.cta_secondary %}<a href="{{ camp.hero.cta_secondary.href }}" class="btn btn-outline">{{ camp.hero.cta_secondary.label }}</a>{% endif %}
-      </div>
-    </div>
-    <div class="camp-figure">
-      <img src="{{ camp.hero.figure }}" alt="{{ camp.hero.figure_alt }}">
-    </div>
-  </div>
+<header class="iv-header">
+  <a href="/camp.html" class="iv-back">&larr; Back to Hirayama Camp</a>
+  <div class="iv-eyebrow">Interview</div>
+  <h1 class="iv-title">Yuko Hirayama Sensei</h1>
+  <p class="iv-byline">Honbu Dojo instructor and the highest-ranked woman in the JKA.<br>By Sammi Yeung, November 2, 2025.</p>
 </header>
 
-<div class="camp-marquee" aria-hidden="true">
-  <div class="camp-marquee-track">
-    {% for i in [1, 2] %}{% for item in camp.marquee %}<span class="mq-item">{% if item.type == "rank" %}<svg class="mq-icon mq-rank" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.96 6 6.62.96-4.79 4.67 1.13 6.6L12 18.6l-5.92 3.13 1.13-6.6L2.42 9.46 9.04 8.5z"/></svg>{% else %}<svg class="mq-icon mq-medal is-{{ item.cls }}" viewBox="0 0 48 48"><polygon class="ribbon-a" points="13,3 21,3 27,25 19,25"/><polygon class="ribbon-b" points="35,3 27,3 21,25 29,25"/><circle class="rim" cx="24" cy="33" r="13"/><circle class="disc" cx="24" cy="33" r="10"/><path class="gloss" d="M17 26 A13 13 0 0 0 31 40 Z"/></svg>{% endif %}<span class="mq-label">{{ item.label }}</span></span>{% endfor %}{% endfor %}
+<article class="iv-body">
+  <div class="iv-lede reveal">
+    <p>Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among the JKA's instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership, particularly in an era when female competitors were rare in high-level karate.</p>
+    <p>Hirayama Sensei has also had considerable success in competition, including 1st place in kumite, 2nd place in kata, and selection as Best Competitor in the 45th All Japan Karate Championship (2002). Her tournament record testifies to a rare fluency in both the combative and artistic dimensions of karate.</p>
+    <p>Her academic background at Tokyo Women's College of Physical Education, one of Japan's leading institutions for women's athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.</p>
   </div>
-</div>
 
-<section class="camp-about">
-  <div class="camp-about-head">
-    <div class="label reveal">{{ camp.about.label }}</div>
-    <h2 class="heading reveal d1">{{ camp.about.heading }}</h2>
-  </div>
-  <div class="camp-about-body">
-    {% for para in camp.about.paragraphs %}
-    <p class="reveal d{{ loop.index }}">{{ para }}</p>
-    {% endfor %}
-    <a href="/interview.html" class="camp-about-link reveal">Read her interview &rarr;</a>
-  </div>
-</section>
+  <p class="iv-note">The following questions are from an interview conducted with Sensei Hirayama at JKA HQ, Tokyo, in collaboration with JKA Santa Monica.</p>
 
-<section class="camp-cta">
-  <h2>{{ camp.cta.heading }}</h2>
-  {% if camp.cta.dates %}<div class="camp-cta-dates">{{ camp.cta.dates }}</div>{% endif %}
-  <p>{{ camp.cta.body }}</p>
-  <div class="camp-cta-actions">
-    {% for b in camp.cta.buttons %}
-    <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="camp-details">
-  <div class="label reveal">{{ camp.details.label }}</div>
-  <h2 class="heading reveal d1">{{ camp.details.heading }}</h2>
-  <p class="camp-details-note reveal d1">{{ camp.details.note }}</p>
-  <div class="camp-cards">
-    {% for card in camp.details.cards %}
-    <div class="camp-card reveal d{{ loop.index }}">
-      <div class="camp-card-icon">
-        {% if card.icon == "location" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        {% elif card.icon == "calendar" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>{% endif %}
-      </div>
-      <div class="camp-card-label">{{ card.label }}</div>
-      <div class="camp-card-value">{{ card.value }}</div>
-      <div class="camp-card-note">{{ card.note }}</div>
-      {% if card.href %}<a href="{{ card.href }}" target="_blank" rel="noopener" class="camp-card-link">View map →</a>{% endif %}
+  <section class="iv-sec">
+    <h2 class="iv-sec-label reveal">Background</h2>
+    <div class="iv-qa">
+      <p class="iv-q">What first led you to begin karate?</p>
+      <p class="iv-a">I started karate in second grade. Back then I actually couldn't speak to anyone outside my family; my teachers and classmates had never heard my voice. My parents were worried and looked for activities that required a spirited kiai, like kendo or karate, and the three of us siblings began karate together. At first I still couldn't get my voice out, so my teacher thought I might be a child who didn't speak. But little by little, because a kiai demands that "Ei!" come out somehow, one day my friends said, "We heard Yu's voice!" and everyone was surprised. (laughs)</p>
     </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="camp-expect" id="expect">
-  <div class="camp-expect-head">
-    <div class="label reveal">{{ camp.expect.label }}</div>
-    <h2 class="heading reveal d1">{{ camp.expect.heading }}</h2>
-    {% if camp.expect.note %}<p class="camp-expect-note reveal d1">{{ camp.expect.note }}</p>{% endif %}
-  </div>
-  <div class="expect-rows">
-    {% for item in camp.expect.items %}
-    <div class="expect-row reveal">
-      <div class="expect-photo">
-        <img src="{{ item.src }}" alt="{{ item.alt }}" loading="lazy"{% if item.pos %} style="object-position: {{ item.pos }}"{% endif %}>
-      </div>
-      <div class="expect-text">
-        <span class="expect-num">0{{ loop.index }}</span>
-        <h3>{{ item.headline }}</h3>
-        <p>{{ item.body }}</p>
-      </div>
+    <div class="iv-qa">
+      <p class="iv-q">As a child, did you also practice other martial arts in junior high or high school?</p>
+      <p class="iv-a">I did kendo for three years in junior high school and three years in high school.</p>
     </div>
-    {% endfor %}
-  </div>
-</section>
+    <div class="iv-qa">
+      <p class="iv-q">Do kendo and karate share common fundamentals?</p>
+      <p class="iv-a">Yes. Through enbu (like kata), you learn and commit to muscle memory the basic movements. For kumite, kendo and karate are also similar in their footwork, as well as in how attacks are "set-up."</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Japan has many traditional budo. Why, among them, did you choose Shotokan karate-do (JKA) in particular?</p>
+      <p class="iv-a">I visited various dojo, and the best one for me was the JKA. What was good was how thoroughly they did basics. The basics that become the base of kata and kumite are taught strictly and carefully, even to children, and you can feel the power of it just watching.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">What has sustained your dedication to the art over the decades?</p>
+      <p class="iv-a">I've never quit because I simply love training. Some people love tournaments and may stop once their competitive peak passes, but if you love training, there's no reason to quit (laughs). Karate has kept me in its grasp for decades because every session offers something new, even the most basic class. Even if you take the same class from the same instructor, you're never in the same exact physical condition, so if you have a radar for learning, you'll discover something new every time, whether it's a technique or something about your own body. Feeling the effects of aging can be stressful, but for me it's often exciting: as fewer things come easily, I must learn to be more deliberate about how I produce power and more clever in setting up techniques, instead of relying only on the speed and explosiveness that young muscles and joints allow. The longer I train, the more I realize there is to learn, and that keeps karate exciting every day.</p>
+    </div>
+  </section>
+
+  <section class="iv-sec">
+    <h2 class="iv-sec-label reveal">Philosophy and teaching</h2>
+    <div class="iv-qa">
+      <p class="iv-q">As the highest-ranked woman in the world with the JKA, what does this achievement mean to you personally, and how do you hope it inspires others?</p>
+      <p class="iv-a">I feel a tremendous responsibility. To pass on correct karate, both in technique and in spirit, I have to embody those qualities myself and be an example to anyone I train with.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Regardless of rank or experience, what qualities do you think are most important for a karate-ka?</p>
+      <p class="iv-a">In any discipline, being open and straightforward, sunao, is crucial.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Could you explain "sunao" more concretely?</p>
+      <p class="iv-a">Sunao, being open and receptive, isn't easy. To me it means a spirit of inquiry, an honest curiosity toward what the instructor says, and the willingness to suspend disbelief for a moment, setting aside "I can't" or "I don't want to," and trying first. Even if you don't know how at the beginning or it doesn't quite click, repeated practice with your body deepens your understanding, even of the instructor's unspoken intent. Soon, the dots from many instructors connect into lines; learning grows more enjoyable, and technique improves. Even after all these years, I discover something new in every training because I try to be sunao.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">After decades on the dojo floor, do you still have moments that move you?</p>
+      <p class="iv-a">Absolutely, the small discoveries still do it. Whether I'm being taught, teaching, or thinking back to my competitive days, I keep hitting "there's more to learn" moments. For example, when I myself am being instructed, when I'm the one instructing, or when I watch a younger instructor and think, "Ah, that's one intuitive way to teach that." Karate keeps proving that even after years, full understanding stays just out of reach. Those glimpses of its depth are my favorite, and exactly why it never stops being fascinating.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">For your visit to San Francisco, what theme or learning would you most like participants to take away?</p>
+      <p class="iv-a">First and foremost, please ENJOY your karate journey; have fun! Karate is incredibly deep, and the real joy is steadily uncovering that depth. Start by watching others, researching karate from many angles, and experimenting with different techniques with a playful sense of discovery. When practice is enjoyable, growth becomes enjoyable too, and that joy fuels even more growth. Personally, I've often found that when I'm having fun, I improve almost without noticing. It reminds me again how powerful simple enjoyment really is.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">In karate or in life, is there a "philosophy" or belief that guides your daily training, instruction, and living?</p>
+      <p class="iv-a">In English, "Seize the moment," or "carpe diem." The same applies in kumite; even when you're facing an opponent who outmatches you, there will always be split-second moments when you're in a better position to strike, like when they hesitate, or just after their attack. You either have to create those moments or be ready to seize them when they flash by. Likewise, in life there are many important things in each moment. Whether you can grasp them or not changes your growth. For that, I think you need to always have your antenna up. By staying hungry, important things come into view.</p>
+    </div>
+  </section>
+
+  <section class="iv-sec">
+    <h2 class="iv-sec-label reveal">Technical</h2>
+    <div class="iv-qa">
+      <p class="iv-q">Men and women have different body types, and karate training can put a heavy load on the body. Do you have any special tips for women to prevent injuries while getting the most out of practice?</p>
+      <p class="iv-a">It's a tricky question. As your level rises, training gets harder, and the risk of injury goes up a bit, too. That's why proper warm-ups are crucial, along with aftercare and mental preparation. The goal is to step onto the floor in good condition every time.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Could you explain "mental preparation" a bit more?</p>
+      <p class="iv-a">If your mindset is open, ready to try things and take on challenges rather than holding back, you're surprisingly less likely to get hurt. A hungry, forward-leaning attitude shows up in your body. Most injuries happen when you let your guard down. So, when someone is within your arm's reach, don't switch off.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Coming back to injury prevention, what self-care do you personally consider essential?</p>
+      <p class="iv-a">Stretching, absolutely. Not just before practice: I'm careful to stretch during short breaks and after training, while the body is still warm. After practice I always go to get a massage at the chiropractor's as well.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">From a woman's perspective, do you have any advice when training with men, who are inevitably much stronger than we are?</p>
+      <p class="iv-a">Karate isn't divided by weight classes, and men and women train together, so you can't help but feel how size translates into differences in effectiveness and power. But with correct body use, women can generate plenty of force. As someone who's always at a physical disadvantage, you have to always think about two questions during training: first, how do I create effective force, and second, how do I dissipate or redirect incoming force?</p>
+      <p class="iv-a">For example, to maximize power output, you can experiment with "tame," or how to load potential energy into your lower body in the transition between techniques; a strong, stable support leg; explosive center-of-gravity shifts; and the timing of tension and release. It's just as important to understand how to redirect your opponent's incoming power. Use "tai-sabaki" to shift or rotate your body laterally, moving out of their line of power, and experiment with blocking angles and timing. What matters is not colliding head-on.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">In general, women tend to have shorter limbs than men and therefore less reach. To overcome that disadvantage, which techniques should women prioritize?</p>
+      <p class="iv-a">There isn't one magic technique. Against a larger opponent who's fully primed and ready, your technique won't land if you go straight in. However, everyone has openings at some point; the key is either to create vulnerable moments or to capitalize on them the instant they appear. The smaller person should attack when their opponent pauses or hesitates, both moments that can be created by unexpected movements such as fakes or distractions. You can also create a moment where your opponent is in a suboptimal position to attack by knocking their guard down, forcing them to attack or block first, or sweeping. Catching your opponent on a "sen-no-sen" timing as they come in for an attack, or countering after the completion of their attack, are also examples of leveraging timing where your opponent is vulnerable.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">In some parts of America there is much crime and violence, and many women worry about safety. For women learning karate for self-defense, what mindset or skills do you think are helpful?</p>
+      <p class="iv-a">Early detection of danger is key. It may sound obvious, but if something feels unsafe, leave immediately: "That person looks risky," "This area feels off." If you're at the point of needing to use karate, it's already late. The aim is to observe well enough that you don't have to use it, and to get away quickly. Karate can sharpen that kind of situational awareness. In training, when you face partners, you can sense whether someone is lively today or low on energy. Sparring demands that you take in subtle cues and respond: are they coming or not? It's the same outside; your sensitivity to changes in people and environment should sharpen. At the very least, that's what I want everyone to strive for.</p>
+    </div>
+  </section>
+
+  <section class="iv-sec">
+    <h2 class="iv-sec-label reveal">Messages to women</h2>
+    <div class="iv-qa">
+      <p class="iv-q">What message would you like to share with young women and girls who are beginning the path of karate?</p>
+      <p class="iv-a">Use training as an opportunity to understand yourself. Don't run from your weak points, but face them; and find your unexpected strengths and polish them.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">How does karate help with "understanding yourself" and "not running from weak areas"?</p>
+      <p class="iv-a">Well, training is tough; everyone's tempted to slack off sometimes. That's exactly why karate gives you so many chances, through practice, to face that urge to run. You're constantly put in front of your own weaknesses; the people who improve are the ones who set goals like "I want to change in this way," or "I want to become my best self by always doing this." In kumite, for instance, you might feel fear when you square up against a man, or anyone much bigger than you. The ones who can, in that moment, hold the resolve ("I won't back up," "I'll step in faster and harder") become better. Karate becomes a mirror that throws your raw "self" back at you. On the other hand, in the dojo, people of all ages and ranks, both young and old, train together. When practice feels brutal, we often draw strength from seeing others grinding hard. Seeing a clean, powerful technique makes you think, "I want to move like that," and it becomes real inspiration. Facing yourself is hard, but if you aim toward a positive image of who you want to be and learn to enjoy that process, you just keep growing.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Suppose a young girl wants to learn karate, but her parents object that it is "too dangerous" or "not for girls." How should she appeal to them about karate's merits?</p>
+      <p class="iv-a">First, have them watch. In any sport, you don't start with dangerous things. Safety comes first. As you progress, risk exists, but because we drill the basics so thoroughly, control in kumite improves, so compared to other contact sports, I don't consider karate unusually dangerous.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Do you have special advice for women who want to enter tournament kumite? What kind of training and attention will help build the confidence to compete?</p>
+      <p class="iv-a">Training, of course, but above all, courage. It even takes courage to say, "I'm going to compete." The same is true when you decide to take the initiative in an exchange; every time you go in, you need courage. In daily practice, face your partner with the mindset, "I won't retreat; I'll drive in, even if I have to do it with my eyes closed."</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Some men think "karate isn't feminine." How would you respond?</p>
+      <p class="iv-a">To men who say such boring things, first, "Good-bye." (laughs) What is "femininity"? Beauty comes in many forms: strength, kindness, grace, dignity. Someone who can't recognize that is not worth your time. (laughs)</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">Do you feel karate training is beneficial for women during pregnancy? If so, what adjustments do you recommend?</p>
+      <p class="iv-a">Things like swimming and moderate exercise are considered beneficial for a healthy pregnancy. I think each person should incorporate appropriate, non-contact training suited to her body. A great example is kata.</p>
+    </div>
+  </section>
+
+  <section class="iv-sec">
+    <h2 class="iv-sec-label reveal">Fun facts</h2>
+    <div class="iv-qa">
+      <p class="iv-q">Most people know you as a karate instructor. What's something unexpected about you that people might be surprised to learn?</p>
+      <p class="iv-a">People say I seem very friendly, but I'm actually shy about entering new groups. As an instructor I needed to communicate with many people, so outwardly I've overcome it through karate, but my parents or old friends would be shocked to see.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">What is your favorite mode of transportation? What is the model of your dream bike?</p>
+      <p class="iv-a">I love vehicles in general: of course motorcycles, but also cars, buses, trains, and planes, across the board. As for a dream bike, I love the look of the Yamaha DragStar.</p>
+    </div>
+    <div class="iv-qa">
+      <p class="iv-q">I've heard you recently started hobbies other than karate. Could you tell us about them and what you find appealing in each?</p>
+      <p class="iv-a">I've ridden motorcycles for a long time, and I've always liked hiking. Since COVID, I also started surfing and hip-hop dance. On a bike, carving winding roads while feeling the wind and the smells around you, taking in the scenery, that's pure fun. Surfing is all about the incredible feeling of catching a wave. Hip-hop is great when the choreography clicks and you can ride the music. And hiking just feels good, being in nature, with views that are second to none.</p>
+    </div>
+  </section>
+
+  <p class="iv-credits">Special thanks to the interview and translation team of Katie Chen (JKA Santa Monica) and Yoko Ishida (JKA Hombu Dojo), who made this conversation possible and wrote this article.</p>
+</article>
 
 {% include "footer.njk" %}
 
