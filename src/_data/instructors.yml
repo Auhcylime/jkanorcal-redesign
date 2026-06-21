@@ -22,11 +22,9 @@ list:
       - { value: "2024",    label: "JKA Worlds<br>Takasaki, Japan" }
       - { value: "USA",     label: "National Team<br>Active" }
     credentials: "Instructor C · Judge C · Examiner D"
-    plate:
-      photo: "https://jkanorcal.org/wp-content/uploads/2025/08/img_1_1733623445388-1-860x484.webp"
-      photo_alt: "Sensei Wauriman delivers a mae-geri at the 2024 JKA World Championships in Takasaki, Japan"
-      caption_accent: "2024 JKA World Championships · Takasaki, Japan"
-      caption: "Sensei Wauriman's mae-geri against Japan."
+    # Action plate removed: its photo was hosted on the old WordPress site and is
+    # unrecoverable. Re-add via /admin/ → Sensei → Wauriman → Action plate once you
+    # have the 2024 JKA Worlds (Takasaki) mae-geri photo.
 
   - id: "rahn"
     rank_kanji: "四段 · Yondan"

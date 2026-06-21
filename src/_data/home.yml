@@ -1,6 +1,6 @@
 # Hero (full-bleed photo with overlay text and CTAs).
 hero:
-  image: "https://jkanorcal.org/wp-content/uploads/2025/11/20251025-DRG_3838-860x573.jpg"
+  image: "/images/home/home-hero-training.jpg"
   image_alt: "Karate training at JKA Northern California"
   heading_line1: "Shotokan Karate in"
   heading_line2: "San Bruno"
@@ -34,7 +34,7 @@ about:
   cta:
     label: "View Class Schedule"
     href: "#schedule"
-  photo: "https://jkanorcal.org/wp-content/uploads/2025/11/casual-hirayama-class-friday-860x573.jpg"
+  photo: "/images/home/home-about-class.jpg"
   photo_alt: "Friday class at the dojo"
 
 
@@ -62,7 +62,7 @@ updates:
 
 # Recognition section (dark band).
 recognition:
-  photo: "https://jkanorcal.org/wp-content/uploads/2025/10/Sammi-with-Trophies.jpeg"
+  photo: "/images/home/home-recognition-sammi.jpg"
   photo_alt: "Sammi Yeung with her Panamerican trophies"
   caption: "Sammi · Panam Trophies, 2025"
   label: "Recognition"
@@ -71,7 +71,7 @@ recognition:
 
 # Find the Dojo (visit) section.
 location:
-  bg_image: "https://jkanorcal.org/wp-content/uploads/2025/11/20251025-DRG_3846-1536x1024.jpg"
+  bg_image: "/images/home/home-hero-training.jpg"
   bg_alt: "Inside the JKA NorCal dojo"
   label: "Visit"
   heading: "Find the Dojo"
