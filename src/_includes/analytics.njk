@@ -23,7 +23,9 @@
     var bar = document.createElement('div');
     bar.setAttribute('role','dialog');
     bar.setAttribute('aria-label','Cookie consent');
-    bar.style.cssText = "position:fixed;left:var(--side-pad,24px);right:var(--side-pad,24px);bottom:24px;z-index:9999;max-width:580px;margin:0 auto;background:#ffffff;color:#2d2a26;border:1px solid #e4e1db;border-radius:6px;padding:20px 22px;font-family:'DM Sans',-apple-system,system-ui,sans-serif;font-size:0.9rem;line-height:1.6;box-shadow:0 18px 50px rgba(45,42,38,0.16);display:flex;gap:18px;align-items:center;flex-wrap:wrap";
+    // Full-width bar pinned to the bottom, mirroring the header nav
+    // (edge-to-edge, same side padding, translucent white + blur, hairline border).
+    bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:9999;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#2d2a26;border-top:1px solid rgba(0,0,0,0.06);box-shadow:0 -6px 24px rgba(45,42,38,0.06);padding:16px var(--side-pad,clamp(24px,5vw,60px));font-family:'DM Sans',-apple-system,system-ui,sans-serif;font-size:0.9rem;line-height:1.6;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap";
     bar.innerHTML = '<span style="flex:1;min-width:220px;color:#4a453e">We use cookies to measure site traffic. <a href="/privacy" style="color:#c8102e;text-decoration:underline;text-underline-offset:2px">Learn more</a>.</span>';
     function btn(label, grant){
       var b = document.createElement('button');
