@@ -1290,8 +1290,9 @@ pageId: "camp"
     z-index: 1;
     display: flex;
     align-items: center;
-    /* viewport minus fixed nav (64) minus the marquee strip (~50) so the banner shows in the first screen */
-    min-height: calc(100vh - 114px);
+    /* viewport minus fixed nav (64) so the hero fills the first screen and the
+       marquee strip sits below the fold */
+    min-height: calc(100vh - 64px);
   }
   /* Figure: absolute on the right so the giant name can run behind her shoulder */
   .camp-figure {
@@ -1310,8 +1311,12 @@ pageId: "camp"
     position: absolute;
     inset: 0;
     background-image: url("/images/shared/sf-golden-gate.jpg");
-    background-size: 165%;
-    background-position: 26% 56%;
+    background-repeat: no-repeat;
+    /* cover (not zoomed) so on wide monitors the full bridge height reads:
+       tower tip + a band of sky on top, the horizontal span across the bottom.
+       Position biased toward the top so the tip never clips on shorter viewports. */
+    background-size: cover;
+    background-position: center 32%;
     opacity: 0.26;
     z-index: 0;
   }
@@ -1321,7 +1326,7 @@ pageId: "camp"
     width: auto;
     max-width: 130%;
     height: 100%;
-    max-height: calc(100vh - 114px);
+    max-height: calc(100vh - 64px);
     object-fit: contain;
     object-position: center bottom;
   }
