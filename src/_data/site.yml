@@ -1,6 +1,9 @@
 name: "JKA NorCal"
 logo: "/images/shared/jka-logo.png"
 
+# Google Analytics 4 Measurement ID. Leave blank to disable tracking site-wide.
+ga_id: "G-DN42HB9N8V"
+
 # Top nav and mobile nav share these items.
 # `id` is matched against page front-matter `currentPage` to apply .current.
 nav:
