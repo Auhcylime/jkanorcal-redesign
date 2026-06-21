@@ -71,7 +71,7 @@ recognition:
 
 # Find the Dojo (visit) section.
 location:
-  bg_image: "/images/home/home-hero-training.jpg"
+  bg_image: "/images/home/home-location-dojo.jpg"
   bg_alt: "Inside the JKA NorCal dojo"
   label: "Visit"
   heading: "Find the Dojo"
