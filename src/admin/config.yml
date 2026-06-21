@@ -13,6 +13,7 @@ publish_mode: simple  # save → commit immediately (no editorial workflow PRs)
 media_folder: src/images
 public_folder: /images
 
+app_title: "JKA NorCal Admin"
 site_url: https://jkanorcal-redesign.vercel.app
 display_url: https://jkanorcal-redesign.vercel.app
 logo_url: /images/shared/jka-logo.png
