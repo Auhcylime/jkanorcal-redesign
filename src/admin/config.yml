@@ -15,7 +15,7 @@ public_folder: /images
 
 site_url: https://jkanorcal-redesign.vercel.app
 display_url: https://jkanorcal-redesign.vercel.app
-logo_url: /images/shared/jka-logo.jpg
+logo_url: /images/shared/jka-logo.png
 
 collections:
   # === SHOW / HIDE PAGES ===

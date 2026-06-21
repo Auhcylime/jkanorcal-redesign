@@ -66,7 +66,7 @@ list:
       - { value: "4th",  label: "2024 World Cup<br>Team Kata" }
 
 invitation:
-  logo: "/images/shared/jka-logo.jpg"
+  logo: "/images/shared/jka-logo.png"
   logo_alt: "JKA NorCal"
   heading: "<em>Welcome</em> to the dojo."
   subhead: "San Bruno · Five days a week · All levels"

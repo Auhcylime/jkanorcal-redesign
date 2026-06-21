@@ -1,5 +1,5 @@
 name: "JKA NorCal"
-logo: "/images/shared/jka-logo.jpg"
+logo: "/images/shared/jka-logo.png"
 
 # Top nav and mobile nav share these items.
 # `id` is matched against page front-matter `currentPage` to apply .current.
