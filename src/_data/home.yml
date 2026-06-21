@@ -48,7 +48,7 @@ feature:
   body: "Our instructors hold JKA-certified ranks and have trained under some of the most respected masters in the Shotokan tradition."
   cta:
     label: "Meet the instructors"
-    href: "/sensei.html"
+    href: "/sensei"
 
 # Updates / Instagram section. Embed is the LightWidget id.
 updates:

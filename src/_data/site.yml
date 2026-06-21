@@ -8,8 +8,8 @@ nav:
   - { label: "Updates",  href: "/#news",      id: "news" }
   - { label: "Schedule", href: "/#schedule",  id: "schedule" }
   - { label: "Visit",    href: "/#location",  id: "location" }
-  - { label: "Instructors", href: "/sensei.html", id: "sensei" }
-  - { label: "Camp", href: "/camp.html", id: "camp", badge: "dot" }
+  - { label: "Instructors", href: "/sensei", id: "sensei" }
+  - { label: "Camp", href: "/camp", id: "camp", badge: "dot" }
 
 join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866"
 
@@ -17,7 +17,7 @@ join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21
 # Set `enabled: false` to hide it everywhere without deleting the copy.
 camp_banner:
   enabled: true
-  href: "/camp.html"
+  href: "/camp"
   tag: "New"
   text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11&ndash;13 &middot; Japantown, San Francisco"
 
@@ -42,12 +42,12 @@ footer:
       links:
         - { label: "About",    href: "/#about" }
         - { label: "Schedule", href: "/#schedule" }
-        - { label: "Instructors", href: "/sensei.html", page: "sensei" }
+        - { label: "Instructors", href: "/sensei", page: "sensei" }
     - heading: "Resources"
       links:
-        - { label: "Newsletter",     href: "/newsletter.html", page: "newsletter" }
+        - { label: "Newsletter",     href: "/newsletter", page: "newsletter" }
         - { label: "JKA/AF Website", href: "https://www.jkaaf.com", external: true }
-        - { label: "Privacy Policy", href: "/privacy.html", page: "privacy" }
+        - { label: "Privacy Policy", href: "/privacy", page: "privacy" }
     - heading: "Contact"
       links:
         - { label: "(650) 502-2902",     href: "tel:6505022902" }
