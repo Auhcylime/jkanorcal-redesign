@@ -19,7 +19,7 @@ hero:
   figure_jp: "日本空手協会　七段"
   subhead: "Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Full camp details land in the coming weeks."
   chips:
-    - "Sept 11–13, 2026"
+    - "Sept 11-13, 2026"
     - "Japantown, San Francisco"
     - "All levels welcome"
   cta_primary:
@@ -64,7 +64,7 @@ about:
 expect:
   label: "What you can expect"
   heading: "Scenes from last year's camp"
-  note: "October 24–26, 2025"
+  note: "October 24-26, 2025"
   items:
     - headline: "Train under a JKA Headquarters master"
       body: "Yuko Hirayama, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, leads every session in person."
@@ -96,7 +96,7 @@ details:
       href: "https://www.google.com/maps/search/?api=1&query=Japanese+Cultural+and+Community+Center+of+Northern+California+1840+Sutter+St"
     - icon: "calendar"
       label: "When"
-      value: "September 11–13, 2026"
+      value: "September 11-13, 2026"
       note: "Friday through Sunday, in SF"
     - icon: "ticket"
       label: "Registration"
@@ -105,7 +105,7 @@ details:
 
 cta:
   heading: "Save the Date"
-  dates: "September 11–13, 2026"
+  dates: "September 11-13, 2026"
   body: "Registration opens soon. Camp schedule, pricing, and sign-up details land in the coming weeks."
   buttons:
     - label: "Email us"
