@@ -1,5 +1,4 @@
 # Join Us page content.
-# All [TODO] fields need real data from Emily — do not publish with placeholders.
 
 meta:
   title: "Join Us — JKA of Northern California"
@@ -7,13 +6,13 @@ meta:
 
 # Closing photo band above the footer. All reused from existing pages for now.
 photo_strip:
-  - image: "/images/strip-bow-line.jpg"
+  - image: "/images/join/strip-bow-line.jpg"
     alt: "Students and instructors bowing in at an outdoor ceremony"
-  - image: "/images/strip-kata-solo.jpg"
+  - image: "/images/join/strip-kata-solo.jpg"
     alt: "Black belt performing kata at a JKA tournament"
-  - image: "/images/strip-team-lineup.jpg"
+  - image: "/images/join/strip-team-lineup.jpg"
     alt: "JKA NorCal team at a kumite event"
-  - image: "/images/strip-kumite-match.jpg"
+  - image: "/images/join/strip-kumite-match.jpg"
     alt: "Men's black belt kumite match at a JKA tournament"
 
 tuition:
@@ -55,7 +54,7 @@ register:
 faq:
   label: "FAQ"
   heading: "Common Questions"
-  image: "/images/faq-competition.jpg"
+  image: "/images/join/faq-competition.jpg"
   image_alt: "JKA NorCal competitors after a kumite match"
   items:
     - q: "Who can join? Is this just for kids?"

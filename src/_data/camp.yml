@@ -14,7 +14,7 @@ hero:
   rank: ""
   # Removed from hero to save space (Jun 17). Set a value to bring the sub-line back.
   credential: ""
-  figure: "/images/hirayama-hires.png"
+  figure: "/images/camp/hirayama-hires.png"
   figure_alt: "Yuko Hirayama Sensei in karate gi, arms crossed"
   figure_jp: "日本空手協会　七段"
   subhead: "Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Full camp details land in the coming weeks."
@@ -53,6 +53,8 @@ marquee:
 about:
   label: "The Instructor"
   heading: "Straight from Hombu Dojo, to the Bay Area"
+  photo: "/images/camp/camp2025-15-instructor-demo.jpg"
+  photo_alt: "Hirayama Sensei demonstrating a technique to students"
   paragraphs:
     - "Yuko Hirayama is the highest-ranked woman teaching at the Japan Karate Association Headquarters in Tokyo, a 7th Dan and one of the few to complete the famed JKA Instructors Course. She was named Best Competitor at the 45th All Japan Championship, with titles in both kumite and kata."
     - "She began karate in the second grade in Yokohama and trained through Tokyo Women's College of Physical Education. This is her second year teaching in the Bay Area at JKA NorCal's invitation, and we are honored to host her again."
@@ -66,20 +68,20 @@ expect:
   items:
     - headline: "Train under a JKA Headquarters master"
       body: "Yuko Hirayama, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, leads every session in person."
-      src: "/images/camp-2025/camp2025-09-instructor-boy.jpg"
+      src: "/images/camp/camp2025-09-instructor-boy.jpg"
       alt: "Sensei Hirayama with two fellow black-belt instructors at the camp"
       pos: "center 22%"
     - headline: "Kata and kumite, in real detail"
       body: "Three days move from fundamentals through kata and kumite, with the kind of correction you only get from a headquarters instructor."
-      src: "/images/camp-2025/camp2025-14-sensei-circle.jpg"
+      src: "/images/camp/camp2025-14-sensei-circle.jpg"
       alt: "Sensei Hirayama leading a session in front of the dojo calligraphy wall"
     - headline: "Every level, every age"
       body: "Young beginners and senior black belts train on the same floor, with sessions built so everyone has something to work on."
-      src: "/images/camp-2025/camp2025-05-teaching.jpg"
+      src: "/images/camp/camp2025-05-teaching.jpg"
       alt: "Sensei Hirayama teaching a seated group of students"
     - headline: "One community for the weekend"
       body: "The JKA Northern California community comes together for three full days, ending with the whole camp on the floor."
-      src: "/images/camp-2025/camp2025-01-group.jpg"
+      src: "/images/camp/camp2025-01-group.jpg"
       alt: "The full camp group photographed together on the dojo floor"
 
 details:

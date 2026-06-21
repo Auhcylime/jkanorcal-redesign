@@ -10,7 +10,7 @@
         <div class="footer-col">
           <h5>{{ col.heading }}</h5>
           <ul>
-            {% for link in col.links %}
+            {% for link in col.links %}{% if not (link.page and pages[link.page] == false) %}
             <li>
               {% if link.href %}
               <a href="{{ link.href }}"{% if link.external %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
@@ -18,7 +18,7 @@
               <a href="#" tabindex="-1">{{ link.label }}</a>
               {% endif %}
             </li>
-            {% endfor %}
+            {% endif %}{% endfor %}
           </ul>
         </div>
         {% endfor %}

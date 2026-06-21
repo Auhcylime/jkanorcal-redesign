@@ -1288,10 +1288,12 @@ permalink: "/index.html"
 {% include "nav.njk" %}
 
 <!-- Hirayama Camp announcement banner -->
-<a href="/camp.html" class="camp-banner">
-  <span class="camp-banner-tag">New</span>
-  <span><strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11&ndash;13 &middot; Japantown, San Francisco</span>
+{% if site.camp_banner.enabled and pages.camp != false %}
+<a href="{{ site.camp_banner.href }}" class="camp-banner">
+  <span class="camp-banner-tag">{{ site.camp_banner.tag }}</span>
+  <span>{{ site.camp_banner.text | safe }}</span>
 </a>
+{% endif %}
 
 <!-- Hero — full-bleed training photo -->
 <section class="hero">
@@ -1349,7 +1351,7 @@ permalink: "/index.html"
       <h2 class="heading">{{ home.feature.heading_line1 }}<br>{{ home.feature.heading_line2 }}</h2>
     </div>
     <p class="reveal d1">{{ home.feature.body }}</p>
-    <a href="{{ home.feature.cta.href }}" class="btn btn-outline reveal d2" style="margin-top:8px; align-self:flex-start">{{ home.feature.cta.label }}</a>
+    {% if pages.sensei != false %}<a href="{{ home.feature.cta.href }}" class="btn btn-outline reveal d2" style="margin-top:8px; align-self:flex-start">{{ home.feature.cta.label }}</a>{% endif %}
   </div>
 </div>
 

@@ -10,7 +10,7 @@ list:
     layout: "default"
     first_name: "Wauriman"
     last_name: "Borges"
-    photo: "/images/wauriman.png?v=2"
+    photo: "/images/sensei/wauriman.png?v=2"
     photo_alt: "Sensei Wauriman Borges, 5th Dan"
     vertical_jp: "ワウリマン・ボルジェス"
     bio:
@@ -34,7 +34,7 @@ list:
     layout: "reverse"
     first_name: "Harrison"
     last_name: "Rahn"
-    photo: "/images/harry.png?v=3"
+    photo: "/images/sensei/harry.png?v=3"
     photo_alt: "Harrison Rahn, 4th Dan"
     vertical_jp: "ハリソン・ラーン"
     bio:
@@ -53,7 +53,7 @@ list:
     layout: "default"
     first_name: "Sammi"
     last_name: "Yeung"
-    photo: "/images/sammi.png?v=2"
+    photo: "/images/sensei/sammi.png?v=2"
     photo_alt: "Sammi Yeung, 3rd Dan"
     vertical_jp: "サミー・ヨン"
     bio:
@@ -66,7 +66,7 @@ list:
       - { value: "4th",  label: "2024 World Cup<br>Team Kata" }
 
 invitation:
-  logo: "/images/jka-logo.jpg"
+  logo: "/images/shared/jka-logo.jpg"
   logo_alt: "JKA NorCal"
   heading: "<em>Welcome</em> to the dojo."
   subhead: "San Bruno · Five days a week · All levels"

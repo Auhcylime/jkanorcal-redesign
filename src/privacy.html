@@ -1,13 +1,14 @@
 ---
 permalink: "/privacy.html"
+pageId: "privacy"
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — JKA of Northern California</title>
-<meta name="description" content="Privacy Policy for JKA of Northern California — what data we collect, how we use it, and your rights.">
+<title>{{ privacy.meta.title }}</title>
+<meta name="description" content="{{ privacy.meta.description }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
@@ -295,111 +296,15 @@ permalink: "/privacy.html"
 {% include "nav.njk" %}
 
 <section class="page-header">
-  <div class="label">Legal</div>
-  <h1>Privacy Policy</h1>
+  <div class="label">{{ privacy.header.label }}</div>
+  <h1>{{ privacy.header.heading }}</h1>
 </section>
 
 <article class="legal">
-  <h2>Who we are</h2>
-  <p>JKA NorCal is a JKA-affiliated Shotokan Karate club based in San Bruno near San Francisco, CA. Our website address is <a href="https://jkanorcal.org">https://jkanorcal.org</a>.</p>
-
-  <h2>What personal data we collect and why we collect it</h2>
-  <p>While you visit the tournament registration site, we'll track:</p>
-  <ul>
-    <li>Events you've viewed: we'll use this to, for example, show you events you've recently viewed.</li>
-    <li>Location, IP address, and browser type: we'll use this for purposes like estimating taxes and shipping.</li>
-    <li>Shipping address: we'll ask you to enter this so we can, for instance, send you confirmation of your registration, or contact you if there are problems.</li>
-  </ul>
-  <p>We'll also use cookies to keep track of cart contents while you're browsing our site.</p>
-  <p>When you register for a tournament, we'll ask you to provide information including your name, billing address, shipping address, email address, phone number, credit card / payment details, and optional account information like username and password. We'll use this information for purposes such as:</p>
-  <ul>
-    <li>Sending you information about your account and order.</li>
-    <li>Responding to your requests, including refunds and complaints.</li>
-    <li>Verifying that you are registered for the correct events.</li>
-    <li>Processing payments and preventing fraud.</li>
-    <li>Setting up your account for our store.</li>
-    <li>Complying with any legal obligations we have, such as calculating taxes.</li>
-  </ul>
-  <p>If you create an account, we will store your name, address, email, and phone number, which will be used to populate the checkout for future orders.</p>
-  <p>We generally store information about you for as long as we need the information for the purposes for which we collect and use it, and we are not legally required to continue to keep it. For example, we will store order information for 3 years for tax and accounting purposes. This includes your name, email address, and billing and shipping addresses.</p>
-  <p>We will also store comments or reviews, if you choose to leave them.</p>
-
-  <h2>Comments</h2>
-  <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help spam detection.</p>
-  <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available at <a href="https://automattic.com/privacy/" target="_blank" rel="noopener">https://automattic.com/privacy/</a>. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
-
-  <h2>Media</h2>
-  <p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. We attempt to scrub all EXIF data from images, but for various reasons this does not always succeed, so visitors to the website may be able to download and extract location data from images on the website.</p>
-
-  <h2>Contact forms</h2>
-  <p>Information you enter on forms on this website will be saved on this server. Additionally, it may be sent in email to you and the site administrators. See below for the length of time this information is retained.</p>
-
-  <h2>Cookies</h2>
-  <p>If you leave a comment on our site you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>
-  <p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>
-  <p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select "Remember Me," your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>
-  <p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>
-
-  <h2>Embedded content from other websites</h2>
-  <p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
-  <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
-
-  <h2>Payments</h2>
-  <p>We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.</p>
-  <p>Please see the PayPal Privacy Policy for more details.</p>
-
-  <h2>Analytics</h2>
-
-  <h3>Who we share your data with</h3>
-  <p>If you register for an event, at your option, you can allow us to share your name with other registered participants on a listing of all divisions and registered participants. If you do not wish to share your name, your name will be shown as "anonymous." This listing of divisions will only show the number of registered participants to site visitors who are not registered with the site.</p>
-  <p>We use WooCommerce (<a href="https://woocommerce.com/" target="_blank" rel="noopener">https://woocommerce.com/</a>) for tournament registrations on this site.</p>
-  <p>We use Google reCAPTCHA v3 on this site to provide additional security for user logins. The use of reCAPTCHA v3 is subject to the Google Privacy Policy and Terms of Use.</p>
-  <p>We may also use Jetpack (<a href="https://jetpack.com/" target="_blank" rel="noopener">https://jetpack.com/</a>) for data analytics on the site.</p>
-  <p>Additionally, our server stores logs of all access requests, including your IP address and the page you attempt to access, along with any post data included in that request. This is to diagnose possible problems with the site, as well as to monitor for malicious activity.</p>
-
-  <h2>What rights you have over your data</h2>
-  <p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>
-
-  <h2>Where we send your data</h2>
-  <p>Visitor comments may be checked through an automated spam detection service. Tournament registrations will be shared by email to the email address you provide, as well as with site administrators.</p>
-
-  <h2>Your contact information</h2>
-  <p>When you register for a tournament through this site, your address, name, and any information you enter in your registration is stored on this site. This information may also be shared with payment processors (e.g. PayPal) if you choose that payment method.</p>
-
-  <h2>Data Retention</h2>
-  <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>
-  <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>
-  <p>We do not store any payment, credit card, etc. information on this server. That is all handled through third-party payment processors (e.g. PayPal), and they share only whether the payment is successful with this site.</p>
-  <p>We save "inactive" accounts (i.e. accounts that have not been logged in or accessed this site) for 18 months.</p>
-  <p>We retain pending, failed, and cancelled orders (registrations) for 30 days.</p>
-  <p>We retain completed orders for 3 years.</p>
-  <p>Access and error logs are typically stored for up to seven (7) days, but may be stored indefinitely and shared with law enforcement if malicious activity (i.e. attempts to compromise the site or fraudulently obtain login credentials) is detected or suspected.</p>
-
-  <h2>Who on our team has access</h2>
-  <p>Members of our team have access to the information you provide us. For example, both Administrators and Shop Managers can access:</p>
-  <ul>
-    <li>Order information like what was purchased, when it was purchased, and where it should be sent.</li>
-    <li>Customer information like your name, email address, and billing and shipping information.</li>
-  </ul>
-  <p>Our team members have access to this information to help fulfill orders, process refunds, and support you.</p>
-
-  <h2>Additional information</h2>
-
-  <h3>How we protect your data</h3>
-  <p>Communication with the server is encrypted if you access the site through HTTPS, and the site uses 128-bit encryption to secure passwords and data shared with the server. Your password is stored as a hash, which may be possible for hackers to decrypt if they obtained access to the servers. Therefore, you should not use the same password on this site as on any other site.</p>
-
-  <h3>What data breach procedures we have in place</h3>
-  <p>We use multiple plugins to attempt to monitor and protect the site from malicious access attempts. We also attempt to keep all software up to date.</p>
-
-  <h3>What third parties we receive data from</h3>
-  <p>When you pay for registrations, we receive confirmation from the payment processor whether the payment was successful, and the shipping address (if applicable) you provided to them.</p>
-
-  <h3>What automated decision making and / or profiling we do with user data</h3>
-  <p>We use some plugins to try to reduce the amount of spam and malicious login attempts. These plugins may share your IP address with public blacklists.</p>
-
-  <h3>Industry regulatory disclosure requirements</h3>
-  <p>If you have any further questions or concerns, please contact us. We'd be happy to hear from you, and even happier if you come and train with us. Osu!</p>
-</article>
+{% for section in privacy.sections %}
+  <h{{ section.level }}>{{ section.heading }}</h{{ section.level }}>
+{% if section.body %}  {{ section.body | safe }}
+{% endif %}{% endfor %}</article>
 
 {% include "footer.njk" %}
 

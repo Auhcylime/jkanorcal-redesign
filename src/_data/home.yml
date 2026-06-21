@@ -15,13 +15,13 @@ hero:
 
 # 4 thumbnails directly under the hero.
 photo_strip:
-  - image: "/images/strip-1-kids-belts.jpg"
+  - image: "/images/home/strip-1-kids-belts.jpg"
     alt: "Kids program graduation with new belts"
-  - image: "/images/strip-3-class.jpg"
+  - image: "/images/home/strip-3-class.jpg"
     alt: "Partner training in the dojo"
-  - image: "/images/strip-4-group.jpg"
+  - image: "/images/home/strip-4-group.jpg"
     alt: "Sensei and students at Los Angeles JKA visit"
-  - image: "/images/strip-2-kata-kids.jpg"
+  - image: "/images/home/strip-2-kata-kids.jpg"
     alt: "Kids practicing kata in the dojo"
 
 # About the dojo section. Each paragraph supports a single inline link.
@@ -40,7 +40,7 @@ about:
 
 # Instructors feature section (photo + heading + paragraph + 3 stats).
 feature:
-  photo: "/images/about-usa-team.jpg"
+  photo: "/images/home/about-usa-team.jpg"
   photo_alt: "JKA Karate USA Team at the World Championships"
   label: "Instructors"
   heading_line1: "Taught by certified"

@@ -1,0 +1,11 @@
+# Show or hide whole pages on the site.
+# Turn one OFF (false) to unpublish it: the page stops being built — its URL no
+# longer works — and it is removed from the navigation, the footer, and any
+# on-site links that point to it. Turn it back ON (true) to restore it.
+# The home page is always on and cannot be hidden here.
+camp: true
+sensei: true
+join: true
+interview: true
+newsletter: true
+privacy: true

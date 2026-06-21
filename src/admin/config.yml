@@ -18,9 +18,29 @@ display_url: https://jkanorcal-redesign.vercel.app
 logo_url: /images/jka-logo.jpg
 
 collections:
+  # === SHOW / HIDE PAGES ===
+  # Toggle a page off to unpublish it (its URL stops working) and remove it
+  # from the nav, footer, and on-site links. Home is always on.
+  - name: pages
+    label: "Pages (show / hide)"
+    files:
+      - file: src/_data/pages.yml
+        name: pages
+        label: "Page visibility"
+        editor: { preview: false }
+        fields:
+          - { name: camp,       label: "Camp page",           widget: boolean, default: true }
+          - { name: sensei,     label: "Instructors page",    widget: boolean, default: true }
+          - { name: join,       label: "Join Us page",        widget: boolean, default: true }
+          - { name: interview,  label: "Interview page",      widget: boolean, default: true }
+          - { name: newsletter, label: "Newsletter page",     widget: boolean, default: true }
+          - { name: privacy,    label: "Privacy Policy page", widget: boolean, default: true }
+
   # === SITE-WIDE: nav, footer, contact, social ===
   - name: site
     label: "Site (nav, footer, contact)"
+    media_folder: "/src/images/shared"
+    public_folder: "/images/shared"
     files:
       - file: src/_data/site.yml
         name: site
@@ -36,6 +56,7 @@ collections:
               - { name: label, label: Label, widget: string }
               - { name: href,  label: URL,   widget: string }
               - { name: id,    label: "ID (for current-page highlight)", widget: string, required: false }
+              - { name: badge, label: 'Badge dot (type "dot" for a red new-marker)', widget: string, required: false }
           - { name: join_url, label: "Join Us button URL", widget: string }
           - name: contact
             label: Contact
@@ -72,10 +93,20 @@ collections:
                       - { name: label, label: Label, widget: string }
                       - { name: href,  label: URL,   widget: string, required: false }
                       - { name: external, label: "Opens in new tab", widget: boolean, required: false, default: false }
+          - name: camp_banner
+            label: "Announcement banner (Home + Instructors)"
+            widget: object
+            fields:
+              - { name: enabled, label: "Show banner",            widget: boolean, default: true }
+              - { name: href,    label: "Link URL",               widget: string }
+              - { name: tag,     label: "Tag pill (e.g. New)",     widget: string }
+              - { name: text,    label: "Banner text (HTML allowed)", widget: string }
 
   # === HOMEPAGE: every editable section on / ===
   - name: home
     label: "Homepage sections"
+    media_folder: "/src/images/home"
+    public_folder: "/images/home"
     files:
       - file: src/_data/home.yml
         name: home
@@ -147,6 +178,12 @@ collections:
                 fields:
                   - { name: value, label: Value, widget: string }
                   - { name: label, label: Label, widget: string }
+              - name: cta
+                label: "CTA button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
           - name: updates
             label: "Updates / Instagram section"
             widget: object
@@ -228,6 +265,8 @@ collections:
   # === SENSEI / INSTRUCTORS ===
   - name: instructors
     label: "Sensei / Instructors"
+    media_folder: "/src/images/sensei"
+    public_folder: "/images/sensei"
     files:
       - file: src/_data/instructors.yml
         name: instructors
@@ -318,3 +357,294 @@ collections:
               - { name: month_line1,   label: "Month line 1",    widget: string }
               - { name: month_line2,   label: "Month line 2",    widget: string }
               - { name: archive_month, label: "Display month",   widget: string }
+
+  # === HIRAYAMA CAMP 2026 (camp.html) ===
+  - name: camp
+    label: "Camp page"
+    media_folder: "/src/images/camp"
+    public_folder: "/images/camp"
+    files:
+      - file: src/_data/camp.yml
+        name: camp
+        label: "Hirayama Camp 2026"
+        editor: { preview: false }
+        fields:
+          - name: meta
+            label: "Page meta (SEO)"
+            widget: object
+            fields:
+              - { name: title,       label: "Browser tab title", widget: string }
+              - { name: description, label: "Meta description",   widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: kicker,     label: Kicker,                widget: string }
+              - { name: name,       label: "Instructor name",     widget: string }
+              - { name: honorific,  label: Honorific,             widget: string }
+              - { name: name_jp,    label: "Name (Japanese)",     widget: string }
+              - { name: rank,       label: "Rank line (optional, HTML allowed)", widget: string, required: false }
+              - { name: credential, label: "Credential sub-line (optional)",     widget: string, required: false }
+              - { name: figure,     label: "Hero figure image",   widget: image }
+              - { name: figure_alt, label: "Figure alt text",     widget: string }
+              - { name: figure_jp,  label: "Vertical Japanese caption", widget: string }
+              - { name: subhead,    label: Subheadline,           widget: text }
+              - { name: chips,      label: "Chips (date / place / level)", widget: list, field: { name: chip, label: Chip, widget: string } }
+              - name: cta_primary
+                label: "Primary button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+              - name: cta_secondary
+                label: "Secondary button"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+          - name: marquee
+            label: "Record marquee (scrolling ticker)"
+            widget: list
+            fields:
+              - { name: type,  label: "Type (rank | medal)", widget: select, options: ["rank", "medal"] }
+              - { name: cls,   label: "Medal colour (gold | silver | bronze)", widget: string, required: false }
+              - { name: label, label: Label, widget: string }
+          - name: about
+            label: "About the instructor"
+            widget: object
+            fields:
+              - { name: label,      label: "Eyebrow label", widget: string }
+              - { name: heading,    label: Heading,         widget: string }
+              - { name: photo,      label: Photo,           widget: image }
+              - { name: photo_alt,  label: "Photo alt text", widget: string }
+              - { name: paragraphs, label: Paragraphs,      widget: list, field: { name: text, label: Paragraph (HTML allowed), widget: text } }
+          - name: expect
+            label: "What to expect"
+            widget: object
+            fields:
+              - { name: label,   label: "Eyebrow label", widget: string }
+              - { name: heading, label: Heading,         widget: string }
+              - { name: note,    label: Note,            widget: string }
+              - name: items
+                label: "Rows (photo + copy)"
+                widget: list
+                fields:
+                  - { name: headline, label: Headline,    widget: string }
+                  - { name: body,     label: Body,        widget: text }
+                  - { name: src,      label: Image,       widget: image }
+                  - { name: alt,      label: "Image alt",  widget: string }
+                  - { name: pos,      label: "Image focus position (optional, e.g. 'center 22%')", widget: string, required: false }
+          - name: details
+            label: "Camp details cards"
+            widget: object
+            fields:
+              - { name: label,   label: "Eyebrow label", widget: string }
+              - { name: heading, label: Heading,         widget: string }
+              - { name: note,    label: Note,            widget: string }
+              - name: cards
+                label: Cards
+                widget: list
+                fields:
+                  - { name: icon,  label: "Icon (location | calendar | ticket)", widget: select, options: ["location", "calendar", "ticket"] }
+                  - { name: label, label: Label, widget: string }
+                  - { name: value, label: Value, widget: string }
+                  - { name: note,  label: Note,  widget: string }
+                  - { name: href,  label: "Link URL (optional)", widget: string, required: false }
+          - name: cta
+            label: "Closing 'Save the Date' band"
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: dates,   label: Dates,   widget: string }
+              - { name: body,    label: Body,    widget: text }
+              - name: buttons
+                label: Buttons
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href,  label: URL,   widget: string }
+                  - { name: style, label: "Style (btn-accent | btn-outline)", widget: string }
+
+  # === JOIN US (join.html) ===
+  - name: join
+    label: "Join page"
+    media_folder: "/src/images/join"
+    public_folder: "/images/join"
+    files:
+      - file: src/_data/join.yml
+        name: join
+        label: "Join Us content"
+        editor: { preview: false }
+        fields:
+          - name: meta
+            label: "Page meta (SEO)"
+            widget: object
+            fields:
+              - { name: title,       label: "Browser tab title", widget: string }
+              - { name: description, label: "Meta description",   widget: text }
+          - name: photo_strip
+            label: "Photo strip (closing band)"
+            widget: list
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt,   label: "Alt text", widget: string }
+          - name: tuition
+            label: Tuition
+            widget: object
+            fields:
+              - { name: heading, label: Heading,        widget: string }
+              - { name: promise, label: "Promise line", widget: string }
+              - name: anchor
+                label: "Anchor price"
+                widget: object
+                fields:
+                  - { name: price,       label: Price,        widget: string }
+                  - { name: cadence,     label: Cadence,      widget: string }
+                  - { name: fine,        label: "Fine print", widget: text }
+                  - { name: commit_line, label: "Commit-longer line (HTML allowed)", widget: text }
+              - name: family
+                label: "Family discount"
+                widget: object
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - name: rows
+                    label: Rows
+                    widget: list
+                    fields:
+                      - { name: who,  label: Who,  widget: string }
+                      - { name: rate, label: Rate, widget: string }
+                  - { name: first,      label: "1st member price (number, drives calculator)", widget: number }
+                  - { name: second,     label: "2nd member price (number)",        widget: number }
+                  - { name: additional, label: "Additional member price (number)", widget: number }
+              - name: dropin
+                label: "Drop-in line"
+                widget: object
+                fields:
+                  - { name: text, label: "Text (HTML allowed)", widget: text }
+              - name: assistance
+                label: "Financial assistance line"
+                widget: object
+                fields:
+                  - { name: text, label: "Text (HTML allowed)", widget: text }
+          - name: register
+            label: "How to register"
+            widget: object
+            fields:
+              - { name: label, label: "Eyebrow label", widget: string }
+              - name: new
+                label: "New students"
+                widget: object
+                fields:
+                  - { name: heading, label: Heading,        widget: string }
+                  - { name: body,    label: Body,           widget: text }
+                  - { name: button,  label: "Button label", widget: string }
+              - name: returning
+                label: "Returning students"
+                widget: object
+                fields:
+                  - { name: heading, label: Heading,             widget: string }
+                  - { name: body,    label: "Body (HTML allowed)", widget: text }
+                  - { name: button,  label: "Button label",      widget: string }
+                  - { name: href,    label: "Button URL",        widget: string }
+          - name: faq
+            label: FAQ
+            widget: object
+            fields:
+              - { name: label,     label: "Eyebrow label", widget: string }
+              - { name: heading,   label: Heading,         widget: string }
+              - { name: image,     label: "Side image",    widget: image }
+              - { name: image_alt, label: "Image alt",     widget: string }
+              - name: items
+                label: "Questions"
+                widget: list
+                fields:
+                  - { name: q, label: Question, widget: string }
+                  - { name: a, label: "Answer (HTML allowed)", widget: text }
+
+  # === INTERVIEW (interview.html) ===
+  - name: interview
+    label: "Interview page"
+    media_folder: "/src/images/interview"
+    public_folder: "/images/interview"
+    files:
+      - file: src/_data/interview.yml
+        name: interview
+        label: "Hirayama interview"
+        editor: { preview: false }
+        fields:
+          - name: meta
+            label: "Page meta (SEO)"
+            widget: object
+            fields:
+              - { name: title,       label: "Browser tab title", widget: string }
+              - { name: description, label: "Meta description",   widget: text }
+          - name: header
+            label: "Article header"
+            widget: object
+            fields:
+              - { name: back_label, label: "Back link label (HTML allowed)", widget: string }
+              - { name: eyebrow,    label: Eyebrow, widget: string }
+              - { name: title,      label: Title,   widget: string }
+              - { name: byline,     label: "Byline (HTML allowed)", widget: text }
+          - name: lede
+            label: "Intro (two columns)"
+            widget: object
+            fields:
+              - { name: col1_p1,      label: "Column 1 paragraph",   widget: text }
+              - { name: col1_fig_src, label: "Column 1 image",       widget: image }
+              - { name: col1_fig_alt, label: "Column 1 image alt",    widget: string }
+              - { name: col2_p1,      label: "Column 2 paragraph 1", widget: text }
+              - { name: col2_p2,      label: "Column 2 paragraph 2", widget: text }
+          - { name: note, label: "Provenance note", widget: text }
+          - name: sections
+            label: "Interview sections"
+            widget: list
+            fields:
+              - { name: label,     label: "Section label", widget: string }
+              - { name: pullquote, label: "Pull quote (optional)", widget: text, required: false }
+              - name: fig_pair
+                label: "Image pair (optional)"
+                widget: object
+                required: false
+                fields:
+                  - { name: after,    label: "Insert after Q&A number", widget: number }
+                  - { name: img1_src, label: "Image 1",     widget: image }
+                  - { name: img1_alt, label: "Image 1 alt", widget: string }
+                  - { name: img2_src, label: "Image 2",     widget: image }
+                  - { name: img2_alt, label: "Image 2 alt", widget: string }
+              - name: qa
+                label: "Questions & answers"
+                widget: list
+                fields:
+                  - { name: question, label: Question, widget: text }
+                  - { name: answer,   label: "Answer paragraphs (HTML allowed)", widget: list, field: { name: text, label: Paragraph, widget: text } }
+          - { name: credits, label: "Closing credits", widget: text }
+
+  # === PRIVACY POLICY (privacy.html) ===
+  - name: privacy
+    label: "Privacy page"
+    files:
+      - file: src/_data/privacy.yml
+        name: privacy
+        label: "Privacy Policy"
+        editor: { preview: false }
+        fields:
+          - name: meta
+            label: "Page meta (SEO)"
+            widget: object
+            fields:
+              - { name: title,       label: "Browser tab title", widget: string }
+              - { name: description, label: "Meta description",   widget: text }
+          - name: header
+            label: Header
+            widget: object
+            fields:
+              - { name: label,   label: "Eyebrow label", widget: string }
+              - { name: heading, label: Heading,         widget: string }
+          - name: sections
+            label: "Policy sections"
+            widget: list
+            fields:
+              - { name: heading, label: "Section heading", widget: string }
+              - { name: level,   label: "Heading level (2 = main, 3 = sub-section)", widget: number, default: 2 }
+              - { name: body,    label: "Body (HTML)", widget: text, required: false }

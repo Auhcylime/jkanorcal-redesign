@@ -1,5 +1,5 @@
 name: "JKA NorCal"
-logo: "/images/jka-logo.jpg"
+logo: "/images/shared/jka-logo.jpg"
 
 # Top nav and mobile nav share these items.
 # `id` is matched against page front-matter `currentPage` to apply .current.
@@ -12,6 +12,14 @@ nav:
   - { label: "Camp", href: "/camp.html", id: "camp", badge: "dot" }
 
 join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866"
+
+# Site-wide announcement banner (shows above the hero on Home + Instructors).
+# Set `enabled: false` to hide it everywhere without deleting the copy.
+camp_banner:
+  enabled: true
+  href: "/camp.html"
+  tag: "New"
+  text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11&ndash;13 &middot; Japantown, San Francisco"
 
 contact:
   phone: "(650) 502-2902"
@@ -34,12 +42,12 @@ footer:
       links:
         - { label: "About",    href: "/#about" }
         - { label: "Schedule", href: "/#schedule" }
-        - { label: "Instructors", href: "/sensei.html" }
+        - { label: "Instructors", href: "/sensei.html", page: "sensei" }
     - heading: "Resources"
       links:
-        - { label: "Newsletter",     href: "/newsletter.html" }
+        - { label: "Newsletter",     href: "/newsletter.html", page: "newsletter" }
         - { label: "JKA/AF Website", href: "https://www.jkaaf.com", external: true }
-        - { label: "Privacy Policy", href: "/privacy.html" }
+        - { label: "Privacy Policy", href: "/privacy.html", page: "privacy" }
     - heading: "Contact"
       links:
         - { label: "(650) 502-2902",     href: "tel:6505022902" }

@@ -1,6 +1,7 @@
 ---
 permalink: "/camp.html"
 currentPage: "camp"
+pageId: "camp"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -1307,7 +1308,7 @@ currentPage: "camp"
   .camp-stage {
     position: absolute;
     inset: 0;
-    background-image: url("/images/sf-golden-gate.jpg");
+    background-image: url("/images/shared/sf-golden-gate.jpg");
     background-size: 165%;
     background-position: 26% 56%;
     opacity: 0.26;
@@ -2000,13 +2001,13 @@ currentPage: "camp"
   <div class="camp-about-head">
     <div class="label reveal">{{ camp.about.label }}</div>
     <h2 class="heading reveal d1">{{ camp.about.heading }}</h2>
-    <img src="/images/camp-2025/camp2025-15-instructor-demo.jpg" alt="Hirayama Sensei demonstrating a technique to students" class="camp-about-photo reveal d2" loading="lazy">
+    <img src="{{ camp.about.photo }}" alt="{{ camp.about.photo_alt }}" class="camp-about-photo reveal d2" loading="lazy">
   </div>
   <div class="camp-about-body">
     {% for para in camp.about.paragraphs %}
     <p class="reveal d{{ loop.index }}">{{ para }}</p>
     {% endfor %}
-    <a href="/interview.html" class="camp-about-link reveal">Read her interview &rarr;</a>
+    {% if pages.interview != false %}<a href="/interview.html" class="camp-about-link reveal">Read her interview &rarr;</a>{% endif %}
   </div>
 </section>
 

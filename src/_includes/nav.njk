@@ -4,10 +4,10 @@
     {{ site.name }}
   </a>
   <ul class="nav-links">
-    {% for item in site.nav %}
+    {% for item in site.nav %}{% if pages[item.id] != false %}
     <li><a href="{{ item.href }}"{% if item.id == currentPage %} class="current"{% endif %}>{{ item.label }}{% if item.badge == "dot" %}<span class="nav-dot" data-badge="{{ item.id }}" aria-hidden="true" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c8102e;vertical-align:super;margin-left:5px;"></span>{% endif %}</a></li>
-    {% endfor %}
-    <li><a href="/join.html" class="join-btn"{% if currentPage == "join" %} aria-current="page"{% endif %}>Join Us</a></li>
+    {% endif %}{% endfor %}
+    {% if pages.join != false %}<li><a href="/join.html" class="join-btn"{% if currentPage == "join" %} aria-current="page"{% endif %}>Join Us</a></li>{% endif %}
   </ul>
   <button class="hamburger" id="ham" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -15,10 +15,10 @@
 </nav>
 
 <div class="mobile-nav" id="mob">
-  {% for item in site.nav %}
+  {% for item in site.nav %}{% if pages[item.id] != false %}
   <a href="{{ item.href }}" onclick="closeM()">{{ item.label }}{% if item.badge == "dot" %}<span class="nav-dot" data-badge="{{ item.id }}" aria-hidden="true" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#c8102e;vertical-align:super;margin-left:5px;"></span>{% endif %}</a>
-  {% endfor %}
-  <a href="/join.html" onclick="closeM()">Join Us</a>
+  {% endif %}{% endfor %}
+  {% if pages.join != false %}<a href="/join.html" onclick="closeM()">Join Us</a>{% endif %}
 </div>
 
 <script>
