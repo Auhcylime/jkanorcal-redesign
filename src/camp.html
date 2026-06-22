@@ -1314,12 +1314,11 @@ pageId: "camp"
     inset: 0;
     background-image: url("/images/shared/sf-golden-gate.jpg");
     background-repeat: no-repeat;
-    /* Zoomed and right-anchored so the vertical tower lands in the band just
-       left of Hirayama (who is also right-pinned) and holds that spot as the
-       viewport widens, instead of drifting with a centered crop. Sized off
-       height (auto) so the horizontal anchor stays stable across widths. */
-    background-size: auto 150%;
-    background-position: right -1120px top 32%;
+    /* cover keeps the whole bridge in frame (tower tip through the deck), since
+       it scales to the hero height with no vertical crop. Biased left so the
+       vertical tower sits clear of the right-pinned figure. */
+    background-size: cover;
+    background-position: 15% center;
     opacity: 0.26;
     z-index: 0;
   }
