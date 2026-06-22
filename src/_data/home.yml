@@ -1,90 +1,76 @@
-# Hero (full-bleed photo with overlay text and CTAs).
 hero:
-  image: "/images/home/home-hero-training.jpg"
-  image_alt: "Karate training at JKA Northern California"
-  heading_line1: "Shotokan Karate in"
-  heading_line2: "San Bruno"
-  subhead: "Authentic JKA training for adults and kids, five days a week. Twenty minutes south of San Francisco."
+  image: /images/home/home-hero-training.jpg
+  image_alt: Karate training at JKA Northern California
+  heading_line1: Shotokan Karate in
+  heading_line2: San Bruno
+  subhead: Authentic JKA training for adults and kids, five days a week. Twenty minutes south of San Francisco.
   cta_primary:
-    label: "Join Us"
-    href: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866"
+    label: Join Us
+    href: https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866
     external: true
   cta_secondary:
-    label: "See Class Schedule"
-    href: "#schedule"
-
-# 4 thumbnails directly under the hero.
+    label: See Class Schedule
+    href: '#schedule'
 photo_strip:
-  - image: "/images/home/strip-1-kids-belts.jpg"
-    alt: "Kids program graduation with new belts"
-  - image: "/images/home/strip-3-class.jpg"
-    alt: "Partner training in the dojo"
-  - image: "/images/home/strip-4-group.jpg"
-    alt: "Sensei and students at Los Angeles JKA visit"
-  - image: "/images/home/strip-2-kata-kids.jpg"
-    alt: "Kids practicing kata in the dojo"
-
-# About the dojo section. Each paragraph supports a single inline link.
+  - image: /images/home/strip-1-kids-belts.jpg
+    alt: Kids program graduation with new belts
+  - image: /images/home/strip-3-class.jpg
+    alt: Partner training in the dojo
+  - image: /images/home/strip-4-group.jpg
+    alt: Sensei and students at Los Angeles JKA visit
+  - image: /images/home/strip-2-kata-kids.jpg
+    alt: Kids practicing kata in the dojo
 about:
-  label: "About the Dojo"
-  heading: "Shotokan in San Bruno"
+  label: About the Dojo
+  heading: Shotokan in San Bruno
   paragraphs:
-    - 'JKA of Northern California is the Bay Area''s home for Shotokan karate, affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo in San Bruno has served the community since 2009, developing students of all ages through traditional, rigorous training.'
+    - JKA of Northern California is the Bay Area's home for Shotokan karate, affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo in San Bruno has served the community since 2009, developing students of all ages through traditional, rigorous training.
     - 'The curriculum follows JKA methodology: correct form, strong technique, and the development of character. Beginners and experienced karateka train side by side.'
   cta:
-    label: "View Class Schedule"
-    href: "#schedule"
-  photo: "/images/home/home-about-class.jpg"
-  photo_alt: "Friday class at the dojo"
-
-
-# Instructors feature section (photo + heading + paragraph + 3 stats).
+    label: View Class Schedule
+    href: '#schedule'
+  photo: /images/home/home-about-class.jpg
+  photo_alt: Friday class at the dojo
 feature:
-  photo: "/images/home/about-usa-team.jpg"
-  photo_alt: "JKA Karate USA Team at the World Championships"
-  label: "Instructors"
-  heading_line1: "Taught by certified"
-  heading_line2: "black belts"
-  body: "Our instructors hold JKA-certified ranks and have trained under some of the most respected masters in the Shotokan tradition."
+  photo: /images/home/about-usa-team.jpg
+  photo_alt: JKA Karate USA Team at the World Championships
+  label: Instructors
+  heading_line1: JKA Certified
+  heading_line2: Black Belt Instructors
+  body: Our instructors hold dan ranks within the JKA ranging from Sandan to Godan. They have spent years training under some of the most respected masters in the Shotokan tradition domestically and abroad.
   cta:
-    label: "Meet the instructors"
-    href: "/sensei"
-
-# Updates / Instagram section. Embed is the LightWidget id.
+    label: Meet the instructors
+    href: /sensei
 updates:
-  label: "Updates"
-  heading: "From the dojo's Instagram"
-  description: 'Camp news, competition moments, and class highlights, straight from <a href="https://instagram.com/jkanorcal" target="_blank" rel="noopener">@jkanorcal</a>.'
+  label: Updates
+  heading: From the dojo's Instagram
+  description: Camp news, competition moments, and class highlights, straight from <a href="https://instagram.com/jkanorcal" target="_blank" rel="noopener">@jkanorcal</a>.
   follow_button:
-    label: "Follow on Instagram"
-    href: "https://instagram.com/jkanorcal"
-  lightwidget_id: "2b4c3aaed9a059fc933a292ca0262e1c"
-
-# Recognition section (dark band).
+    label: Follow on Instagram
+    href: https://instagram.com/jkanorcal
+  lightwidget_id: 2b4c3aaed9a059fc933a292ca0262e1c
 recognition:
-  photo: "/images/home/home-recognition-sammi.jpg"
-  photo_alt: "Sammi Yeung with her Panamerican trophies"
-  caption: "Sammi · Panam Trophies, 2025"
-  label: "Recognition"
-  heading: 'Home of the <em>2025 Panamerican Kata Champion</em>, Sammi Yeung, and a roster of athletes who train and compete on the world floor.'
-  body: "JKA NorCal is also proud to have had Sensei Wauriman, Harry Rahn, Abdallah and Amir Batshon, and Sensei Christina Foo represent the United States and Julia Ip represent Canada. Our dojo continues to produce high-level competitors in both kata and kumite that make their marks at the world level."
-
-# Find the Dojo (visit) section.
+  photo: /images/home/home-recognition-sammi.jpg
+  photo_alt: Sammi Yeung with her Panamerican trophies
+  caption: Sammi · Panam Trophies, 2025
+  label: Recognition
+  heading: Home of the <em>2025 Panamerican Kata Champion</em>, Sammi Yeung, and a roster of athletes who train and compete on the world floor.
+  body: JKA NorCal is also proud to have had Sensei Wauriman, Harry Rahn, Abdallah and Amir Batshon, and Sensei Christina Foo represent the United States and Julia Ip represent Canada. Our dojo continues to produce high-level competitors in both kata and kumite that make their marks at the world level.
 location:
-  bg_image: "/images/home/home-location-dojo.jpg"
-  bg_alt: "Inside the JKA NorCal dojo"
-  label: "Visit"
-  heading: "Find the Dojo"
+  bg_image: /images/home/home-location-dojo.jpg
+  bg_alt: Inside the JKA NorCal dojo
+  label: Visit
+  heading: Find the Dojo
   items:
-    - heading: "Address"
-      content: '<a href="https://maps.google.com/?q=356+El+Camino+Real,+San+Bruno,+CA+94066" target="_blank" rel="noopener">356 El Camino Real<br>San Bruno, CA 94066</a>'
-    - heading: "Phone"
-      content: '<a href="tel:6505022902">(650) 502-2902</a>'
-    - heading: "Email"
-      content: '<a href="mailto:info@jkanorcal.org">info@jkanorcal.org</a>'
-    - heading: "Getting Here"
-      content: "About 20 minutes south of San Francisco, right off El Camino Real in San Bruno."
+    - heading: Address
+      content: <a href="https://maps.google.com/?q=356+El+Camino+Real,+San+Bruno,+CA+94066" target="_blank" rel="noopener">356 El Camino Real<br>San Bruno, CA 94066</a>
+    - heading: Phone
+      content: <a href="tel:6505022902">(650) 502-2902</a>
+    - heading: Email
+      content: <a href="mailto:info@jkanorcal.org">info@jkanorcal.org</a>
+    - heading: Getting Here
+      content: About 20 minutes south of San Francisco, right off El Camino Real in San Bruno.
   cta:
-    label: "Join Us"
-    href: "/join"
-    external: false
+    label: Join Us
+    href: https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866
+    external: true
