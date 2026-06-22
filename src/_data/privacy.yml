@@ -83,8 +83,8 @@ sections:
   - heading: "Payments"
     level: 2
     body: |-
-      <p>We accept payments through PayPal. When processing payments, some of your data will be passed to PayPal, including information required to process or support the payment, such as the purchase total and billing information.</p>
-      <p>Please see the PayPal Privacy Policy for more details.</p>
+      <p>We take payment through Jackrabbit only. When you register or pay, your payment is handled by Jackrabbit's secure system, and some of your data, such as the purchase total and billing information, is passed to Jackrabbit to process or support the payment.</p>
+      <p>You can view and manage your registrations and payments through the <a href="https://app.jackrabbitclass.com/ParentPortal/jkanorcal" target="_blank" rel="noopener">parent portal</a>.</p>
 
   # The "Analytics" section is a heading only; its content lives in the sub-sections below.
   - heading: "Analytics"
@@ -113,14 +113,14 @@ sections:
   - heading: "Your contact information"
     level: 2
     body: |-
-      <p>When you register for a tournament through this site, your address, name, and any information you enter in your registration is stored on this site. This information may also be shared with payment processors (e.g. PayPal) if you choose that payment method.</p>
+      <p>When you register for a tournament through this site, your address, name, and any information you enter in your registration is stored on this site. This information may also be shared with Jackrabbit, our payment processor, when you make a payment.</p>
 
   - heading: "Data Retention"
     level: 2
     body: |-
       <p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p>
       <p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>
-      <p>We do not store any payment, credit card, etc. information on this server. That is all handled through third-party payment processors (e.g. PayPal), and they share only whether the payment is successful with this site.</p>
+      <p>We do not store any payment, credit card, etc. information on this server. That is all handled through Jackrabbit, our third-party payment processor, and they share only whether the payment is successful with this site.</p>
       <p>We save "inactive" accounts (i.e. accounts that have not been logged in or accessed this site) for 18 months.</p>
       <p>We retain pending, failed, and cancelled orders (registrations) for 30 days.</p>
       <p>We retain completed orders for 3 years.</p>
