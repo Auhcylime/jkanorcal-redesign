@@ -6,8 +6,8 @@ hero:
   subhead: Authentic JKA training for adults and kids, five days a week. Twenty minutes south of San Francisco.
   cta_primary:
     label: Join Us
-    href: https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866
-    external: true
+    href: /join
+    external: false
   cta_secondary:
     label: See Class Schedule
     href: '#schedule'
@@ -72,5 +72,5 @@ location:
       content: About 20 minutes south of San Francisco, right off El Camino Real in San Bruno.
   cta:
     label: Join Us
-    href: https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21217866
-    external: true
+    href: /join
+    external: false
