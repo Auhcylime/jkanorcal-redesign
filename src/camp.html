@@ -1300,9 +1300,11 @@ pageId: "camp"
     right: var(--side-pad);
     top: 0;
     bottom: 0;
-    width: clamp(330px, 40vw, 580px);
+    width: clamp(360px, 52vw, 880px);
     display: flex;
-    align-items: flex-end;
+    /* Top-anchored: she's scaled past full height, so the head stays pinned just
+       below the nav and the lower gi runs off the bottom into the marquee fold. */
+    align-items: flex-start;
     justify-content: flex-end;
     z-index: 2;
   }
@@ -1325,10 +1327,13 @@ pageId: "camp"
     z-index: 1;
     width: auto;
     max-width: 130%;
-    height: 100%;
-    max-height: calc(100vh - 64px);
+    /* Anchored to the top and scaled past full height so she reads larger and
+       wider (closing the gap toward the type). Head stays put; the lower gi
+       crops at the marquee fold. */
+    height: 172%;
+    max-height: none;
     object-fit: contain;
-    object-position: center bottom;
+    object-position: center top;
   }
   .camp-hero-text {
     align-self: center;
@@ -1354,7 +1359,10 @@ pageId: "camp"
   .camp-hero h1 {
     font-family: 'Fraunces', var(--font-serif);
     font-weight: 600;
-    font-size: clamp(3.2rem, 8.5vw, 7rem);
+    /* Responsive across the side-by-side range: eases down where the figure
+       crowds it (~1280) and only hits the 8.4rem cap on wide screens (~1600+)
+       where there's room. Stacks below 860px (see media query). */
+    font-size: clamp(3.2rem, 9.5vw, 10.4rem);
     line-height: 0.92;
     letter-spacing: -0.015em;
     margin-bottom: 6px;
