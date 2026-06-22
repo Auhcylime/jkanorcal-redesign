@@ -1,116 +1,104 @@
-# Hirayama Camp 2026 event page.
-# All details are TENTATIVE until the camp is finalized. [TODO] = needs real data before publish.
-
 meta:
-  title: "Hirayama Camp 2026 | JKA NorCal"
-  description: "Sensei Yuko Hirayama, 7th Dan at JKA HQ, returns to San Francisco September 11 to 13, 2026. Registration opens soon."
-
+  title: Hirayama Camp 2026 | JKA NorCal
+  description: Sensei Yuko Hirayama, 7th Dan at JKA HQ, returns to San Francisco September 11 to 13, 2026. Registration opens soon.
 hero:
-  kicker: "JKA NorCal Presents"
-  name: "Yuko Hirayama"
-  honorific: "Sensei"
-  name_jp: "平山優子"
-  # Removed from hero (Jun 17) — already the first item in the marquee. Set a value to restore.
-  rank: ""
-  # Removed from hero to save space (Jun 17). Set a value to bring the sub-line back.
-  credential: ""
-  figure: "/images/camp/hirayama-hires.png"
-  figure_alt: "Yuko Hirayama Sensei in karate gi, arms crossed"
-  figure_jp: "日本空手協会　七段"
-  subhead: "Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Full camp details land in the coming weeks."
+  kicker: JKA NorCal Presents
+  name: Yuko Hirayama
+  honorific: Sensei
+  name_jp: 平山優子
+  rank: ''
+  credential: ''
+  figure: /images/camp/hirayama-hires.png
+  figure_alt: Yuko Hirayama Sensei in karate gi, arms crossed
+  figure_jp: 日本空手協会　七段
+  subhead: Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Full camp details will be released in the coming weeks.
   chips:
-    - "Sept 11-13, 2026"
-    - "Japantown, San Francisco"
-    - "All levels welcome"
+    - Sept 11-13, 2026
+    - Japantown, San Francisco
+    - All levels welcome
   cta_primary:
-    label: "Follow @jkanorcal"
-    href: "https://www.instagram.com/jkanorcal/"
+    label: Follow @jkanorcal
+    href: https://www.instagram.com/jkanorcal/
   cta_secondary:
-    label: "See what to expect"
-    href: "#expect"
-
-# Scrolling ticker strip under the hero — her record, with a medal icon per entry.
-# type: rank = star icon · medal = award icon coloured by cls (gold/silver/bronze)
+    label: See what to expect
+    href: '#expect'
 marquee:
-  - type: "rank"
-    label: "7th Dan, JKA Headquarters"
-  - type: "medal"
-    cls: "gold"
-    label: "1st Place Kumite, 45th All Japan"
-  - type: "medal"
-    cls: "silver"
-    label: "2nd Place Kata, 48th All Japan"
-  - type: "medal"
-    cls: "bronze"
-    label: "3rd Place Kata, 50th All Japan"
-  - type: "medal"
-    cls: "silver"
-    label: "2nd Place Kata, 44th All Japan"
-  - type: "medal"
-    cls: "bronze"
-    label: "3rd Place Kata, 47th All Japan"
-
+  - type: rank
+    cls: ''
+    label: 7th Dan, JKA Headquarters
+  - type: medal
+    cls: gold
+    label: 1st Place Kumite, 45th All Japan
+  - type: medal
+    cls: silver
+    label: 2nd Place Kata, 48th All Japan
+  - type: medal
+    cls: bronze
+    label: 3rd Place Kata, 50th All Japan
+  - type: medal
+    cls: silver
+    label: 2nd Place Kata, 44th All Japan
+  - type: medal
+    cls: bronze
+    label: 3rd Place Kata, 47th All Japan
 about:
-  label: "The Instructor"
-  heading: "Straight from Hombu Dojo, to the Bay Area"
-  photo: "/images/camp/camp2025-15-instructor-demo.jpg"
-  photo_alt: "Hirayama Sensei demonstrating a technique to students"
+  label: The Instructor
+  heading: World Renowned JKA Hombu Dojo Instructor coming to the Bay Area
+  photo: /images/camp/camp2025-15-instructor-demo.jpg
+  photo_alt: Hirayama Sensei demonstrating a technique to students
   paragraphs:
-    - "Yuko Hirayama is the highest-ranked woman teaching at the Japan Karate Association Headquarters in Tokyo, a 7th Dan and one of the few to complete the famed JKA Instructors Course. She was named Best Competitor at the 45th All Japan Championship, with titles in both kumite and kata."
-    - "She began karate in the second grade in Yokohama and trained through Tokyo Women's College of Physical Education. This is her second year teaching in the Bay Area at JKA NorCal's invitation, and we are honored to host her again."
-
-# "What you can expect" — editorial rows. Photos are the real Oct 2025 edited set.
-# Copy is forward-looking but grounded in what last year's camp actually was. No fabrication.
+    - Yuko Hirayama Sensei (7th Dan), as the highest-ranking female among JKA’s instructors, stands today as one of the most respected female leaders in the Shotokan world. Over years of intensive training and teaching, she has built a reputation not only for technical precision but for inspirational leadership—particularly in an era when female competitors were rare in high-level karate. In addition to her technical prowess, her competitive successes had her named Best Competitor at the 45th All Japan Championship, with titles in both kumite and kata.
+    - 'Hirayama’s academic background at Tokyo Women’s College of Physical Education, known for being one of Japan’s leading institutions for women’s athletics, added a formal athletic education uncommon among karate instructors of her generation. She has since translated that into a robust teaching presence: whether in domestic or overseas seminars, she is sought after for her ability to balance rigorous technique with motivating support. Her presence as a senior female instructor at JKA Honbu has symbolized opportunity for women in karate, helping break barriers and offering a visible model of achievement in a domain historically dominated by men.'
 expect:
-  label: "What you can expect"
-  heading: "Scenes from last year's camp"
-  note: "October 24-26, 2025"
+  label: What you can expect
+  heading: Scenes from last year's camp
+  note: October 24-26, 2025
   items:
-    - headline: "Train under a JKA Headquarters master"
-      body: "Yuko Hirayama, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, leads every session in person."
-      src: "/images/camp/camp2025-09-instructor-boy.jpg"
-      alt: "Sensei Hirayama with two fellow black-belt instructors at the camp"
-      pos: "center 22%"
-    - headline: "Kata and kumite, in real detail"
-      body: "Three days move from fundamentals through kata and kumite, with the kind of correction you only get from a headquarters instructor."
-      src: "/images/camp/camp2025-14-sensei-circle.jpg"
-      alt: "Sensei Hirayama leading a session in front of the dojo calligraphy wall"
-    - headline: "Every level, every age"
-      body: "Young beginners and senior black belts train on the same floor, with sessions built so everyone has something to work on."
-      src: "/images/camp/camp2025-05-teaching.jpg"
-      alt: "Sensei Hirayama teaching a seated group of students"
-    - headline: "One community for the weekend"
-      body: "The JKA Northern California community comes together for three full days, ending with the whole camp on the floor."
-      src: "/images/camp/camp2025-01-group.jpg"
-      alt: "The full camp group photographed together on the dojo floor"
-
+    - headline: Train under a JKA Headquarters master
+      body: Yuko Hirayama, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, leads every session in person.
+      src: /images/camp/camp2025-09-instructor-boy.jpg
+      alt: Sensei Hirayama with two fellow black-belt instructors at the camp
+      pos: center 22%
+    - headline: Kata and kumite, in real detail
+      body: Three days move from fundamentals through kata and kumite, with the kind of correction you only get from a headquarters instructor.
+      src: /images/camp/camp2025-14-sensei-circle.jpg
+      alt: Sensei Hirayama leading a session in front of the dojo calligraphy wall
+      pos: ''
+    - headline: Every level, every age
+      body: Young beginners and senior black belts train on the same floor, with sessions built so everyone has something to work on.
+      src: /images/camp/camp2025-05-teaching.jpg
+      alt: Sensei Hirayama teaching a seated group of students
+      pos: ''
+    - headline: One community for the weekend
+      body: The JKA Northern California community comes together for three full days, ending with the whole camp on the floor.
+      src: /images/camp/camp2025-01-group.jpg
+      alt: The full camp group photographed together on the dojo floor
 details:
-  label: "Things to note"
-  heading: "Camp Details"
-  note: "Full schedule, sessions, and registration open in the coming weeks."
+  label: Things to note
+  heading: Camp Details
+  note: Full schedule, sessions, and registration open in the coming weeks.
   cards:
-    - icon: "location"
-      label: "Where"
-      value: "Japanese Cultural & Community Center of Northern California"
-      note: "1840 Sutter St, San Francisco, CA 94115"
-      href: "https://www.google.com/maps/search/?api=1&query=Japanese+Cultural+and+Community+Center+of+Northern+California+1840+Sutter+St"
-    - icon: "calendar"
-      label: "When"
-      value: "September 11-13, 2026"
-      note: "Friday through Sunday, in SF"
-    - icon: "ticket"
-      label: "Registration"
-      value: "Opens soon"
-      note: "Schedule and pricing announced in the coming weeks"
-
+    - icon: location
+      label: Where
+      value: Japanese Cultural & Community Center of Northern California
+      note: 1840 Sutter St, San Francisco, CA 94115
+      href: https://www.google.com/maps/search/?api=1&query=Japanese+Cultural+and+Community+Center+of+Northern+California+1840+Sutter+St
+    - icon: calendar
+      label: When
+      value: September 11-13, 2026
+      note: Friday through Sunday, in SF
+    - icon: ticket
+      label: Registration
+      value: Opens soon
+      note: Schedule and pricing announced in the coming weeks
 cta:
-  heading: "Save the Date"
-  dates: "September 11-13, 2026"
-  body: "Registration opens soon. Camp schedule, pricing, and sign-up details land in the coming weeks."
+  heading: Save the Date
+  dates: September 11-13, 2026
+  body: Registration opens soon. Camp schedule, pricing, and sign-up details land in the coming weeks.
   buttons:
-    - label: "Email us"
-      href: "mailto:info@jkanorcal.org?subject=Hirayama%20Camp%202026"
-      style: "btn-accent"
-    - label: "Follow on Instagram"
-      href: "https://www.instagram.com/jkanorcal/"
-      style: "btn-outline"
+    - label: Email us
+      href: mailto:info@jkanorcal.org?subject=Hirayama%20Camp%202026
+      style: btn-accent
+    - label: Follow on Instagram
+      href: https://www.instagram.com/jkanorcal/
+      style: btn-outline
