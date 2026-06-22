@@ -1314,11 +1314,12 @@ pageId: "camp"
     inset: 0;
     background-image: url("/images/shared/sf-golden-gate.jpg");
     background-repeat: no-repeat;
-    /* cover (not zoomed) so on wide monitors the full bridge height reads:
-       tower tip + a band of sky on top, the horizontal span across the bottom.
-       Position biased toward the top so the tip never clips on shorter viewports. */
-    background-size: cover;
-    background-position: center 32%;
+    /* Zoomed and right-anchored so the vertical tower lands in the band just
+       left of Hirayama (who is also right-pinned) and holds that spot as the
+       viewport widens, instead of drifting with a centered crop. Sized off
+       height (auto) so the horizontal anchor stays stable across widths. */
+    background-size: auto 150%;
+    background-position: right -1120px top 32%;
     opacity: 0.26;
     z-index: 0;
   }
