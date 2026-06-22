@@ -22,7 +22,7 @@ photo_strip:
     alt: Kids practicing kata in the dojo
 about:
   label: About the Dojo
-  heading: Shotokan in San Bruno
+  heading: Shotokan in San Bruno, California
   paragraphs:
     - JKA of Northern California is the Bay Area's home for Shotokan karate, affiliated with the <a href="https://www.jkaaf.com" target="_blank" rel="noopener" class="text-link">Japan Karate Association American Federation</a>. Our dojo in San Bruno has served the community since 2009, developing students of all ages through traditional, rigorous training.
     - 'The curriculum follows JKA methodology: correct form, strong technique, and the development of character. Beginners and experienced karateka train side by side.'
@@ -35,9 +35,9 @@ feature:
   photo: /images/home/about-usa-team.jpg
   photo_alt: JKA Karate USA Team at the World Championships
   label: Instructors
-  heading_line1: JKA Certified
+  heading_line1: Japan Karate Association Certified
   heading_line2: Black Belt Instructors
-  body: Our instructors hold dan ranks within the JKA ranging from Sandan to Godan. They have spent years training under some of the most respected masters in the Shotokan tradition domestically and abroad.
+  body: Our instructors hold dan ranks within the JKA ranging from Sandan to Godan. They have spent years training under some of the most respected masters in the Shotokan tradition domestically and abroad and have tested their aptitudes internationally as members of the United States National Team
   cta:
     label: Meet the instructors
     href: /sensei
