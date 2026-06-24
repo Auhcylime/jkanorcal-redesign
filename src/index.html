@@ -1284,8 +1284,10 @@ permalink: "/index.html"
     overflow: hidden;
   }
   /* drops down over the hero on load — hero visible behind during the slide */
+  /* delay lets the page settle before the banner slides in; `both` keeps it
+     hidden above the viewport during the delay instead of flashing in place */
   .camp-banner {
-    animation: camp-drop 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation: camp-drop 0.7s cubic-bezier(0.33, 1, 0.68, 1) 0.7s both;
   }
   @keyframes camp-drop {
     from { transform: translateY(-100%); }
