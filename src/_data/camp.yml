@@ -11,7 +11,7 @@ hero:
   figure: /images/camp/hirayama-hires.png
   figure_alt: Yuko Hirayama Sensei in karate gi, arms crossed
   figure_jp: 日本空手協会　七段
-  subhead: Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Full camp details will be released in the coming weeks.
+  subhead: Sensei returns to the Bay Area for a second year from  After last year's turnout, we are honored to train under her again. Full camp details will be released in the coming weeks.
   chips:
     - Sept 11-13, 2026
     - Japantown, San Francisco
@@ -42,8 +42,8 @@ marquee:
     cls: bronze
     label: 3rd Place Kata, 47th All Japan
 about:
-  label: The Instructor
-  heading: World Renowned JKA Hombu Dojo Instructor coming to the Bay Area
+  label: Hirayama Sensei, 7th Dan
+  heading: World Renowned JKA Hombu Dojo Instruction comes to the Bay Area
   photo: /images/camp/camp2025-15-instructor-demo.jpg
   photo_alt: Hirayama Sensei demonstrating a technique to students
   paragraphs:
@@ -54,25 +54,26 @@ expect:
   heading: Scenes from last year's camp
   note: October 24-26, 2025
   items:
-    - headline: Train under a JKA Headquarters master
-      body: Yuko Hirayama, 7th Dan and the highest-ranked woman teaching at JKA Headquarters in Tokyo, leads every session in person.
+    - headline: Direct Instruction from a  JKA Headquarters master
+      body: Hirayama Sensei leads large group sessions focusing on Kata, Kihon, and Kumite where everyone can receive world class training
       src: /images/camp/camp2025-09-instructor-boy.jpg
       alt: Sensei Hirayama with two fellow black-belt instructors at the camp
       pos: center 22%
-    - headline: Kata and kumite, in real detail
-      body: Three days move from fundamentals through kata and kumite, with the kind of correction you only get from a headquarters instructor.
+    - headline: Training for All levels Novice to Champion
+      body: With 9 Sessions over 3 days
       src: /images/camp/camp2025-14-sensei-circle.jpg
       alt: Sensei Hirayama leading a session in front of the dojo calligraphy wall
       pos: ''
-    - headline: Every level, every age
-      body: Young beginners and senior black belts train on the same floor, with sessions built so everyone has something to work on.
+    - headline: Specialized Sessions for Referees and Competitors
+      body: Open the weekend with a workshop-style open mat alongside current and former JKA-USA National Team members and close the weekend with live matches to test your judging and competition skills
       src: /images/camp/camp2025-05-teaching.jpg
-      alt: Sensei Hirayama teaching a seated group of students
+      alt: Sensei Hirayama teaching a group of students
       pos: ''
-    - headline: One community for the weekend
-      body: The JKA Northern California community comes together for three full days, ending with the whole camp on the floor.
+    - headline: One community Training Together
+      body: JKA NorCal welcomes all karate-ka who want to see the highest levels of traditional shotokan. See old friends and make new ones in the west coast karate community
       src: /images/camp/camp2025-01-group.jpg
       alt: The full camp group photographed together on the dojo floor
+      pos: ''
 details:
   label: Things to note
   heading: Camp Details
