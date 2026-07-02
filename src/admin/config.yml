@@ -435,28 +435,76 @@ collections:
                   - { name: src,      label: Image,       widget: image }
                   - { name: alt,      label: "Image alt",  widget: string }
                   - { name: pos,      label: "Image focus position (optional, e.g. 'center 22%')", widget: string, required: false }
-          - name: details
-            label: "Camp details cards"
+          - name: register
+            label: "Registration (pass cards)"
+            widget: object
+            fields:
+              - { name: label,    label: "Eyebrow label", widget: string }
+              - { name: heading,  label: Heading,         widget: string }
+              - { name: note,     label: "Intro note (optional, shown under the heading)", widget: string, required: false }
+              - { name: footnote, label: "Footnote (e.g. price-increase dates)", widget: string, required: false }
+              - name: options
+                label: "Passes"
+                widget: list
+                summary: "{{fields.name}} ({{fields.price}})"
+                fields:
+                  - { name: name,          label: "Pass name", widget: string }
+                  - { name: badge,         label: "Badge (optional, e.g. Early bird through Jul 30)", widget: string, required: false }
+                  - { name: featured,      label: "Featured (highlighted card)", widget: boolean, default: false }
+                  - { name: price,         label: Price, widget: string }
+                  - { name: price_note,    label: "Price note (optional, e.g. Per day)", widget: string, required: false }
+                  - { name: includes,      label: "What's included", widget: string }
+                  - { name: register_note, label: "Label above the buttons (optional, e.g. Pick a day to register)", widget: string, required: false }
+                  - name: register
+                    label: "Register buttons"
+                    widget: list
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { name: label, label: "Button label", widget: string }
+                      - { name: href,  label: "Registration URL", widget: string }
+              - name: contact
+                label: "Contact line"
+                widget: object
+                fields:
+                  - { name: lead, label: "Lead text (e.g. 'Questions? ')", widget: string }
+                  - name: links
+                    label: Links
+                    widget: list
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { name: label, label: Label, widget: string }
+                      - { name: href,  label: URL,   widget: string }
+          - name: schedule
+            label: "Schedule of events"
             widget: object
             fields:
               - { name: label,   label: "Eyebrow label", widget: string }
-              - { name: heading, label: Heading,         widget: string }
-              - { name: note,    label: Note,            widget: string }
-              - name: cards
-                label: Cards
+              - { name: heading, label: "Heading (the dates, e.g. September 11-13, 2026)", widget: string }
+              - name: days
+                label: Days
                 widget: list
+                summary: "{{fields.name}} ({{fields.date}})"
                 fields:
-                  - { name: icon,  label: "Icon (location | calendar | ticket)", widget: select, options: ["location", "calendar", "ticket"] }
-                  - { name: label, label: Label, widget: string }
-                  - { name: value, label: Value, widget: string }
-                  - { name: note,  label: Note,  widget: string }
-                  - { name: href,  label: "Link URL (optional)", widget: string, required: false }
-          - name: cta
-            label: "Closing 'Save the Date' band"
+                  - { name: name,       label: "Day name (e.g. Friday)", widget: string }
+                  - { name: date,       label: "Short date (e.g. Sep 11)", widget: string }
+                  - { name: venue,      label: Venue, widget: string }
+                  - { name: venue_note, label: "Venue address", widget: string }
+                  - name: sessions
+                    label: Sessions
+                    widget: list
+                    summary: "{{fields.time}} {{fields.title}}"
+                    fields:
+                      - { name: time,      label: Time, widget: string }
+                      - { name: title,     label: Title, widget: string }
+                      - { name: detail,    label: "Detail (optional)", widget: string, required: false }
+                      - { name: venue_tag, label: "Tag (optional, e.g. Off-site)", widget: string, required: false }
+                  - { name: footnote, label: "Day footnote (optional)", widget: string, required: false }
+          - name: closing
+            label: "Closing CTA band"
             widget: object
             fields:
               - { name: heading, label: Heading, widget: string }
-              - { name: dates,   label: Dates,   widget: string }
+              - { name: dates,   label: "Big date line", widget: string }
               - { name: body,    label: Body,    widget: text }
               - name: buttons
                 label: Buttons
