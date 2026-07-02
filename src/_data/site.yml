@@ -20,9 +20,9 @@ join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21
 # Set `enabled: false` to hide it everywhere without deleting the copy.
 camp_banner:
   enabled: true
-  href: "/camp"
-  tag: "New"
-  text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11&ndash;13 &middot; Japantown, San Francisco"
+  href: "/camp#register"
+  tag: "Now open"
+  text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11-13 &middot; Register now"
 
 contact:
   phone: "(650) 502-2902"
