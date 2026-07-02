@@ -1,6 +1,6 @@
 meta:
   title: Hirayama Camp 2026 | JKA NorCal
-  description: Sensei Yuko Hirayama, 7th Dan at JKA HQ, returns to San Francisco September 11 to 13, 2026. Registration opens soon.
+  description: Sensei Yuko Hirayama, 7th Dan at JKA HQ, returns to San Francisco September 11 to 13, 2026. Registration is open.
 hero:
   kicker: JKA NorCal Presents
   name: Yuko Hirayama
@@ -11,17 +11,17 @@ hero:
   figure: /images/camp/hirayama-hires.png
   figure_alt: Yuko Hirayama Sensei in karate gi, arms crossed
   figure_jp: 日本空手協会　七段
-  subhead: Sensei returns to the Bay Area for a second year from  After last year's turnout, we are honored to train under her again. Full camp details will be released in the coming weeks.
+  subhead: Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Registration is open, full camp and single-day passes below.
   chips:
     - Sept 11-13, 2026
     - Japantown, San Francisco
     - All levels welcome
   cta_primary:
-    label: Follow @jkanorcal
-    href: https://www.instagram.com/jkanorcal/
+    label: Register
+    href: '#register'
   cta_secondary:
-    label: See what to expect
-    href: '#expect'
+    label: See the schedule
+    href: '#schedule'
 marquee:
   - type: rank
     cls: ''
@@ -74,32 +74,106 @@ expect:
       src: /images/camp/camp2025-01-group.jpg
       alt: The full camp group photographed together on the dojo floor
       pos: ''
-details:
-  label: Things to note
-  heading: Camp Details
-  note: Full schedule, sessions, and registration open in the coming weeks.
-  cards:
-    - icon: location
-      label: Where
-      value: Japanese Cultural & Community Center of Northern California
-      note: 1840 Sutter St, San Francisco, CA 94115
-      href: https://www.google.com/maps/search/?api=1&query=Japanese+Cultural+and+Community+Center+of+Northern+California+1840+Sutter+St
-    - icon: calendar
-      label: When
-      value: September 11-13, 2026
-      note: Friday through Sunday, in SF
-    - icon: ticket
-      label: Registration
-      value: Opens soon
-      note: Schedule and pricing announced in the coming weeks
-cta:
-  heading: Save the Date
+register:
+  label: Register
+  heading: Choose your pass
+  note: ''
+  # Buttons link straight to each Jackrabbit event registration form (not the month
+  # calendar). Full Camp = event 8217921; single days = 8211197 (Fri), 8211198 (Sat),
+  # 8211199 (Sun). The flyer QR points at jkanorcal.org/mise/... which 404s today; if you
+  # want the buttons to route through that branded URL, build the page/redirect and swap.
+  footnote: Full camp prices increase to $250 on Aug 1, then $300 on Sep 2.
+  options:
+    - name: Full Camp
+      badge: Early bird through Jul 30
+      featured: true
+      price: "$200"
+      price_note: ''
+      includes: Every session, Friday through Sunday.
+      register:
+        - label: Register for Full Camp
+          href: "https://app.jackrabbitclass.com/regevent.asp?xID=8217921&orgid=557815&PortalSession="
+    - name: Single Day
+      badge: ''
+      featured: false
+      price: "$125"
+      price_note: Per day
+      includes: All sessions on the day you choose.
+      register_note: Pick a day to register
+      register:
+        - label: Sep 11, Fri
+          href: "https://app.jackrabbitclass.com/regevent.asp?xID=8211197&orgid=557815&PortalSession="
+        - label: Sep 12, Sat
+          href: "https://app.jackrabbitclass.com/regevent.asp?xID=8211198&orgid=557815&PortalSession="
+        - label: Sep 13, Sun
+          href: "https://app.jackrabbitclass.com/regevent.asp?xID=8211199&orgid=557815&PortalSession="
+  contact:
+    lead: "Questions? "
+    links:
+      - label: Email us
+        href: mailto:info@jkanorcal.org?subject=Hirayama%20Camp%202026
+      - label: Follow on Instagram
+        href: https://www.instagram.com/jkanorcal/
+schedule:
+  label: Schedule
+  heading: September 11-13, 2026
+  note: Led by Hirayama Sensei unless noted, and open to all levels.
+  days:
+    - name: Friday
+      date: Sep 11
+      venue: JKA NorCal Dojo
+      venue_note: 356 El Camino Real, San Bruno, CA 94066
+      sessions:
+        - time: 8:00 to 10:00 AM
+          title: Morning Open Mat
+          detail: With JKA-USA team members.
+        - time: 5:00 to 6:30 PM
+          title: Seminar 1
+          detail: ''
+        - time: 7:00 to 8:00 PM
+          title: Competitor's Training
+          detail: US Team Coaches. Kata and kumite ahead of Nationals.
+    - name: Saturday
+      date: Sep 12
+      venue: Japanese Cultural & Community Center
+      venue_note: 1840 Sutter St, San Francisco, CA 94115
+      sessions:
+        - time: 9:00 to 10:30 AM
+          title: Seminar 2
+          detail: ''
+        - time: 12:30 to 1:30 PM
+          title: Seminar 3
+          detail: ''
+        - time: 5:00 to 6:30 PM
+          title: Seminar 4
+          detail: ''
+        - time: 7:30 PM to Finish
+          title: Camp Banquet
+          detail: Bangkok Street Thai Street Food, 1826 Buchanan St.
+          venue_tag: "Off-site"
+    - name: Sunday
+      date: Sep 13
+      venue: Japanese Cultural & Community Center
+      venue_note: 1840 Sutter St, San Francisco, CA 94115
+      sessions:
+        - time: 9:00 to 10:30 AM
+          title: Seminar 5
+          detail: ''
+        - time: 12:30 to 2:00 PM
+          title: Seminar 6A
+          detail: US Team Coaches. Competition-focused training.
+        - time: 12:30 to 2:00 PM
+          title: Seminar 6B
+          detail: Referee and judging seminar.
+        - time: 2:30 to 5:00 PM
+          title: Competition, Tournament & Performance Clinics
+          detail: ''
+      footnote: Seminars 6A and 6B run at the same time. Choose one to attend.
+closing:
+  heading: Registration is open
   dates: September 11-13, 2026
-  body: Registration opens soon. Camp schedule, pricing, and sign-up details land in the coming weeks.
+  body: Early bird pricing ends July 30. Reserve your place at this year's camp.
   buttons:
-    - label: Email us
-      href: mailto:info@jkanorcal.org?subject=Hirayama%20Camp%202026
+    - label: Register
+      href: '#register'
       style: btn-accent
-    - label: Follow on Instagram
-      href: https://www.instagram.com/jkanorcal/
-      style: btn-outline

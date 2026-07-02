@@ -20,6 +20,7 @@ pageId: "camp"
   :root {
     --white: #ffffff;
     --off-white: #f8f7f4;
+    --camp-paper: #f4f1ea;
     --warm-gray: #f0eeea;
     --border: #e4e1db;
     --text: #2d2a26;
@@ -1479,12 +1480,17 @@ pageId: "camp"
     max-width: var(--content-width);
     margin: 0 auto;
     padding: clamp(64px, 9vw, 110px) var(--side-pad);
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: clamp(32px, 6vw, 80px);
-    align-items: start;
+    display: block;
+  }
+  .camp-about-head {
+    margin-bottom: clamp(28px, 4vw, 44px);
+    max-width: 960px;
   }
   .camp-about-head .label { color: var(--accent); }
+  .camp-about-body {
+    column-count: 2;
+    column-gap: clamp(32px, 4vw, 56px);
+  }
   .camp-about-body p {
     font-family: var(--font-serif);
     font-size: 1.12rem;
@@ -1492,7 +1498,7 @@ pageId: "camp"
     color: var(--text-mid);
     margin-bottom: 20px;
   }
-  .camp-about-body p:first-child::first-letter {
+  .camp-about-body p:first-of-type::first-letter {
     font-family: 'Fraunces', var(--font-serif);
     font-size: 3.4em;
     font-weight: 600;
@@ -1502,71 +1508,314 @@ pageId: "camp"
     color: var(--accent);
   }
 
-  /* Details cards */
-  .camp-details {
+  /* ─── Register ─── */
+  .camp-register {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: clamp(64px, 9vw, 110px) var(--side-pad);
   }
-  .camp-details-note {
-    font-size: 0.85rem;
-    font-style: italic;
+  .camp-register-head { margin-bottom: 32px; }
+  .camp-register .label {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--poster-red);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--fs-small);
+  }
+  .camp-register .heading {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    font-size: var(--fs-heading);
+    margin-top: 6px;
+  }
+  .camp-register-note {
+    font-size: 0.95rem;
     color: var(--text-light);
-    margin-bottom: 34px;
+    margin-top: 12px;
   }
-  .camp-cards {
+  .camp-register-contact {
+    margin-top: 24px;
+    font-size: 0.92rem;
+    color: var(--text-light);
+  }
+  .camp-register-contact a {
+    color: var(--poster-red);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .camp-register-contact a:hover { text-decoration: underline; }
+  /* Register pass cards */
+  .camp-pass-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
-  .camp-card {
+  .camp-pass {
+    position: relative;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 30px 26px;
+    border-radius: 10px;
     background: #fff;
-    transition: border-color 0.25s, transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s;
+    padding: 34px 30px;
     display: flex;
     flex-direction: column;
+    transition: border-color 0.25s, transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s;
   }
-  .camp-card:hover {
+  .camp-pass:hover {
     border-color: var(--text-faint);
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.07);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.08);
   }
-  .camp-card-icon {
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 8px;
-    background: rgba(200,16,46,0.08);
-    color: var(--accent);
-    margin-bottom: 18px;
+  .camp-pass.is-featured {
+    border-color: var(--poster-red);
+    box-shadow: 0 0 0 1px var(--poster-red);
   }
-  .camp-card-icon svg { width: 20px; height: 20px; display: block; }
-  .camp-card-label {
+  .camp-pass-badge {
+    position: absolute;
+    top: 0;
+    left: 26px;
+    transform: translateY(-50%);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--poster-red);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  .camp-pass-name {
+    font-family: var(--display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 22px;
+  }
+  .camp-pass-price {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(2.6rem, 6vw, 3.4rem);
+    line-height: 0.95;
+    color: var(--poster-red);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-bottom: 4px;
+  }
+  .camp-pass-price span {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    letter-spacing: 0;
+  }
+  .camp-pass-includes {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    padding-top: 20px;
+    margin-top: 18px;
+    border-top: 1px solid var(--border);
+    margin-bottom: 26px;
+  }
+  .camp-pass-btn {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--poster-ink);
+    color: #fff;
+  }
+  .camp-pass-btn:hover { background: #000; }
+  .camp-pass.is-featured .camp-pass-btn { background: var(--poster-red); }
+  .camp-pass.is-featured .camp-pass-btn:hover { background: #d62f1d; }
+  .camp-pass-daywrap { margin-top: auto; }
+  .camp-pass-daylabel {
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--text-light);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-  .camp-card-value {
+  .camp-pass-days {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .camp-pass-daybtn {
+    background: var(--poster-ink);
+    color: #fff;
+    text-align: center;
+    padding: 13px 6px;
+    font-size: 0.85rem;
+  }
+  .camp-pass-daybtn:hover { background: #000; }
+  .camp-passes-foot {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .camp-pass-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── Schedule of Events ─── */
+  .camp-schedule {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: clamp(64px, 9vw, 110px) var(--side-pad);
+  }
+  /* Alternating section backgrounds — full-bleed tint on centered sections */
+  .camp-register,
+  .camp-expect {
+    background: var(--camp-paper);
+    box-shadow: 0 0 0 100vmax var(--camp-paper);
+    clip-path: inset(0 -100vmax);
+  }
+  .camp-schedule .label {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--poster-red);
+    letter-spacing: 0.04em;
+  }
+  .camp-schedule .heading {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.0;
+  }
+  .camp-schedule-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    margin-bottom: 34px;
+  }
+  .camp-schedule-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.85fr) 2fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+    margin-top: clamp(16px, 2vw, 28px);
+  }
+  .camp-schedule-rail {
+    position: sticky;
+    top: clamp(96px, 15vh, 150px);
+    align-self: start;
+  }
+  .camp-rail-inner {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    will-change: opacity, transform;
+  }
+  .camp-rail-inner.is-switching {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .camp-schedule-stream { min-width: 0; }
+  .camp-day-group + .camp-day-group {
+    margin-top: clamp(44px, 6vw, 84px);
+    padding-top: clamp(44px, 6vw, 84px);
+    border-top: 1px solid var(--border);
+  }
+  .camp-day-marker { display: none; }
+  .camp-day-title {
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    line-height: 1.05;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .camp-day-title .cd,
+  .camp-day-title .cw { display: block; }
+  .camp-day-title .cd { color: var(--accent); }
+  .camp-day-venue {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .camp-day-venue span {
+    color: var(--text-light);
+    font-size: 0.82rem;
+  }
+  .camp-sessions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .camp-session {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .camp-session:first-child { border-top: none; padding-top: 0; }
+  .camp-session-time {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+  }
+  .camp-session-title {
     font-family: var(--font-serif);
-    font-size: 1.12rem;
     font-weight: 600;
+    font-size: 1.05rem;
     color: var(--text);
     line-height: 1.35;
-    margin-bottom: 6px;
   }
-  .camp-card-note { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
-  .camp-card-link {
-    margin-top: 14px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
+  .camp-session-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 1px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
   }
-  .camp-card-link:hover { text-decoration: underline; }
+  .camp-session-detail {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-top: 3px;
+  }
+  .camp-day-foot {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  @media (max-width: 760px) {
+    .camp-schedule-layout { grid-template-columns: 1fr; }
+    .camp-schedule-rail { display: none; }
+    .camp-day-marker { display: block; margin-bottom: 20px; }
+    .camp-day-group + .camp-day-group { margin-top: 40px; padding-top: 40px; }
+    .camp-session { grid-template-columns: 110px 1fr; gap: 14px; }
+  }
 
   /* Closing CTA band */
   .camp-cta {
@@ -1713,37 +1962,23 @@ pageId: "camp"
   .camp-marquee .mq-label { font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; }
 
   /* Section eyebrows + headings → grotesque caps */
-  .camp-about .label, .camp-details .label {
+  .camp-about .label {
     font-family: var(--display);
     font-weight: 700;
     color: var(--poster-red);
     letter-spacing: 0.04em;
   }
-  .camp-about .heading, .camp-details .heading {
+  .camp-about .heading {
     font-family: var(--display);
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.01em;
     line-height: 1.0;
   }
-  .camp-about-body p:first-child::first-letter {
+  .camp-about-body p:first-of-type::first-letter {
     font-family: var(--display);
     color: var(--poster-red);
   }
-
-  /* Details on a clean white field — icon glyph only, no tinted box */
-  .camp-card-icon {
-    background: none;
-    color: var(--poster-red);
-    width: auto;
-    height: 30px;
-    justify-content: flex-start;
-    margin-bottom: 16px;
-  }
-  .camp-card-icon svg { width: 28px; height: 28px; }
-  .camp-card-label { font-family: var(--display); font-weight: 700; }
-  .camp-card-value { font-family: var(--display); font-weight: 800; text-transform: uppercase; line-height: 1.12; }
-  .camp-card-link { color: var(--poster-red); }
 
   /* Closing band → bold red poster block */
   .camp-cta { background: var(--poster-red); color: #fff; }
@@ -1762,8 +1997,8 @@ pageId: "camp"
     .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
     .camp-figure img { height: clamp(360px, 56vh, 520px); object-position: center bottom; transform: none; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 30%; }
-    .camp-about { grid-template-columns: 1fr; gap: 24px; }
-    .camp-cards { grid-template-columns: 1fr; }
+    .camp-about-body { column-count: 1; }
+    .camp-about-photo { max-width: 560px; }
   }
 
   /* ─── Save-the-Date band: emphasised date line ─── */
@@ -1793,7 +2028,6 @@ pageId: "camp"
     max-width: var(--content-width);
     margin: 0 auto;
     padding: clamp(64px, 9vw, 110px) var(--side-pad);
-    border-top: 1px solid var(--border);
   }
   .camp-expect .label {
     font-family: var(--display);
@@ -1892,7 +2126,6 @@ pageId: "camp"
   .camp-cta-dates   { font-size: var(--fs-display-md); letter-spacing: 0.02em; }
   .camp-rank,
   .camp-about .heading,
-  .camp-details .heading,
   .camp-expect .heading,
   .expect-text h3   { font-size: var(--fs-heading); letter-spacing: 0.02em; }
   /* SENSEI: subtitle in the name lockup — its own size, label tracking */
@@ -1921,11 +2154,9 @@ pageId: "camp"
     width: 100%;
     height: auto;
     display: block;
-    margin-top: clamp(24px, 4vw, 36px);
+    margin: 4px 0 22px;
     border-radius: 4px;
-  }
-  @media (max-width: 900px) {
-    .camp-about-photo { max-width: 520px; }
+    break-inside: avoid;
   }
   /* Stronger white outline on the hero's secondary button */
   .camp-hero-actions .btn-outline {
@@ -1937,8 +2168,7 @@ pageId: "camp"
     border-color: #ffffff;
     color: var(--poster-ink);
   }
-  .camp-about-body p,
-  .camp-card-value  { font-size: var(--fs-lead); }
+  .camp-about-body p    { font-size: var(--fs-lead); }
   .camp-cta p,
   .expect-text p    { font-size: var(--fs-body); }
   .camp-kicker,
@@ -1947,12 +2177,7 @@ pageId: "camp"
   .camp-hero-actions .btn,
   .camp-cta .btn,
   .camp-about .label,
-  .camp-details .label,
   .camp-expect .label,
-  .camp-details-note,
-  .camp-card-label,
-  .camp-card-note,
-  .camp-card-link,
   .camp-expect-note,
   .expect-num,
   .camp-marquee .mq-label { font-size: var(--fs-small); }
@@ -1962,10 +2187,7 @@ pageId: "camp"
   .camp-hero-actions .btn,
   .camp-cta .btn,
   .camp-about .label,
-  .camp-details .label,
   .camp-expect .label,
-  .camp-card-label,
-  .camp-details-note,
   .camp-expect-note,
   .expect-num,
   .camp-marquee .mq-label { letter-spacing: 0.1em; }
@@ -1996,7 +2218,7 @@ pageId: "camp"
         {% endfor %}
       </div>
       <div class="camp-hero-actions">
-        <a href="{{ camp.hero.cta_primary.href }}" target="_blank" rel="noopener" class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
+        <a href="{{ camp.hero.cta_primary.href }}"{% if 'http' in camp.hero.cta_primary.href %} target="_blank" rel="noopener"{% endif %} class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
         {% if camp.hero.cta_secondary %}<a href="{{ camp.hero.cta_secondary.href }}" class="btn btn-outline">{{ camp.hero.cta_secondary.label }}</a>{% endif %}
       </div>
     </div>
@@ -2013,50 +2235,88 @@ pageId: "camp"
 </div>
 
 <section class="camp-about">
-  <div class="camp-about-head">
-    <div class="label reveal">{{ camp.about.label }}</div>
-    <h2 class="heading reveal d1">{{ camp.about.heading }}</h2>
-    <img src="{{ camp.about.photo }}" alt="{{ camp.about.photo_alt }}" class="camp-about-photo reveal d2" loading="lazy">
+  <div class="camp-about-head reveal">
+    <div class="label">{{ camp.about.label }}</div>
+    <h2 class="heading">{{ camp.about.heading }}</h2>
   </div>
-  <div class="camp-about-body">
+  <div class="camp-about-body reveal d1">
+    <img src="{{ camp.about.photo }}" alt="{{ camp.about.photo_alt }}" class="camp-about-photo" loading="lazy">
     {% for para in camp.about.paragraphs %}
-    <p class="reveal d{{ loop.index }}">{{ para }}</p>
+    <p>{{ para }}</p>
     {% endfor %}
-    {% if pages.interview != false %}<a href="/interview" class="camp-about-link reveal">Read her interview &rarr;</a>{% endif %}
+    {% if pages.interview != false %}<a href="/interview" class="camp-about-link">Read her interview &rarr;</a>{% endif %}
   </div>
 </section>
 
-<section class="camp-cta">
-  <h2>{{ camp.cta.heading }}</h2>
-  {% if camp.cta.dates %}<div class="camp-cta-dates">{{ camp.cta.dates }}</div>{% endif %}
-  <p>{{ camp.cta.body }}</p>
-  <div class="camp-cta-actions">
-    {% for b in camp.cta.buttons %}
-    <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
-    {% endfor %}
+<section class="camp-register" id="register">
+  <div class="camp-register-head">
+    <div class="label reveal">{{ camp.register.label }}</div>
+    <h2 class="heading reveal d1">{{ camp.register.heading }}</h2>
+    {% if camp.register.note %}<p class="camp-register-note reveal d1">{{ camp.register.note }}</p>{% endif %}
   </div>
-</section>
-
-<section class="camp-details">
-  <div class="label reveal">{{ camp.details.label }}</div>
-  <h2 class="heading reveal d1">{{ camp.details.heading }}</h2>
-  <p class="camp-details-note reveal d1">{{ camp.details.note }}</p>
-  <div class="camp-cards">
-    {% for card in camp.details.cards %}
-    <div class="camp-card reveal d{{ loop.index }}">
-      <div class="camp-card-icon">
-        {% if card.icon == "location" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        {% elif card.icon == "calendar" %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>{% endif %}
+  <div class="camp-pass-grid reveal d1">
+    {% for p in camp.register.options %}
+    <div class="camp-pass{% if p.featured %} is-featured{% endif %}">
+      {% if p.badge %}<span class="camp-pass-badge">{{ p.badge }}</span>{% endif %}
+      <div class="camp-pass-name">{{ p.name }}</div>
+      <div class="camp-pass-price">{{ p.price }}<span>{{ p.price_note }}</span></div>
+      <div class="camp-pass-includes">{{ p.includes }}</div>
+      {% if p.register | length == 1 %}
+      <a href="{{ p.register[0].href }}" target="_blank" rel="noopener" class="btn camp-pass-btn">{{ p.register[0].label }}</a>
+      {% else %}
+      <div class="camp-pass-daywrap">
+        {% if p.register_note %}<div class="camp-pass-daylabel">{{ p.register_note }}</div>{% endif %}
+        <div class="camp-pass-days">
+          {% for r in p.register %}
+          <a href="{{ r.href }}" target="_blank" rel="noopener" class="btn camp-pass-daybtn">{{ r.label }}</a>
+          {% endfor %}
+        </div>
       </div>
-      <div class="camp-card-label">{{ card.label }}</div>
-      <div class="camp-card-value">{{ card.value }}</div>
-      <div class="camp-card-note">{{ card.note }}</div>
-      {% if card.href %}<a href="{{ card.href }}" target="_blank" rel="noopener" class="camp-card-link">View map →</a>{% endif %}
+      {% endif %}
     </div>
     {% endfor %}
   </div>
+  {% if camp.register.footnote %}<p class="camp-passes-foot reveal">{{ camp.register.footnote }}</p>{% endif %}
+  {% if camp.register.contact %}
+  <p class="camp-register-contact reveal">{{ camp.register.contact.lead }}{% for b in camp.register.contact.links %}<a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %}>{{ b.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+  {% endif %}
 </section>
+
+{% if camp.schedule %}
+<section class="camp-schedule" id="schedule">
+  <div class="label reveal">{{ camp.schedule.label }}</div>
+  <div class="camp-schedule-layout">
+    <aside class="camp-schedule-rail">
+      <div class="camp-rail-inner">
+        <div class="camp-day-title" data-role="date"></div>
+        <div class="camp-day-venue" data-role="venue"></div>
+      </div>
+    </aside>
+    <div class="camp-schedule-stream">
+      {% for day in camp.schedule.days %}
+      <div class="camp-day-group" data-date="{{ day.date }}" data-name="{{ day.name }}" data-venue="{{ day.venue }}" data-venue-note="{{ day.venue_note }}">
+        <div class="camp-day-marker">
+          <div class="camp-day-title"><span class="cd">{{ day.date }}</span><span class="cw">{{ day.name }}</span></div>
+          <div class="camp-day-venue">{{ day.venue }}<span>{{ day.venue_note }}</span></div>
+        </div>
+        <ul class="camp-sessions">
+          {% for s in day.sessions %}
+          <li class="camp-session">
+            <div class="camp-session-time">{{ s.time }}</div>
+            <div class="camp-session-main">
+              <div class="camp-session-title">{{ s.title }}{% if s.venue_tag %} <span class="camp-session-tag">{{ s.venue_tag }}</span>{% endif %}</div>
+              {% if s.detail %}<div class="camp-session-detail">{{ s.detail }}</div>{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        {% if day.footnote %}<p class="camp-day-foot">{{ day.footnote }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section class="camp-expect" id="expect">
   <div class="camp-expect-head">
@@ -2080,6 +2340,19 @@ pageId: "camp"
   </div>
 </section>
 
+{% if camp.closing %}
+<section class="camp-cta">
+  <h2>{{ camp.closing.heading }}</h2>
+  {% if camp.closing.dates %}<div class="camp-cta-dates">{{ camp.closing.dates }}</div>{% endif %}
+  {% if camp.closing.body %}<p>{{ camp.closing.body }}</p>{% endif %}
+  <div class="camp-cta-actions">
+    {% for b in camp.closing.buttons %}
+    <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% include "footer.njk" %}
 
 <script>
@@ -2087,6 +2360,42 @@ pageId: "camp"
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }});
   }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Schedule: sticky date rail that morphs as each day scrolls into view
+  (function(){
+    const rail = document.querySelector('.camp-schedule-rail');
+    const groups = Array.prototype.slice.call(document.querySelectorAll('.camp-day-group'));
+    if (!rail || !groups.length) return;
+    const inner = rail.querySelector('.camp-rail-inner');
+    const dateEl = rail.querySelector('[data-role="date"]');
+    const venueEl = rail.querySelector('[data-role="venue"]');
+    let current = null, ticking = false;
+    function paint(g){
+      dateEl.innerHTML = '<span class="cd">' + g.dataset.date + '</span><span class="cw">' + g.dataset.name + '</span>';
+      venueEl.innerHTML = g.dataset.venue + '<span>' + g.dataset.venueNote + '</span>';
+    }
+    function activate(g){
+      if (g === current) return;
+      const first = current === null;
+      current = g;
+      if (first) { paint(g); return; }
+      inner.classList.add('is-switching');
+      window.setTimeout(function(){ paint(g); inner.classList.remove('is-switching'); }, 230);
+    }
+    function update(){
+      ticking = false;
+      const line = Math.max(120, window.innerHeight * 0.28);
+      let active = groups[0];
+      for (let i = 0; i < groups.length; i++){
+        if (groups[i].getBoundingClientRect().top - line <= 0) active = groups[i];
+      }
+      activate(active);
+    }
+    function onScroll(){ if (!ticking){ ticking = true; window.requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  })();
 
   document.getElementById('ham').addEventListener('click', () => {
     const m = document.getElementById('mob');
