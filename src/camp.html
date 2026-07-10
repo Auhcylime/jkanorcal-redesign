@@ -1152,16 +1152,18 @@ pageId: "camp"
        the bottom-right of the first viewport so her arms crop at the fold and the
        marquee sits exactly below it. */
     .camp-hero-inner { display: block; position: relative; min-height: calc(100svh - 64px); }
-    .camp-hero-text { max-width: 100%; padding: clamp(14px, 3.5vw, 24px) var(--side-pad) clamp(14px, 3.5vw, 24px); }
+    /* Type prints over the figure: HIRAYAMA crosses at her neck */
+    .camp-hero-text { position: relative; z-index: 3; max-width: 100%; padding: clamp(14px, 3.5vw, 24px) var(--side-pad) clamp(14px, 3.5vw, 24px); }
     .camp-kicker { margin-bottom: 14px; }
     .camp-figure {
-      position: absolute; display: block; left: auto; top: auto; right: 0; bottom: 0;
+      position: absolute; display: block; left: 132px; top: auto; right: auto; bottom: 0;
       width: auto; height: auto; padding-top: 0;
     }
     .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
-    .camp-figure img { display: block; height: min(76svh, 700px); width: auto; max-width: none; object-position: bottom; transform: none; }
-    /* Meta + buttons keep the left column and stay above the figure */
-    .camp-hero-text .camp-meta { position: relative; z-index: 3; max-width: 58%; margin-top: 14px; margin-bottom: 20px; }
+    .camp-figure img { display: block; height: min(100svh, 860px); width: auto; max-width: none; object-position: bottom; transform: none; }
+    /* Meta runs unwrapped across the cutout */
+    .camp-hero-text .camp-meta { position: relative; z-index: 3; margin-top: 14px; margin-bottom: 20px; }
+    .camp-meta-item { white-space: nowrap; }
     .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
     /* Solid secondary CTA so it holds its own over the gi */
     .camp-hero-text .camp-hero-actions .btn-outline { background: #fff; }
