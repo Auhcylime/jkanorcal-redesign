@@ -1152,15 +1152,16 @@ pageId: "camp"
        the bottom-right of the first viewport so her arms crop at the fold and the
        marquee sits exactly below it. */
     .camp-hero-inner { display: block; position: relative; min-height: calc(100svh - 64px); }
-    .camp-hero-text { max-width: 100%; padding: clamp(20px, 5vw, 36px) var(--side-pad) clamp(20px, 5vw, 32px); }
+    .camp-hero-text { max-width: 100%; padding: clamp(14px, 3.5vw, 24px) var(--side-pad) clamp(14px, 3.5vw, 24px); }
+    .camp-kicker { margin-bottom: 14px; }
     .camp-figure {
-      position: absolute; display: block; left: auto; top: auto; right: max(-28px, -7vw); bottom: 0;
+      position: absolute; display: block; left: auto; top: auto; right: 0; bottom: 0;
       width: auto; height: auto; padding-top: 0;
     }
     .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
-    .camp-figure img { display: block; height: min(62svh, 560px); width: auto; max-width: none; object-position: bottom; transform: none; }
+    .camp-figure img { display: block; height: min(70svh, 640px); width: auto; max-width: none; object-position: bottom; transform: none; }
     /* Meta + buttons keep the left column and stay above the figure */
-    .camp-meta { position: relative; z-index: 3; max-width: 58%; }
+    .camp-hero-text .camp-meta { position: relative; z-index: 3; max-width: 58%; margin-top: 14px; margin-bottom: 20px; }
     .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 12%; }
     .camp-about-body { column-count: 1; }
