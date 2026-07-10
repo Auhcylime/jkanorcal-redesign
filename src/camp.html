@@ -677,17 +677,28 @@ pageId: "camp"
   }
   .camp-packet-link {
     display: inline-block;
-    margin-top: 14px;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--poster-red);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
+    white-space: nowrap;
   }
   .camp-packet-link:hover { color: var(--poster-red-dark); }
+  /* All the section's small print gathered in one anchored row under the cards */
+  .camp-register-foot {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px 32px;
+    flex-wrap: wrap;
+  }
   .camp-register-contact {
-    margin-top: 24px;
+    margin-top: 6px;
     font-size: 0.9rem;
     color: var(--text-light);
   }
@@ -810,7 +821,6 @@ pageId: "camp"
   .camp-passes-foot {
     font-size: 0.82rem;
     color: var(--text-light);
-    margin-top: 20px;
     line-height: 1.6;
   }
   @media (max-width: 640px) {
@@ -1341,9 +1351,13 @@ pageId: "camp"
   .expect-num,
   .camp-marquee .mq-label { letter-spacing: 0.1em; }
 
+  /* Kicker scaled up to poster prominence */
+  .camp-kicker { font-size: 1.4rem; }
+  .camp-kicker-logo { width: 40px; height: 40px; }
+
   /* Small caps tier: DM Sans for legibility — Anton is display-only
-     (names, headings, dates, prices). */
-  .camp-kicker,
+     (names, headings, dates, prices), plus the kicker, which matches
+     the printed camp-packet poster. */
   .camp-rank-sub,
   .camp-meta,
   .camp-hero-actions .btn,
@@ -1360,6 +1374,7 @@ pageId: "camp"
     font-weight: 600;
     letter-spacing: 0.07em;
   }
+
 </style>
 </head>
 <body>
@@ -1371,10 +1386,12 @@ pageId: "camp"
   <div class="camp-hero-kanji" aria-hidden="true">七段</div>
   <div class="camp-hero-inner">
     <div class="camp-hero-text">
+      {% if camp.hero.kicker %}
       <div class="camp-kicker">
         <img src="{{ site.logo }}" alt="" class="camp-kicker-logo">
         {{ camp.hero.kicker }}
       </div>
+      {% endif %}
       <h1>
         <span class="fn">{{ camp.hero.name.split(" ")[0] }}</span>
         <span class="ln">{{ camp.hero.name.split(" ")[1] }}</span>
@@ -1420,9 +1437,8 @@ pageId: "camp"
 <section class="camp-register" id="register">
   <div class="camp-register-head">
     <div class="label reveal">{{ camp.register.label }}</div>
-    <h2 class="heading reveal d1">{{ camp.register.heading }}</h2>
+    {% if camp.register.heading %}<h2 class="heading reveal d1">{{ camp.register.heading }}</h2>{% endif %}
     {% if camp.register.note %}<p class="camp-register-note reveal d1">{{ camp.register.note }}</p>{% endif %}
-    {% if camp.info_packet.file and camp.info_packet.register_label %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="camp-packet-link reveal d1">{{ camp.info_packet.register_label }} &darr;</a>{% endif %}
   </div>
   <div class="camp-pass-grid reveal d1">
     {% for p in camp.register.options %}
@@ -1446,10 +1462,15 @@ pageId: "camp"
     </div>
     {% endfor %}
   </div>
-  {% if camp.register.footnote %}<p class="camp-passes-foot reveal">{{ camp.register.footnote }}</p>{% endif %}
-  {% if camp.register.contact %}
-  <p class="camp-register-contact reveal">{{ camp.register.contact.lead }} {% for b in camp.register.contact.links %}<a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %}>{{ b.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
-  {% endif %}
+  <div class="camp-register-foot reveal">
+    <div>
+      {% if camp.register.footnote %}<p class="camp-passes-foot">{{ camp.register.footnote }}</p>{% endif %}
+      {% if camp.register.contact %}
+      <p class="camp-register-contact">{{ camp.register.contact.lead }} {% for b in camp.register.contact.links %}<a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %}>{{ b.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+      {% endif %}
+    </div>
+    {% if camp.info_packet.file and camp.info_packet.register_label %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="camp-packet-link">{{ camp.info_packet.register_label }} &darr;</a>{% endif %}
+  </div>
 </section>
 
 {% if camp.schedule %}

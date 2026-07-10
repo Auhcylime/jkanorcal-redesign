@@ -8,7 +8,7 @@ hero:
   name_jp: 平山優子
   rank: ''
   credential: ''
-  figure: /images/camp/hirayama-hires.png
+  figure: /images/camp/hirayama-cutout.webp
   figure_alt: Yuko Hirayama Sensei in karate gi, arms crossed
   figure_jp: 日本空手協会　七段
   subhead: Sensei returns to the Bay Area for a second year. After last year's turnout, we are honored to train under her again. Registration is open, full camp and single-day passes below.
@@ -78,7 +78,7 @@ expect:
       pos: ''
 register:
   label: Register
-  heading: Choose your pass
+  heading: ''
   note: ''
   footnote: Full camp prices increase to $250 on Aug 1, then $300 on Sep 2.
   options:

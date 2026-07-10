@@ -41,6 +41,9 @@ permalink: "/index.html"
 
   html { scroll-behavior: smooth; }
 
+  /* Anchor targets clear the fixed 64px nav */
+  #about, #news, #schedule, #location { scroll-margin-top: 64px; }
+
   body {
     font-family: var(--font-sans);
     background: var(--white);
@@ -1336,6 +1339,27 @@ permalink: "/index.html"
 {% include "footer.njk" %}
 
 <script>
+  // Arriving with a #hash from another page: late-loading content (the
+  // Instagram embed resizes itself) shifts layout after the initial anchor
+  // jump, stranding the viewport short of the target. Re-align until the
+  // layout settles or the user takes over.
+  (function () {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (!el) return;
+    let done = false;
+    const snap = () => { if (!done) el.scrollIntoView({ behavior: 'instant', block: 'start' }); };
+    const stop = () => { done = true; ro.disconnect(); };
+    const ro = new ResizeObserver(snap);
+    window.addEventListener('load', () => {
+      snap();
+      ro.observe(document.body);
+      setTimeout(stop, 3000);
+    });
+    ['wheel', 'touchstart', 'keydown'].forEach(e =>
+      window.addEventListener(e, stop, { once: true, passive: true }));
+  })();
+
   // Scrollspy: underline the nav tab whose homepage section is in view
   (function () {
     const links = {};
