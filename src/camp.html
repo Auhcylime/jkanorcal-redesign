@@ -1159,10 +1159,12 @@ pageId: "camp"
       width: auto; height: auto; padding-top: 0;
     }
     .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
-    .camp-figure img { display: block; height: min(70svh, 640px); width: auto; max-width: none; object-position: bottom; transform: none; }
+    .camp-figure img { display: block; height: min(76svh, 700px); width: auto; max-width: none; object-position: bottom; transform: none; }
     /* Meta + buttons keep the left column and stay above the figure */
     .camp-hero-text .camp-meta { position: relative; z-index: 3; max-width: 58%; margin-top: 14px; margin-bottom: 20px; }
     .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
+    /* Solid secondary CTA so it holds its own over the gi */
+    .camp-hero-text .camp-hero-actions .btn-outline { background: #fff; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 12%; }
     .camp-about-body { column-count: 1; }
     .camp-about-photo { max-width: 560px; }
