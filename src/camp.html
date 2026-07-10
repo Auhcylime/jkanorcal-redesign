@@ -1148,14 +1148,21 @@ pageId: "camp"
 
 
   @media (max-width: 860px) {
-    .camp-hero-inner { flex-direction: column; min-height: 0; align-items: center; }
-    .camp-hero-text { order: 1; align-self: auto; max-width: 100%; padding: clamp(24px, 7vw, 40px) var(--side-pad) clamp(24px, 5vw, 34px); }
-    /* Shorter block, bigger figure: the cutout is scaled past the container and
-       top-anchored, so the head stays put and the lower gi crops at the fold. */
-    .camp-figure { order: 2; position: static; width: 100%; justify-content: center; padding-top: clamp(8px, 3vw, 20px); height: clamp(280px, 38vh, 380px); overflow: hidden; }
+    /* One poster composition per screen: text cluster top-left, figure pinned to
+       the bottom-right of the first viewport so her arms crop at the fold and the
+       marquee sits exactly below it. */
+    .camp-hero-inner { display: block; position: relative; min-height: calc(100svh - 64px); }
+    .camp-hero-text { max-width: 100%; padding: clamp(20px, 5vw, 36px) var(--side-pad) clamp(20px, 5vw, 32px); }
+    .camp-figure {
+      position: absolute; display: block; left: auto; top: auto; right: max(-28px, -7vw); bottom: 0;
+      width: auto; height: auto; padding-top: 0;
+    }
     .camp-stage { opacity: 0.22; background-size: cover; background-position: 37% center; background-repeat: no-repeat; }
-    .camp-figure img { height: 200%; max-width: none; object-position: center top; transform: none; }
-    .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 30%; }
+    .camp-figure img { display: block; height: min(62svh, 560px); width: auto; max-width: none; object-position: bottom; transform: none; }
+    /* Meta + buttons keep the left column and stay above the figure */
+    .camp-meta { position: relative; z-index: 3; max-width: 58%; }
+    .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
+    .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 12%; }
     .camp-about-body { column-count: 1; }
     .camp-about-photo { max-width: 560px; }
   }
