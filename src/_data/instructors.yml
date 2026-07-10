@@ -71,7 +71,7 @@ list:
         value_class: ''
         label: US National<br>Team Member
       - value: Gold
-        value_class: italic
+        value_class: ''
         label: 2025 Panam<br>Individual Kata
       - value: 4th
         value_class: ''
