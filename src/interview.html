@@ -463,6 +463,8 @@ pageId: "interview"
   }
   @media (max-width: 760px) {
     .iv-qa { grid-template-columns: 1fr; column-gap: 0; margin-top: 26px; }
+    /* Undo the desktop column assignments so question and answer stack */
+    .iv-q, .iv-a { grid-column: 1; }
     .iv-q { margin-bottom: 10px; }
   }
   .iv-credits {
