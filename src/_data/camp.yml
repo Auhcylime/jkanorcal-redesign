@@ -21,9 +21,9 @@ hero:
     href: '#register'
 info_packet:
   file: /camp/hirayama-camp-2026-info-packet.pdf
-  hero_label: Download Camp Packet
+  hero_label: View Camp Packet
   register_label: Download Camp Packet
-  closing_label: Download Camp Packet
+  closing_label: View Camp Packet
 marquee:
   - type: rank
     cls: ''
