@@ -8,12 +8,13 @@ pageId: "join"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/images/shared/jka-logo.png">
 {% include "analytics.njk" %}
 <title>{{ join.meta.title }}</title>
 <meta name="description" content="{{ join.meta.description }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -31,7 +32,6 @@ pageId: "join"
     --red: #c8102e;
     --navy: #1a3a5c;
     --navy-light: #2a5a8c;
-    --gold: #a8854a;
     --font-serif: 'Source Serif 4', Georgia, serif;
     --font-sans: 'DM Sans', -apple-system, sans-serif;
     --content-width: 1080px;
@@ -97,6 +97,15 @@ pageId: "join"
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text); }
+  .nav-links a.current { color: var(--text); }
+  .nav-links a.current::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--accent);
+    margin-top: 4px;
+  }
+  .nav-links .join-btn::after { display: none; }
   .nav-links .join-btn {
     background: var(--accent);
     color: white;
@@ -145,7 +154,7 @@ pageId: "join"
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--text-light);
     font-weight: 600;
     margin-bottom: 10px;
   }
@@ -155,6 +164,7 @@ pageId: "join"
     font-weight: 600;
     color: var(--text);
     line-height: 1.25;
+    margin-bottom: 14px;
   }
   .section-inner {
     max-width: var(--content-width);
@@ -552,29 +562,6 @@ pageId: "join"
     text-align: center;
     margin-bottom: 14px;
     white-space: nowrap;
-  }
-  .footer-brand-name {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 14px;
-  }
-  .footer-quote {
-    font-family: var(--font-serif);
-    font-size: 0.92rem;
-    font-style: italic;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.5);
-  }
-  .footer-quote cite {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-style: normal;
-    display: block;
-    margin-top: 6px;
-    letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.35);
   }
   .footer-cols { display: flex; gap: 56px; }
   .footer-col h5 {

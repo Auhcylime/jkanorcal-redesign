@@ -8,13 +8,14 @@ pageId: "sensei"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/images/shared/jka-logo.png">
 {% include "analytics.njk" %}
 <title>Instructors | JKA NorCal</title>
 <meta name="description" content="Meet the instructors who lead the floor at JKA NorCal.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=Anton&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Anton&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,6 +29,8 @@ pageId: "sensei"
     --site-text-light:#7a756e;
     --accent:       #c8102e;
     --accent-light: #e62e44;
+    --poster-red:      #f23f2c;
+    --poster-red-dark: #d62f1d;
 
     /* Dark editorial body palette */
     --ink:        #0a0907;
@@ -810,24 +813,12 @@ pageId: "sensei"
     border: none;
     cursor: pointer;
     transition: all 0.3s;
-    border-radius: 2px;
+    border-radius: 4px;
   }
-  .btn .arrow {
-    width: 14px; height: 1px;
-    background: currentColor;
-    position: relative;
-    transition: width 0.3s;
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
   }
-  .btn .arrow::after {
-    content: '';
-    position: absolute;
-    right: 0; top: 50%;
-    width: 6px; height: 6px;
-    border-top: 1px solid currentColor;
-    border-right: 1px solid currentColor;
-    transform: translateY(-50%) rotate(45deg);
-  }
-  .btn:hover .arrow { width: 22px; }
   .btn-hino { background: var(--hino); color: var(--paper); }
   .btn-hino:hover { background: var(--hino-soft); }
   .btn-ghost {
@@ -850,7 +841,7 @@ pageId: "sensei"
     position: relative;
     z-index: 3;
   }
-  .footer-inner { max-width: var(--content-width); margin: 0 auto; }
+  .footer-inner { max-width: 1080px; margin: 0 auto; } /* 1080px is the site-wide footer width */
   .footer-top {
     display: flex;
     justify-content: space-between;
@@ -883,29 +874,6 @@ pageId: "sensei"
     white-space: nowrap;
   }
 
-  .footer-brand-name {
-    font-family: var(--site-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 14px;
-  }
-  .footer-quote {
-    font-family: var(--site-serif);
-    font-size: 0.92rem;
-    font-style: italic;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.5);
-  }
-  .footer-quote cite {
-    font-family: var(--site-sans);
-    font-size: 0.65rem;
-    font-style: normal;
-    display: block;
-    margin-top: 6px;
-    letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.35);
-  }
   .footer-cols { display: flex; gap: 56px; }
   .footer-col h5 {
     font-family: var(--site-sans);
@@ -1034,7 +1002,7 @@ pageId: "sensei"
     justify-content: center;
     gap: 8px 14px;
     flex-wrap: wrap;
-    background: #f23f2c;
+    background: var(--poster-red);
     color: #fff;
     text-decoration: none;
     padding: 12px 24px;
@@ -1046,13 +1014,28 @@ pageId: "sensei"
     text-align: center;
     transition: background 0.2s;
   }
-  .camp-banner:hover { background: #d62f1d; }
+  .camp-banner:hover { background: var(--poster-red-dark); }
   .camp-banner strong { font-weight: 600; }
   .camp-banner-tag {
     background: #1a1a1a;
     color: #fff;
     border-radius: 3px;
     padding: 2px 10px;
+  }
+  .camp-banner-arrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+    line-height: 1;
+    animation: camp-nudge 1.6s ease-in-out infinite;
+  }
+  @keyframes camp-nudge {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(5px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .camp-banner-arrow { animation: none; }
   }
   @media (max-width: 560px) { .camp-banner { font-size: 0.82rem; padding: 10px 18px; } }
 </style>
@@ -1068,6 +1051,7 @@ pageId: "sensei"
 <a href="{{ site.camp_banner.href }}" class="camp-banner">
   <span class="camp-banner-tag">{{ site.camp_banner.tag }}</span>
   <span>{{ site.camp_banner.text | safe }}</span>
+  <span class="camp-banner-arrow" aria-hidden="true">&rsaquo;&rsaquo;</span>
 </a>
 {% endif %}
 
@@ -1164,11 +1148,9 @@ pageId: "sensei"
     <div class="actions reveal d3">
       <a href="{{ instructors.invitation.primary.href }}" class="btn btn-ghost">
         {{ instructors.invitation.primary.label }}
-        <span class="arrow"></span>
       </a>
       <a href="{{ instructors.invitation.secondary.href }}" class="btn btn-hino">
         {{ instructors.invitation.secondary.label }}
-        <span class="arrow"></span>
       </a>
     </div>
   </section>

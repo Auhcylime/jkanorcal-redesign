@@ -122,7 +122,7 @@ collections:
               - { name: image_alt,     label: "Photo alt text",       widget: string }
               - { name: heading_line1, label: "Heading line 1",       widget: string }
               - { name: heading_line2, label: "Heading line 2",       widget: string }
-              - { name: subhead,       label: Subheadline,            widget: text }
+              - { name: subhead,       label: "Subheadline (HTML allowed, e.g. <br> for a line break)", widget: text }
               - name: cta_primary
                 label: "Primary button (white)"
                 widget: object

@@ -6,12 +6,13 @@ permalink: "/index.html"
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/images/shared/jka-logo.png">
 {% include "analytics.njk" %}
 <title>JKA NorCal | Shotokan Karate</title>
 <meta name="description" content="Traditional JKA Shotokan karate for adults and kids in San Bruno, California, twenty minutes south of San Francisco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Anton&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Anton&family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&family=JetBrains+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -29,6 +30,9 @@ permalink: "/index.html"
     --red: #c8102e;
     --navy: #1a3a5c;
     --navy-light: #2a5a8c;
+    --gold: #a8854a;
+    --poster-red: #f23f2c;
+    --poster-red-dark: #d62f1d;
     --font-serif: 'Source Serif 4', Georgia, serif;
     --font-sans: 'DM Sans', -apple-system, sans-serif;
     --content-width: 1080px;
@@ -52,7 +56,7 @@ permalink: "/index.html"
   .text-link {
     color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(26,58,92,0.3);
+    border-bottom: 1px solid rgba(200,16,46,0.3);
   }
   .text-link:hover { border-bottom-color: var(--accent); }
 
@@ -107,6 +111,16 @@ permalink: "/index.html"
   }
 
   .nav-links a:hover { color: var(--text); }
+
+  .nav-links a.current { color: var(--text); }
+  .nav-links a.current::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--accent);
+    margin-top: 4px;
+  }
+  .nav-links .join-btn::after { display: none; }
 
   .nav-links .join-btn {
     background: var(--accent);
@@ -171,6 +185,8 @@ permalink: "/index.html"
     position: absolute;
     inset: 0;
   }
+
+  .hero-img img { object-position: center 75%; }
 
   .hero-img::after {
     content: '';
@@ -715,146 +731,6 @@ permalink: "/index.html"
     font-weight: 500;
   }
 
-  /* ─── Newsletter (single latest issue) ─── */
-  .newsletter { background: var(--white); border-top: 1px solid var(--border); }
-
-  .newsletter-card {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: clamp(28px, 4vw, 56px);
-    margin-top: 36px;
-    padding: clamp(24px, 3vw, 40px);
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    align-items: center;
-  }
-  .newsletter-card:hover {
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
-  }
-
-  /* Designed cover (acts as the PDF thumbnail until a real screenshot replaces it) */
-  .newsletter-cover {
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(168,133,74,0.18) 0%, transparent 60%),
-      linear-gradient(165deg, #2d2a26 0%, #1a3a5c 100%);
-    border-radius: 4px;
-    aspect-ratio: 3 / 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 22px;
-    color: white;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  }
-  .newsletter-cover::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.25) 100%);
-  }
-  .newsletter-mark {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-bottom: 22px;
-    box-shadow: 0 0 28px rgba(168,133,74,0.35);
-  }
-  .newsletter-issue-label {
-    font-family: var(--font-sans);
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
-  }
-  .newsletter-month {
-    font-family: var(--font-serif);
-    font-size: 1.55rem;
-    font-weight: 600;
-    line-height: 1.15;
-    color: white;
-    position: relative;
-    z-index: 1;
-  }
-  .newsletter-divider {
-    width: 36px;
-    height: 1px;
-    background: rgba(255,255,255,0.4);
-    margin: 16px 0 14px;
-    position: relative;
-    z-index: 1;
-  }
-  .newsletter-publication {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Card body */
-  .newsletter-body { padding: 4px 0; }
-  .newsletter-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--red);
-    font-weight: 600;
-    margin-bottom: 14px;
-  }
-  .newsletter-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.25;
-    margin-bottom: 14px;
-  }
-  .newsletter-excerpt {
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    line-height: 1.75;
-    margin-bottom: 26px;
-    max-width: 540px;
-  }
-  .newsletter-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .newsletter-link svg {
-    transition: transform 0.3s ease;
-  }
-  .newsletter-card:hover .newsletter-link svg {
-    transform: translateX(6px);
-  }
-
-  @media (max-width: 720px) {
-    .newsletter-card { grid-template-columns: 1fr; }
-    .newsletter-cover { aspect-ratio: 16/9; max-height: 220px; }
-    .newsletter-mark { width: 48px; height: 48px; margin-bottom: 14px; }
-  }
-
   /* ─── Recognition (dark inset matching the sensei page mood) ─── */
   .recognition {
     padding: clamp(80px, 10vw, 130px) var(--side-pad) clamp(70px, 9vw, 110px);
@@ -917,7 +793,7 @@ permalink: "/index.html"
     font-size: 0.66rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #a8854a;
+    color: var(--gold);
     margin-bottom: 22px;
   }
   .recognition-text h2 {
@@ -933,7 +809,7 @@ permalink: "/index.html"
   .recognition-text h2 em {
     font-style: italic;
     font-variation-settings: "SOFT" 80, "opsz" 144;
-    color: #a8854a;
+    color: var(--gold);
   }
   .recognition-text .lede {
     font-size: 0.96rem;
@@ -964,7 +840,7 @@ permalink: "/index.html"
   .roster-list .row .name { color: #dcd1b3; font-weight: 500; }
   .roster-list .row .country {
     margin-left: auto;
-    color: #c8102e;
+    color: var(--accent);
     font-size: 0.6rem;
     letter-spacing: 0.16em;
   }
@@ -1077,14 +953,6 @@ permalink: "/index.html"
     max-width: 460px;
   }
 
-  .footer-brand-name {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 14px;
-  }
-
   .footer-brand-jp {
     font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
     font-size: clamp(2.6rem, 11vw, 4.5rem);
@@ -1107,24 +975,6 @@ permalink: "/index.html"
     text-align: center;
     margin-bottom: 14px;
     white-space: nowrap;
-  }
-
-  .footer-quote {
-    font-family: var(--font-serif);
-    font-size: 0.92rem;
-    font-style: italic;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .footer-quote cite {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
-    font-style: normal;
-    display: block;
-    margin-top: 6px;
-    letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.35);
   }
 
   .footer-cols {
@@ -1260,7 +1110,7 @@ permalink: "/index.html"
     justify-content: center;
     gap: 8px 14px;
     flex-wrap: wrap;
-    background: #f23f2c;
+    background: var(--poster-red);
     color: #fff;
     text-decoration: none;
     padding: 12px 24px;
@@ -1273,7 +1123,7 @@ permalink: "/index.html"
     text-align: center;
     transition: background 0.2s;
   }
-  .camp-banner:hover { background: #d62f1d; }
+  .camp-banner:hover { background: var(--poster-red-dark); }
   /* fixed overlay just under the nav; hero sits full-bleed behind it */
   .camp-banner-wrap {
     position: fixed;
@@ -1342,7 +1192,7 @@ permalink: "/index.html"
   </div>
   <div class="hero-content">
     <h1>{{ home.hero.heading_line1 }}<br>{{ home.hero.heading_line2 }}</h1>
-    <p class="hero-sub">{{ home.hero.subhead }}</p>
+    <p class="hero-sub">{{ home.hero.subhead | safe }}</p>
     <div class="hero-actions">
       <a href="{{ home.hero.cta_primary.href }}"{% if home.hero.cta_primary.external %} target="_blank" rel="noopener"{% endif %} class="btn btn-white">{{ home.hero.cta_primary.label }}</a>
       <a href="{{ home.hero.cta_secondary.href }}" class="btn btn-outline-white">{{ home.hero.cta_secondary.label }}</a>
@@ -1408,7 +1258,6 @@ permalink: "/index.html"
     <p class="desc reveal d2" style="margin-bottom: 32px">{{ home.updates.description | safe }}</p>
 
     <div class="lightwidget-wrap reveal d2">
-      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
       <iframe src="https://cdn.lightwidget.com/widgets/{{ home.updates.lightwidget_id }}.html"
               scrolling="no" allowtransparency="true"
               class="lightwidget-widget"
