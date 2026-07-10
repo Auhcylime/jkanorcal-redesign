@@ -397,12 +397,18 @@ collections:
                 fields:
                   - { name: label, label: Label, widget: string }
                   - { name: href,  label: URL,   widget: string }
-              - name: cta_secondary
-                label: "Secondary button"
-                widget: object
-                fields:
-                  - { name: label, label: Label, widget: string }
-                  - { name: href,  label: URL,   widget: string }
+          - name: info_packet
+            label: "Info packet (PDF)"
+            widget: object
+            fields:
+              - name: file
+                label: "Packet file"
+                widget: file
+                required: false
+                media_folder: "/src/static/camp"
+                public_folder: "/camp"
+                hint: "Upload the latest packet PDF here. The download buttons in the hero, the Register section, and the bottom band all point at this one file — uploading a newer version updates all three. Leave empty to hide the buttons."
+              - { name: label, label: "Button label", widget: string, default: "Download Camp Packet" }
           - name: marquee
             label: "Record marquee (scrolling ticker)"
             widget: list

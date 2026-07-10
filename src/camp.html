@@ -1537,6 +1537,17 @@ pageId: "camp"
     color: var(--text-light);
     margin-top: 12px;
   }
+  .camp-packet-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--poster-red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .camp-packet-link:hover { color: #d62f1d; }
   .camp-register-contact {
     margin-top: 24px;
     font-size: 0.92rem;
@@ -2219,7 +2230,7 @@ pageId: "camp"
       </div>
       <div class="camp-hero-actions">
         <a href="{{ camp.hero.cta_primary.href }}"{% if 'http' in camp.hero.cta_primary.href %} target="_blank" rel="noopener"{% endif %} class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
-        {% if camp.hero.cta_secondary %}<a href="{{ camp.hero.cta_secondary.href }}" class="btn btn-outline">{{ camp.hero.cta_secondary.label }}</a>{% endif %}
+        {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.label }}</a>{% endif %}
       </div>
     </div>
     <div class="camp-figure">
@@ -2253,6 +2264,7 @@ pageId: "camp"
     <div class="label reveal">{{ camp.register.label }}</div>
     <h2 class="heading reveal d1">{{ camp.register.heading }}</h2>
     {% if camp.register.note %}<p class="camp-register-note reveal d1">{{ camp.register.note }}</p>{% endif %}
+    {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="camp-packet-link reveal d1">{{ camp.info_packet.label }} &darr;</a>{% endif %}
   </div>
   <div class="camp-pass-grid reveal d1">
     {% for p in camp.register.options %}
@@ -2278,7 +2290,7 @@ pageId: "camp"
   </div>
   {% if camp.register.footnote %}<p class="camp-passes-foot reveal">{{ camp.register.footnote }}</p>{% endif %}
   {% if camp.register.contact %}
-  <p class="camp-register-contact reveal">{{ camp.register.contact.lead }}{% for b in camp.register.contact.links %}<a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %}>{{ b.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+  <p class="camp-register-contact reveal">{{ camp.register.contact.lead }} {% for b in camp.register.contact.links %}<a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %}>{{ b.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
   {% endif %}
 </section>
 
@@ -2349,6 +2361,7 @@ pageId: "camp"
     {% for b in camp.closing.buttons %}
     <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
     {% endfor %}
+    {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.label }}</a>{% endif %}
   </div>
 </section>
 {% endif %}

@@ -19,9 +19,9 @@ hero:
   cta_primary:
     label: Register
     href: '#register'
-  cta_secondary:
-    label: See the schedule
-    href: '#schedule'
+info_packet:
+  label: Download Camp Packet
+  file: /camp/hirayama-camp-2026-info-packet.pdf
 marquee:
   - type: rank
     cls: ''
