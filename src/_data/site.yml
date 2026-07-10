@@ -20,7 +20,7 @@ join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21
 # Set `enabled: false` to hide it everywhere without deleting the copy.
 camp_banner:
   enabled: true
-  href: "/camp#register"
+  href: "/camp"
   tag: "Now open"
   text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11-13 &middot; Register now"
 
