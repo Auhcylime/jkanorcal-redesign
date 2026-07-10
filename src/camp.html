@@ -2230,7 +2230,7 @@ pageId: "camp"
       </div>
       <div class="camp-hero-actions">
         <a href="{{ camp.hero.cta_primary.href }}"{% if 'http' in camp.hero.cta_primary.href %} target="_blank" rel="noopener"{% endif %} class="btn btn-accent">{{ camp.hero.cta_primary.label }}</a>
-        {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.label }}</a>{% endif %}
+        {% if camp.info_packet.file and camp.info_packet.hero_label %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.hero_label }}</a>{% endif %}
       </div>
     </div>
     <div class="camp-figure">
@@ -2264,7 +2264,7 @@ pageId: "camp"
     <div class="label reveal">{{ camp.register.label }}</div>
     <h2 class="heading reveal d1">{{ camp.register.heading }}</h2>
     {% if camp.register.note %}<p class="camp-register-note reveal d1">{{ camp.register.note }}</p>{% endif %}
-    {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="camp-packet-link reveal d1">{{ camp.info_packet.label }} &darr;</a>{% endif %}
+    {% if camp.info_packet.file and camp.info_packet.register_label %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="camp-packet-link reveal d1">{{ camp.info_packet.register_label }} &darr;</a>{% endif %}
   </div>
   <div class="camp-pass-grid reveal d1">
     {% for p in camp.register.options %}
@@ -2361,7 +2361,7 @@ pageId: "camp"
     {% for b in camp.closing.buttons %}
     <a href="{{ b.href }}"{% if 'http' in b.href %} target="_blank" rel="noopener"{% endif %} class="btn {{ b.style }}">{{ b.label }}</a>
     {% endfor %}
-    {% if camp.info_packet.file %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.label }}</a>{% endif %}
+    {% if camp.info_packet.file and camp.info_packet.closing_label %}<a href="{{ camp.info_packet.file }}" target="_blank" rel="noopener" class="btn btn-outline">{{ camp.info_packet.closing_label }}</a>{% endif %}
   </div>
 </section>
 {% endif %}

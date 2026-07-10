@@ -20,8 +20,10 @@ hero:
     label: Register
     href: '#register'
 info_packet:
-  label: Download Camp Packet
   file: /camp/hirayama-camp-2026-info-packet.pdf
+  hero_label: Download Camp Packet
+  register_label: Download Camp Packet
+  closing_label: Download Camp Packet
 marquee:
   - type: rank
     cls: ''

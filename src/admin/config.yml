@@ -407,8 +407,10 @@ collections:
                 required: false
                 media_folder: "/src/static/camp"
                 public_folder: "/camp"
-                hint: "Upload the latest packet PDF here. The download buttons in the hero, the Register section, and the bottom band all point at this one file — uploading a newer version updates all three. Leave empty to hide the buttons."
-              - { name: label, label: "Button label", widget: string, default: "Download Camp Packet" }
+                hint: "Upload the latest packet PDF here. The download buttons in the hero, the Register section, and the bottom band all point at this one file — uploading a newer version updates all three. Leave empty to hide all three. Tip: the title shown in the browser tab comes from inside the PDF (Google uses the Doc's name when exporting), so rename the Google Doc before File → Download → PDF."
+              - { name: hero_label,     label: "Hero button text",           widget: string, required: false, default: "Download Camp Packet", hint: "Clear to hide the hero button." }
+              - { name: register_label, label: "Register section link text", widget: string, required: false, default: "Download Camp Packet", hint: "Clear to hide the register link." }
+              - { name: closing_label,  label: "Bottom band button text",    widget: string, required: false, default: "Download Camp Packet", hint: "Clear to hide the bottom-band button." }
           - name: marquee
             label: "Record marquee (scrolling ticker)"
             widget: list
