@@ -16,12 +16,12 @@ list:
       - value: 5th Dan
         value_class: ''
         label: Godan<br>JKA-certified
-      - value: '2024'
+      - value: Gold
         value_class: ''
-        label: JKA Worlds<br>Takasaki, Japan
-      - value: USA
+        label: National Champion<br>USA & Brazil
+      - value: 2 Wins
         value_class: ''
-        label: National Team<br>Active
+        label: 2024 JKA Worlds<br>Takasaki, Japan
     credentials: Instructor C · Judge C · Examiner D
     plate:
       photo: /images/sensei/wauriman-worlds-maegeri.jpg

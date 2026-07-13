@@ -1059,6 +1059,12 @@ permalink: "/index.html"
   .d3 { transition-delay: 0.24s; }
 
   /* ─── Responsive ─── */
+    @media (max-width: 1100px) {
+    .footer-top { flex-direction: column; align-items: center; }
+    .footer-brand { max-width: none; }
+    .footer-cols { justify-content: center; }
+  }
+
   @media (max-width: 900px) {
     .schedule-cards { grid-template-columns: repeat(2, 1fr); }
     .feature, .recognition-grid { grid-template-columns: 1fr; }
@@ -1095,9 +1101,9 @@ permalink: "/index.html"
     .hero-actions .btn { width: 100%; text-align: center; }
     .photo-strip { grid-template-columns: 1fr 1fr; }
     .schedule-header, .news-header { flex-direction: column; align-items: flex-start; }
-    .footer-top { flex-direction: column; }
-    .footer-cols { flex-direction: column; gap: 24px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-cols { gap: 18px; justify-content: space-between; width: 100%; }
+    .footer-col h5 { font-size: 0.58rem; }
+    .footer-col a { font-size: 0.7rem; }
     .feature-text { padding: 28px 20px; }
     .feature-stats { flex-direction: column; gap: 16px; }
     .location { min-height: clamp(440px, 80vh, 620px); }

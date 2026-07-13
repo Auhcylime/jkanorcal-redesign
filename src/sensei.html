@@ -965,6 +965,12 @@ pageId: "sensei"
   /* ─────────────────────────────────────────
      Responsive
   ───────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .footer-top { flex-direction: column; align-items: center; }
+    .footer-brand { max-width: none; }
+    .footer-cols { justify-content: center; }
+  }
+
   @media (max-width: 980px) {
     .composition,
     .chapter.reverse .composition {
@@ -984,20 +990,17 @@ pageId: "sensei"
     .hamburger { display: block; }
     .figure-frame { max-width: 320px; }
     .figure-wrap { min-height: 420px; }
-    .stats { grid-template-columns: 1fr; }
-    .stat + .stat {
-      padding-left: 0;
-      padding-top: 18px;
-      border-left: none;
-      border-top: 1px solid var(--hair-soft);
-    }
-    .stat { padding: 18px 0; }
+    .stats { max-width: none; }
+    .stat { padding: 16px 0; }
+    .stat + .stat { padding-left: 14px; }
+    .stat .value { font-size: 1.3rem; margin-bottom: 8px; }
+    .stat .label { font-size: 0.56rem; letter-spacing: 0.12em; }
     .credentials { flex-direction: column; align-items: flex-start; gap: 6px; }
     .credentials .label::after { display: none; }
     .roster-list { grid-template-columns: 1fr; }
-    .footer-top { flex-direction: column; }
-    .footer-cols { flex-direction: column; gap: 24px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-cols { gap: 18px; justify-content: space-between; width: 100%; }
+    .footer-col h5 { font-size: 0.58rem; }
+    .footer-col a { font-size: 0.7rem; }
     .invitation .actions { flex-direction: column; align-items: stretch; }
     .invitation .actions .btn { justify-content: center; width: 100%; }
     .chapter-marker { gap: 12px; }

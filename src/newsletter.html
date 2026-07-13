@@ -491,6 +491,12 @@ pageId: "newsletter"
   .d5 { transition-delay: 0.4s; }
 
   /* ─── Responsive ─── */
+    @media (max-width: 1100px) {
+    .footer-top { flex-direction: column; align-items: center; }
+    .footer-brand { max-width: none; }
+    .footer-cols { justify-content: center; }
+  }
+
   @media (max-width: 900px) {
     .archive-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-cols { gap: 36px; }
@@ -516,9 +522,9 @@ pageId: "newsletter"
     .nav-links { display: none; }
     .hamburger { display: block; }
     .archive-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
-    .footer-top { flex-direction: column; }
-    .footer-cols { flex-direction: column; gap: 24px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-cols { gap: 18px; justify-content: space-between; width: 100%; }
+    .footer-col h5 { font-size: 0.58rem; }
+    .footer-col a { font-size: 0.7rem; }
     .scroll-cue { font-size: 0.62rem; letter-spacing: 0.18em; }
   }
 </style>
