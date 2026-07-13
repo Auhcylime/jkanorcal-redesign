@@ -645,6 +645,8 @@ pageId: "camp"
     padding: 8px 12px 0 0;
     color: var(--accent);
   }
+  /* "Read more" toggle only exists on mobile, where the bio collapses */
+  .camp-about-more { display: none; }
 
   /* ─── Register ─── */
   .camp-register {
@@ -1163,11 +1165,29 @@ pageId: "camp"
     /* Meta + buttons keep the left column and stay above the figure */
     .camp-hero-text .camp-meta { position: relative; z-index: 3; max-width: 58%; margin-top: 14px; margin-bottom: 20px; }
     .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
-    /* Solid secondary CTA so it holds its own over the gi */
-    .camp-hero-text .camp-hero-actions .btn-outline { background: #fff; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 12%; }
     .camp-about-body { column-count: 1; }
     .camp-about-photo { max-width: 560px; }
+    /* Collapse the bio to ~4 lines behind a "Read more" toggle */
+    .camp-about-text {
+      position: relative;
+      overflow: hidden;
+      max-height: calc(6 * 1.85 * var(--fs-lead, 1.05rem));
+    }
+    .camp-about-text::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2.6em;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), var(--white));
+      pointer-events: none;
+    }
+    .camp-about-text.is-open { max-height: none; }
+    .camp-about-text.is-open::after { display: none; }
+    .camp-about-more { display: inline-block; margin-top: 18px; }
+    .camp-about-body .camp-about-link { display: block; margin-top: 20px; }
+    /* Interview link only appears once the bio is expanded */
+    .camp-about-text:not(.is-open) ~ .camp-about-link { display: none; }
   }
 
   /* ─── Save-the-Date band: emphasised date line ─── */
@@ -1433,10 +1453,13 @@ pageId: "camp"
   </div>
   <div class="camp-about-body reveal d1">
     <img src="{{ camp.about.photo }}" alt="{{ camp.about.photo_alt }}" class="camp-about-photo" loading="lazy">
-    {% for para in camp.about.paragraphs %}
-    <p>{{ para }}</p>
-    {% endfor %}
+    <div class="camp-about-text" id="camp-bio">
+      {% for para in camp.about.paragraphs %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
     {% if pages.interview != false %}<a href="/interview" class="camp-about-link">Read her interview &rarr;</a>{% endif %}
+    <button type="button" class="btn btn-outline camp-about-more" aria-expanded="false" aria-controls="camp-bio">Read more</button>
   </div>
 </section>
 
@@ -1558,6 +1581,18 @@ pageId: "camp"
     es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }});
   }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Instructor bio: mobile "Read more" toggle
+  (function(){
+    const text = document.querySelector('.camp-about-text');
+    const btn = document.querySelector('.camp-about-more');
+    if (!text || !btn) return;
+    btn.addEventListener('click', function(){
+      const open = text.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+  })();
 
   // Schedule: sticky date rail that morphs as each day scrolls into view
   (function(){
