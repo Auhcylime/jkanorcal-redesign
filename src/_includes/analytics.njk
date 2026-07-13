@@ -52,8 +52,12 @@
       };
       return b;
     }
-    bar.appendChild(btn('Decline', false));
-    bar.appendChild(btn('Accept', true));
+    // Keep the two buttons together so they wrap as one unit on narrow screens
+    var actions = document.createElement('div');
+    actions.style.cssText = "display:flex;gap:12px;align-items:center;flex-wrap:wrap";
+    actions.appendChild(btn('Decline', false));
+    actions.appendChild(btn('Accept', true));
+    bar.appendChild(actions);
     document.body.appendChild(bar);
   });
 </script>
