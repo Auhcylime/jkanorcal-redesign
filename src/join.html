@@ -174,10 +174,8 @@ pageId: "join"
   /* ─── Combined Registration + Tuition section ─── */
   .join-main {
     background: var(--white);
-    /* 130px top matches .page-header on privacy.html */
-    padding: 130px var(--side-pad) clamp(56px, 7vw, 90px);
+    padding: clamp(48px, 6vw, 80px) var(--side-pad) clamp(56px, 7vw, 90px);
   }
-  .register-block { margin-top: clamp(40px, 5vw, 64px); }
   /* One tuition card: promise + anchor on the left, families on the right */
   .tuition-card {
     display: grid;
@@ -230,17 +228,84 @@ pageId: "join"
     color: var(--text-light);
     font-weight: 400;
   }
-  .commit-line {
+  .plan-row {
     margin-top: 20px;
-    padding-top: 18px;
+    padding-top: 20px;
     border-top: 1px solid var(--border);
-    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .plan-label {
+    font-size: 0.78rem;
     color: var(--text-light);
     font-weight: 300;
-    line-height: 1.65;
+    margin-right: 2px;
+  }
+  .plan-chip {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 5px 13px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: var(--text-light);
     white-space: nowrap;
   }
-  .commit-line strong { color: var(--text); font-weight: 600; }
+  .plan-chip strong { color: var(--text); font-weight: 600; }
+
+  /* Billing details tooltip on the price */
+  .fine-wrap { position: relative; display: inline-flex; align-self: center; }
+  .fine-info {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid var(--text-faint);
+    background: none;
+    color: var(--text-light);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.7rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .fine-info:hover { border-color: var(--text-light); color: var(--text); }
+  .fine-tip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 235px;
+    background: var(--text);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.55;
+    padding: 10px 14px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 5;
+  }
+  .fine-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--text);
+  }
+  .fine-wrap:hover .fine-tip,
+  .fine-wrap.open .fine-tip,
+  .fine-info:focus-visible + .fine-tip { opacity: 1; pointer-events: auto; }
 
   /* Families panel */
   .tuition-family {
@@ -248,6 +313,7 @@ pageId: "join"
     padding: clamp(32px, 4vw, 48px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
   .family-head {
     font-size: 0.72rem;
@@ -257,32 +323,19 @@ pageId: "join"
     font-weight: 600;
     margin-bottom: 18px;
   }
-  .family-rows { list-style: none; }
-  .family-rows li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    padding: 11px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .fam-who { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-  .fam-rate {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-  }
   .family-calc {
-    margin-top: auto;
-    padding-top: 22px;
+    padding-top: 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
+  }
+  .family-note {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
   }
   .family-stepper {
     display: flex;
@@ -333,13 +386,6 @@ pageId: "join"
     100% { transform: scale(1); }
   }
 
-  .fine-line {
-    margin-top: 14px;
-    font-size: 0.82rem;
-    color: var(--text-light);
-    font-weight: 300;
-    line-height: 1.55;
-  }
 
   /* Drop-in: plain text, not a tile */
   .dropin-line {
@@ -353,44 +399,77 @@ pageId: "join"
   .assistance-line a { color: var(--accent); }
 
   /* ─── Registration (two paths, mirrors the dojo flyer) ─── */
-  .register-header { margin-bottom: clamp(28px, 4vw, 40px); }
-  .register-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(18px, 2.5vw, 28px);
+  .register-header { margin-bottom: clamp(20px, 3vw, 30px); }
+
+  /* Full-bleed photo hero */
+  .join-hero {
+    position: relative;
+    margin-top: 64px;
+    height: clamp(400px, 56vh, 580px);
+    overflow: hidden;
   }
-  .register-card {
-    border-radius: 10px;
-    padding: clamp(28px, 3.5vw, 40px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-shadow: 0 14px 36px rgba(0,0,0,0.09), 0 4px 10px rgba(0,0,0,0.05);
+  .join-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 30%;
+    animation: join-settle 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .register-card h3 {
+  .join-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: clamp(28px, 4.5vw, 56px) var(--side-pad);
+    max-width: calc(var(--content-width) + var(--side-pad) * 2);
+    margin: 0 auto;
+  }
+  .join-hero h1 {
+    text-wrap: balance;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.35);
     font-family: var(--font-serif);
-    font-size: 1.4rem;
+    font-size: clamp(1.9rem, 4vw, 3rem);
     font-weight: 600;
-    margin-bottom: 10px;
+    color: white;
+    line-height: 1.12;
+    margin-bottom: 22px;
+    max-width: 560px;
+    animation: join-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
   }
-  .register-card p {
-    font-size: 0.9rem;
+  .join-hero-content .btn { animation: join-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both; }
+  @keyframes join-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes join-settle {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1); }
+  }
+  .returning-row {
+    margin-top: clamp(26px, 3.5vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 20px;
+    flex-wrap: wrap;
+    padding-top: clamp(18px, 2.5vw, 26px);
+    border-top: 1px solid var(--border);
+  }
+  .returning-row h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .returning-row p {
+    font-size: 0.85rem;
+    color: var(--text-light);
     font-weight: 300;
-    margin-bottom: 20px;
+    line-height: 1.55;
+    margin-top: 2px;
   }
-  /* Push CTAs to the bottom so both align on the same line */
-  .register-card .btn { margin-top: auto; }
-  .register-new {
-    background: var(--text);
-    color: rgba(255,255,255,0.85);
-  }
-  .register-new h3 { color: white; }
-  .register-returning {
-    background: var(--white);
-    border: 1px solid var(--border);
-    color: var(--text-mid);
-  }
-  .register-returning h3 { color: var(--text); }
   /* Canonical button system (matches index.html) */
   .btn {
     display: inline-block;
@@ -633,20 +712,34 @@ pageId: "join"
   }
   @media (max-width: 900px) {
     .photo-strip { grid-template-columns: repeat(2, 1fr); }
-    .register-grid { grid-template-columns: 1fr; }
     .faq-layout { grid-template-columns: 1fr; }
-    .faq-photo { display: none; }
+    .faq-photo {
+      position: static;
+      order: -1;
+      aspect-ratio: 16 / 10;
+      max-width: none;
+      border-radius: 0;
+      margin: 0 calc(-1 * var(--side-pad)) 10px;
+    }
     .tuition-card { grid-template-columns: 1fr; }
     .tuition-family { border-left: none; border-top: 1px solid var(--border); }
-    .commit-line { white-space: normal; }
   }
   @media (max-width: 640px) {
+    .plan-label { flex-basis: 100%; margin-bottom: 2px; }
+    .join-hero { height: clamp(340px, 52vh, 460px); }
+    .join-hero-content .btn { display: block; text-align: center; }
+    .photo-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .photo-strip-item { flex: 0 0 68%; scroll-snap-align: center; }
     .nav-links { display: none; }
     .hamburger { display: block; }
     .footer-cols { gap: 18px; justify-content: space-between; width: 100%; }
     .footer-col h5 { font-size: 0.58rem; }
     .footer-col a { font-size: 0.7rem; }
   }
+
+  /* Anchored sections land clear of the fixed nav */
+  #register, #tuition, #faq { scroll-margin-top: 84px; }
 </style>
 </head>
 <body>
@@ -654,10 +747,18 @@ pageId: "join"
 {% include "nav.njk" %}
 
 <!-- Registration + Tuition (one combined section) -->
+<section class="join-hero">
+  <img class="join-hero-img" src="{{ join.hero.image }}" alt="{{ join.hero.alt }}">
+  <div class="join-hero-content">
+    <h1>{{ join.hero.heading }}</h1>
+    <a href="{{ site.join_url }}" target="_blank" rel="noopener" class="btn btn-white">{{ join.hero.button }}</a>
+  </div>
+</section>
+
 <section class="join-main" id="register">
   <div class="section-inner">
     <div class="register-header reveal">
-      <h1 class="label">{{ join.register.label }}</h1>
+      <div class="label">{{ join.tuition.heading }}</div>
     </div>
 
     <div class="tuition-block" id="tuition">
@@ -668,19 +769,22 @@ pageId: "join"
           <div class="anchor-price">
             <span class="anchor-amount">{{ join.tuition.anchor.price }}</span>
             <span class="anchor-cadence">{{ join.tuition.anchor.cadence }}</span>
+            <span class="fine-wrap">
+              <button type="button" class="fine-info" aria-expanded="false" aria-label="Billing details">i</button>
+              <span class="fine-tip" role="note">{{ join.tuition.anchor.fine }}</span>
+            </span>
           </div>
-          <p class="commit-line">{{ join.tuition.anchor.commit_line | safe }}</p>
-          <p class="fine-line">{{ join.tuition.anchor.fine }}</p>
+          <div class="plan-row">
+            <span class="plan-label">{{ join.tuition.anchor.plans_label }}</span>
+            {% for p in join.tuition.anchor.plans %}
+            <span class="plan-chip"><strong>{{ p.rate }}</strong>&nbsp;{{ p.label }}</span>
+            {% endfor %}
+          </div>
         </div>
 
         <!-- Right: families -->
         <div class="tuition-family" data-first="{{ join.tuition.family.first }}" data-second="{{ join.tuition.family.second }}" data-additional="{{ join.tuition.family.additional }}">
           <div class="family-head">{{ join.tuition.family.label }}</div>
-          <ul class="family-rows">
-            {% for row in join.tuition.family.rows %}
-            <li><span class="fam-who">{{ row.who }}</span><span class="fam-rate">{{ row.rate }}</span></li>
-            {% endfor %}
-          </ul>
           <div class="family-calc">
             <div class="family-stepper">
               <button type="button" class="step-btn" data-step="-1" aria-label="Fewer family members">&minus;</button>
@@ -689,6 +793,7 @@ pageId: "join"
             </div>
             <div class="family-total" aria-live="polite"><span class="family-total-amt">$180</span><span class="family-total-cad">/month</span></div>
           </div>
+          <p class="family-note">{{ join.tuition.family.note }}</p>
         </div>
       </div>
 
@@ -696,19 +801,12 @@ pageId: "join"
       <p class="dropin-line assistance-line reveal">{{ join.tuition.assistance.text | safe }}</p>
     </div>
 
-    <div class="register-block">
-      <div class="register-grid">
-        <div class="register-card register-new reveal d1">
-          <h3>{{ join.register.new.heading }}</h3>
-          <p>{{ join.register.new.body }}</p>
-          <a href="{{ site.join_url }}" target="_blank" rel="noopener" class="btn btn-white">{{ join.register.new.button }}</a>
-        </div>
-        <div class="register-card register-returning reveal d2">
-          <h3>{{ join.register.returning.heading }}</h3>
-          <p>{{ join.register.returning.body }}</p>
-          <a href="{{ join.register.returning.href }}" target="_blank" rel="noopener" class="btn btn-outline">{{ join.register.returning.button }}</a>
-        </div>
+    <div class="returning-row reveal">
+      <div class="returning-text">
+        <h3>{{ join.register.returning.heading }}</h3>
+        <p>{{ join.register.returning.body }}</p>
       </div>
+      <a href="{{ join.register.returning.href }}" target="_blank" rel="noopener" class="btn btn-outline">{{ join.register.returning.button }}</a>
     </div>
   </div>
 </section>
@@ -801,6 +899,21 @@ pageId: "join"
       if (d.open) document.querySelectorAll('.faq-item[open]').forEach(o => { if (o !== d) o.open = false; });
     });
   });
+
+  (function fineTip() {
+    const wrap = document.querySelector('.fine-wrap');
+    if (!wrap) return;
+    const btn = wrap.querySelector('.fine-info');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      wrap.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  })();
 
   (function fitFooterEN() {
     const jp = document.querySelector('.footer-brand-jp');

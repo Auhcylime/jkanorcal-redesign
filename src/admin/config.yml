@@ -539,6 +539,14 @@ collections:
             fields:
               - { name: title,       label: "Browser tab title", widget: string }
               - { name: description, label: "Meta description",   widget: text }
+          - name: hero
+            label: "Photo hero (top of page)"
+            widget: object
+            fields:
+              - { name: image,   label: Image,          widget: image }
+              - { name: alt,     label: "Alt text",     widget: string }
+              - { name: heading, label: Heading,        widget: string }
+              - { name: button,  label: "Button label (links to the Join Us URL)", widget: string }
           - name: photo_strip
             label: "Photo strip (closing band)"
             widget: list
@@ -557,19 +565,20 @@ collections:
                 fields:
                   - { name: price,       label: Price,        widget: string }
                   - { name: cadence,     label: Cadence,      widget: string }
-                  - { name: fine,        label: "Fine print", widget: text }
-                  - { name: commit_line, label: "Commit-longer line (HTML allowed)", widget: text }
+                  - { name: fine,        label: "Fine print (shown in the info tooltip)", widget: text }
+                  - { name: plans_label, label: "Plans row label", widget: string }
+                  - name: plans
+                    label: "Plan chips"
+                    widget: list
+                    fields:
+                      - { name: label, label: "Plan name",  widget: string }
+                      - { name: rate,  label: Rate,         widget: string }
               - name: family
                 label: "Family discount"
                 widget: object
                 fields:
                   - { name: label, label: Label, widget: string }
-                  - name: rows
-                    label: Rows
-                    widget: list
-                    fields:
-                      - { name: who,  label: Who,  widget: string }
-                      - { name: rate, label: Rate, widget: string }
+                  - { name: note,  label: "Rates note (shown under the calculator)", widget: string }
                   - { name: first,      label: "1st member price (number, drives calculator)", widget: number }
                   - { name: second,     label: "2nd member price (number)",        widget: number }
                   - { name: additional, label: "Additional member price (number)", widget: number }
@@ -584,17 +593,9 @@ collections:
                 fields:
                   - { name: text, label: "Text (HTML allowed)", widget: text }
           - name: register
-            label: "How to register"
+            label: "Returning students row"
             widget: object
             fields:
-              - { name: label, label: "Eyebrow label", widget: string }
-              - name: new
-                label: "New students"
-                widget: object
-                fields:
-                  - { name: heading, label: Heading,        widget: string }
-                  - { name: body,    label: Body,           widget: text }
-                  - { name: button,  label: "Button label", widget: string }
               - name: returning
                 label: "Returning students"
                 widget: object

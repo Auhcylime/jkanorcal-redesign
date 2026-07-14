@@ -545,6 +545,8 @@ pageId: "camp"
   }
   /* Plain typographic meta line, dot-separated, no pills */
   .camp-meta {
+    position: relative;
+    z-index: 3;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -562,7 +564,7 @@ pageId: "camp"
     background: var(--accent);
     margin-right: 14px;
   }
-  .camp-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .camp-hero-actions { position: relative; z-index: 3; display: flex; flex-wrap: wrap; gap: 10px; }
 
   /* Marquee ticker */
   .camp-marquee {
@@ -1407,6 +1409,9 @@ pageId: "camp"
     letter-spacing: 0.07em;
   }
 
+
+  /* Anchored sections land clear of the fixed nav */
+  #register, #schedule, #expect, #camp-bio { scroll-margin-top: 84px; }
 </style>
 </head>
 <body>

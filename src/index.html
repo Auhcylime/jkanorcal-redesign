@@ -42,7 +42,13 @@ permalink: "/index.html"
   html { scroll-behavior: smooth; }
 
   /* Anchor targets clear the fixed 64px nav */
-  #about, #news, #schedule, #location { scroll-margin-top: 64px; }
+  /* Anchor landings clear the fixed nav + camp banner. Fallback only:
+     a script measures the real banner height and overrides this inline. */
+  {% if site.camp_banner.enabled and pages.camp != false %}
+  html { scroll-padding-top: 115px; }
+  {% else %}
+  html { scroll-padding-top: 64px; }
+  {% endif %}
 
   body {
     font-family: var(--font-sans);
@@ -1137,7 +1143,10 @@ permalink: "/index.html"
     .hero-sub { display: none; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .hero-actions .btn { width: 100%; text-align: center; }
-    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .photo-strip-item { flex: 0 0 68%; scroll-snap-align: center; }
+    .photo-strip-item:nth-child(n+3) { display: block; }
     .schedule-header, .news-header { flex-direction: column; align-items: flex-start; }
     .footer-cols { gap: 18px; justify-content: space-between; width: 100%; }
     .footer-col h5 { font-size: 0.58rem; }
@@ -1510,6 +1519,20 @@ permalink: "/index.html"
     const card = name.closest('.day-card');
     const pad = parseFloat(getComputedStyle(wrap).paddingLeft) || 0;
     wrap.scrollLeft = card.getBoundingClientRect().left - wrap.getBoundingClientRect().left + wrap.scrollLeft - pad;
+  })();
+
+  (function anchorClearance() {
+    const banner = document.querySelector('.camp-banner');
+    const set = () => {
+      document.documentElement.style.scrollPaddingTop = (64 + (banner ? banner.offsetHeight : 0)) + 'px';
+    };
+    set();
+    window.addEventListener('resize', set);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(set);
+    if (location.hash) window.addEventListener('load', () => {
+      const t = document.querySelector(location.hash);
+      if (t) requestAnimationFrame(() => { set(); t.scrollIntoView(); });
+    });
   })();
 
   (function scheduleDayNav() {
