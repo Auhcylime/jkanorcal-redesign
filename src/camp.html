@@ -1172,6 +1172,15 @@ pageId: "camp"
     .camp-figure img { display: block; height: min(70svh, 640px); width: auto; max-width: none; object-position: bottom; transform: none; }
     /* Meta + buttons keep the left column and stay above the figure */
     .camp-hero-text .camp-meta { position: relative; z-index: 3; max-width: 58%; margin-top: 14px; margin-bottom: 20px; }
+    /* Stacked list: give the first item (the date) a dot too */
+    .camp-meta-item:first-child::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--poster-red);
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
     .camp-hero-actions { position: relative; z-index: 3; flex-direction: column; align-items: flex-start; }
     .camp-hero-kanji { font-size: clamp(11rem, 44vw, 18rem); right: -2%; bottom: auto; top: 12%; }
     .camp-about-body { column-count: 1; }

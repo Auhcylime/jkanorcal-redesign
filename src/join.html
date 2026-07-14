@@ -233,27 +233,34 @@ pageId: "join"
     padding-top: 20px;
     border-top: 1px solid var(--border);
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: baseline;
+    gap: 6px 10px;
     flex-wrap: wrap;
   }
   .plan-label {
     font-size: 0.78rem;
     color: var(--text-light);
     font-weight: 300;
-    margin-right: 2px;
+  }
+  .plan-chips {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
   }
   .plan-chip {
     display: inline-flex;
     align-items: baseline;
-    padding: 5px 13px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.78rem;
+    gap: 5px;
+    font-size: 0.82rem;
     color: var(--text-light);
-    white-space: nowrap;
   }
   .plan-chip strong { color: var(--text); font-weight: 600; }
+  .plan-chip + .plan-chip::before {
+    content: '·';
+    margin: 0 10px;
+    color: var(--accent);
+    font-weight: 700;
+  }
 
   /* Billing details tooltip on the price */
   .fine-wrap { position: relative; display: inline-flex; align-self: center; }
@@ -309,7 +316,9 @@ pageId: "join"
 
   /* Families panel */
   .tuition-family {
-    background: var(--text);
+    background:
+      linear-gradient(rgba(32,29,25,0.72), rgba(32,29,25,0.72)),
+      url('/images/home/strip-1-kids-belts.jpg') center 12% / cover no-repeat;
     padding: clamp(32px, 4vw, 48px);
     display: flex;
     flex-direction: column;
@@ -507,18 +516,15 @@ pageId: "join"
 
   /* ─── FAQ accordion ─── */
   .faq {
+    --faq-pad-y: clamp(56px, 7vw, 90px);
     background: var(--off-white);
-    padding: clamp(56px, 7vw, 90px) var(--side-pad);
+    padding: var(--faq-pad-y) var(--side-pad);
   }
-  .faq-header { margin-bottom: clamp(28px, 4vw, 44px); }
   .faq-layout {
     display: grid;
     grid-template-columns: 1fr clamp(280px, 28vw, 360px);
     gap: clamp(36px, 5vw, 64px);
     align-items: start;
-  }
-  .faq-list {
-    border-top: 1px solid var(--border);
   }
   .faq-photo {
     position: sticky;
@@ -532,9 +538,34 @@ pageId: "join"
     height: 100%;
     object-fit: cover;
   }
+  .faq-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 42%, transparent 65%);
+    pointer-events: none;
+  }
+  .faq-photo-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: clamp(18px, 2.5vw, 28px);
+  }
+  .faq-photo-title h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.35);
+  }
   .faq-item {
     border-bottom: 1px solid var(--border);
   }
+  .faq-item:first-child summary { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
   .faq-item summary {
     list-style: none;
     cursor: pointer;
@@ -712,20 +743,21 @@ pageId: "join"
   }
   @media (max-width: 900px) {
     .photo-strip { grid-template-columns: repeat(2, 1fr); }
-    .faq-layout { grid-template-columns: 1fr; }
+    .faq { padding-bottom: 0; }
+    .faq-layout { grid-template-columns: 1fr; gap: 20px; }
     .faq-photo {
-      position: static;
+      position: relative;
+      top: auto;
       order: -1;
       aspect-ratio: 16 / 10;
       max-width: none;
       border-radius: 0;
-      margin: 0 calc(-1 * var(--side-pad)) 10px;
+      margin: calc(-1 * var(--faq-pad-y)) calc(-1 * var(--side-pad)) 0;
     }
     .tuition-card { grid-template-columns: 1fr; }
     .tuition-family { border-left: none; border-top: 1px solid var(--border); }
   }
   @media (max-width: 640px) {
-    .plan-label { flex-basis: 100%; margin-bottom: 2px; }
     .join-hero { height: clamp(340px, 52vh, 460px); }
     .join-hero-content .btn { display: block; text-align: center; }
     .photo-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
@@ -776,9 +808,11 @@ pageId: "join"
           </div>
           <div class="plan-row">
             <span class="plan-label">{{ join.tuition.anchor.plans_label }}</span>
-            {% for p in join.tuition.anchor.plans %}
-            <span class="plan-chip"><strong>{{ p.rate }}</strong>&nbsp;{{ p.label }}</span>
-            {% endfor %}
+            <span class="plan-chips">
+              {%- for p in join.tuition.anchor.plans -%}
+              <span class="plan-chip"><strong>{{ p.rate }}</strong>&nbsp;{{ p.label }}</span>
+              {%- endfor -%}
+            </span>
           </div>
         </div>
 
@@ -814,10 +848,6 @@ pageId: "join"
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="section-inner">
-    <div class="faq-header reveal">
-      <div class="label">{{ join.faq.label }}</div>
-      <h2 class="heading">{{ join.faq.heading }}</h2>
-    </div>
     <div class="faq-layout">
       <div class="faq-list reveal d1">
         {% for item in join.faq.items %}
@@ -832,6 +862,9 @@ pageId: "join"
       </div>
       <div class="faq-photo reveal d2">
         <img src="{{ join.faq.image }}" alt="{{ join.faq.image_alt }}">
+        <div class="faq-photo-title">
+          <h2>{{ join.faq.heading }}</h2>
+        </div>
       </div>
     </div>
   </div>
