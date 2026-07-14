@@ -238,6 +238,20 @@ permalink: "/index.html"
     flex-wrap: wrap;
   }
 
+  /* Hero entrance — image settles, text rises in sequence */
+  .hero-img img { animation: hero-settle 2.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .hero h1 { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+  .hero-sub { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both; }
+  .hero-actions { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-settle {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1); }
+  }
+
   .btn {
     display: inline-block;
     padding: 12px 26px;
@@ -480,6 +494,8 @@ permalink: "/index.html"
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
   }
+
+  .schedule-daynav { display: none; }
 
   .day-card {
     border: 1px solid var(--border);
@@ -1049,14 +1065,29 @@ permalink: "/index.html"
   /* ─── Reveal ─── */
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(26px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.vis { opacity: 1; transform: translateY(0); }
-  .d1 { transition-delay: 0.08s; }
-  .d2 { transition-delay: 0.16s; }
-  .d3 { transition-delay: 0.24s; }
+  .d1 { transition-delay: 0.1s; }
+  .d2 { transition-delay: 0.2s; }
+  .d3 { transition-delay: 0.3s; }
+
+  /* Staggered children — container is only the trigger, items do the moving */
+  .photo-strip.reveal, .schedule-cards.reveal { opacity: 1; transform: none; }
+  .photo-strip .photo-strip-item,
+  .schedule-cards .day-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .photo-strip.vis .photo-strip-item,
+  .schedule-cards.vis .day-card { opacity: 1; transform: none; }
+  .photo-strip.vis .photo-strip-item:nth-child(2), .schedule-cards.vis .day-card:nth-child(2) { transition-delay: 0.09s; }
+  .photo-strip.vis .photo-strip-item:nth-child(3), .schedule-cards.vis .day-card:nth-child(3) { transition-delay: 0.18s; }
+  .photo-strip.vis .photo-strip-item:nth-child(4), .schedule-cards.vis .day-card:nth-child(4) { transition-delay: 0.27s; }
+  .schedule-cards.vis .day-card:nth-child(5) { transition-delay: 0.36s; }
 
   /* ─── Responsive ─── */
     @media (max-width: 1100px) {
@@ -1081,7 +1112,13 @@ permalink: "/index.html"
     .ig-grid { grid-template-columns: 1fr 1fr; }
     .photo-strip { grid-template-columns: repeat(2, 1fr); }
     .photo-strip-item:nth-child(n+3) { display: none; }
-    .recognition-photo { aspect-ratio: 3/4; max-width: 320px; margin: 0 auto; }
+    .recognition-grid { gap: 0; }
+    .recognition-text { display: contents; }
+    .recognition-text .eyebrow { order: 1; }
+    .recognition-text h2 { order: 2; }
+    .recognition-photo { order: 3; max-width: 320px; margin: 8px auto 28px; width: 100%; }
+    .recognition-text .lede { order: 4; margin-bottom: 0; }
+    .recognition-photo img { position: static; height: auto; aspect-ratio: 3/4; }
     .loc-content { width: 100%; margin-right: 0; }
     .loc-overlay {
       background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.75));
@@ -1097,6 +1134,7 @@ permalink: "/index.html"
     .roster-list { grid-template-columns: 1fr; }
     .hero { height: 100vh; height: 100dvh; min-height: 460px; }
     .hero h1 { font-size: 1.8rem; }
+    .hero-sub { display: none; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .hero-actions .btn { width: 100%; text-align: center; }
     .photo-strip { grid-template-columns: 1fr 1fr; }
@@ -1108,7 +1146,51 @@ permalink: "/index.html"
     .feature-stats { flex-direction: column; gap: 16px; }
     .location { min-height: clamp(440px, 80vh, 620px); }
     .loc-bg { object-position: 25% center; }
-    .schedule-cards { grid-template-columns: 1fr; gap: 12px; }
+    .schedule-header .btn, .schedule .desc { display: none; }
+    .schedule-daynav {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .schedule-daynav button {
+      flex: 1;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 7px 0;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-light);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .schedule-daynav button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Swipeable day carousel — full-bleed, snaps card by card */
+    .schedule-cards {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      margin-left: calc(-1 * var(--side-pad));
+      margin-right: calc(-1 * var(--side-pad));
+      padding: 4px var(--side-pad) 16px;
+      scroll-padding-left: var(--side-pad);
+      scrollbar-width: none;
+    }
+    .schedule-cards::-webkit-scrollbar { display: none; }
+    .schedule-cards .day-card {
+      flex: 0 0 76%;
+      max-width: 300px;
+      scroll-snap-align: start;
+    }
   }
 
   /* ─── Hirayama Camp announcement banner ─── */
@@ -1168,6 +1250,12 @@ permalink: "/index.html"
   @media (prefers-reduced-motion: reduce) {
     .camp-banner { animation: none; }
     .camp-banner-arrow { animation: none; }
+    .hero-img img, .hero h1, .hero-sub, .hero-actions { animation: none; }
+    .reveal, .photo-strip .photo-strip-item, .schedule-cards .day-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
   .camp-banner strong { font-weight: 600; }
   .camp-banner-tag {
@@ -1210,7 +1298,7 @@ permalink: "/index.html"
 </section>
 
 <!-- Photo strip -->
-<div class="photo-strip">
+<div class="photo-strip reveal">
   {% for p in home.photo_strip %}
   <div class="photo-strip-item">
     <img src="{{ p.image }}" alt="{{ p.alt }}">
@@ -1302,6 +1390,12 @@ permalink: "/index.html"
       <a href="{{ schedule.contact_button.href }}" class="btn btn-accent reveal d1">{{ schedule.contact_button.label }}</a>
     </div>
     <p class="desc reveal d2" style="margin-bottom: 32px">{{ schedule.description }}</p>
+
+    <div class="schedule-daynav" aria-label="Jump to day">
+      {% for d in schedule.days %}
+      <button type="button">{{ d.day | truncate(3, true, "") }}</button>
+      {% endfor %}
+    </div>
 
     <div class="schedule-cards reveal d2">
       {% for d in schedule.days %}
@@ -1406,6 +1500,39 @@ permalink: "/index.html"
     document.getElementById('mob').classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  (function jumpScheduleToToday() {
+    const wrap = document.querySelector('.schedule-cards');
+    if (!wrap || wrap.scrollWidth <= wrap.clientWidth + 1) return;
+    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+    const name = [...wrap.querySelectorAll('.day-name')].find(h => h.textContent.trim() === today);
+    if (!name) return;
+    const card = name.closest('.day-card');
+    const pad = parseFloat(getComputedStyle(wrap).paddingLeft) || 0;
+    wrap.scrollLeft = card.getBoundingClientRect().left - wrap.getBoundingClientRect().left + wrap.scrollLeft - pad;
+  })();
+
+  (function scheduleDayNav() {
+    const wrap = document.querySelector('.schedule-cards');
+    const nav = document.querySelector('.schedule-daynav');
+    if (!wrap || !nav) return;
+    const btns = [...nav.querySelectorAll('button')];
+    const cards = [...wrap.querySelectorAll('.day-card')];
+    const pad = () => parseFloat(getComputedStyle(wrap).paddingLeft) || 0;
+    const target = i => cards[i].getBoundingClientRect().left - wrap.getBoundingClientRect().left + wrap.scrollLeft - pad();
+    btns.forEach((b, i) => b.addEventListener('click', () => wrap.scrollTo({ left: target(i), behavior: 'smooth' })));
+    function sync() {
+      if (wrap.scrollWidth <= wrap.clientWidth + 1) return;
+      let best = 0, bd = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.getBoundingClientRect().left - wrap.getBoundingClientRect().left - pad());
+        if (d < bd) { bd = d; best = i; }
+      });
+      btns.forEach((b, i) => b.classList.toggle('active', i === best));
+    }
+    wrap.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    sync();
+  })();
 
   (function fitFooterEN() {
     const jp = document.querySelector('.footer-brand-jp');

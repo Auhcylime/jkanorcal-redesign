@@ -942,7 +942,7 @@ pageId: "sensei"
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .vis { opacity: 1; transform: translateY(0); }
   .d1 { transition-delay: 0.08s; }
