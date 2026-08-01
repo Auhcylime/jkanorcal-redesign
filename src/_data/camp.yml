@@ -83,9 +83,9 @@ register:
   footnote: Full camp prices increase to $250 on Aug 1, then $300 on Sep 2.
   options:
     - name: Full Camp
-      badge: Early bird through Jul 30
+      badge: ''
       featured: true
-      price: $200
+      price: $250
       price_note: ''
       includes: Every session, Friday through Sunday.
       register_note: ''
