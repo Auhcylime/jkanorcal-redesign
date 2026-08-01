@@ -80,7 +80,7 @@ register:
   label: Register
   heading: ''
   note: ''
-  footnote: Full camp prices increase to $250 on Aug 1, then $300 on Sep 2.
+  footnote: Full camp prices increase to $300 on Sep 2.
   options:
     - name: Full Camp
       badge: ''
