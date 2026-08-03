@@ -182,7 +182,7 @@ schedule:
 closing:
   heading: Registration is open
   dates: September 11-13, 2026
-  body: Early bird pricing ends July 30. Reserve your place at this year's camp!
+  body: Reserve your place at this year's camp!
   buttons:
     - label: Register
       href: '#register'
