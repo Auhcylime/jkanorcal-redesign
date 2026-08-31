@@ -166,6 +166,10 @@ schedule:
       venue: Japanese Cultural & Community Center
       venue_note: 1840 Sutter St, San Francisco, CA 94115
       sessions:
+        - time: 10:00 to 10:30 AM
+          title: Event Check-In
+          detail: ''
+          venue_tag: ''
         - time: 10:30 to 12:00 AM
           title: Hirayama Seminar 5
           detail: ''
