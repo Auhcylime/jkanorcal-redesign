@@ -124,7 +124,7 @@ schedule:
       sessions:
         - time: 8:00 to 10:00 AM
           title: Morning Open Mat
-          detail: With JKA-USA team members.
+          detail: With instruction from JKA-USA coaches
           venue_tag: ''
         - time: 5:00 to 6:30 PM
           title: Hirayama Seminar 1
@@ -132,15 +132,19 @@ schedule:
           venue_tag: ''
         - time: 7:00 to 8:00 PM
           title: Competitor's Training
-          detail: US Team Coaches. Kata and kumite ahead of Nationals.
-          venue_tag: ''
+          detail: US Team Coaches led kata and kumite ahead of Nationals.
+          venue_tag: Event Check-in will be available during the Morning Open Mat and 30 minutes before the evening seminar with Hirayama Sensei
       footnote: ''
     - name: Saturday
       date: Sep 12
       venue: Japanese Cultural & Community Center
       venue_note: 1840 Sutter St, San Francisco, CA 94115
       sessions:
-        - time: 9:00 to 10:30 AM
+        - time: 9:00 to 9:30 AM
+          title: Event Check-In
+          detail: ''
+          venue_tag: ''
+        - time: 9:30 to 11:00 AM
           title: Hirayama Seminar 2
           detail: ''
           venue_tag: ''
@@ -148,7 +152,7 @@ schedule:
           title: Hirayama Seminar 3
           detail: ''
           venue_tag: ''
-        - time: 5:00 to 6:30 PM
+        - time: 4:30 to 6:00 PM
           title: Hirayama Seminar 4
           detail: ''
           venue_tag: ''
@@ -156,13 +160,13 @@ schedule:
           title: Camp Banquet
           detail: Bangkok Street Thai Street Food, 1826 Buchanan St.
           venue_tag: Off-site
-      footnote: ''
+      footnote: Please confirm banquet attendance during the event check-in
     - name: Sunday
       date: Sep 13
       venue: Japanese Cultural & Community Center
       venue_note: 1840 Sutter St, San Francisco, CA 94115
       sessions:
-        - time: 10:00 to 11:30 AM
+        - time: 10:30 to 12:00 AM
           title: Hirayama Seminar 5
           detail: ''
           venue_tag: ''
@@ -174,9 +178,9 @@ schedule:
           title: Seminar 6B
           detail: Referee and Judging seminar with Hirayama Sensei
           venue_tag: ''
-        - time: 2:30 to 5:00 PM
-          title: Competition & Performance Clinics
-          detail: ''
+        - time: 3:00 to 4:00 PM
+          title: Hirayama Seminar 7
+          detail: Just Added - Special Q&A Session!
           venue_tag: ''
       footnote: Seminars 6A and 6B run at the same time. Please choose one to attend.
 closing:
