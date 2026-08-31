@@ -133,8 +133,8 @@ schedule:
         - time: 7:00 to 8:00 PM
           title: Competitor's Training
           detail: US Team Coaches led kata and kumite ahead of Nationals.
-          venue_tag: Event Check-in will be available during the Morning Open Mat and 30 minutes before the evening seminar with Hirayama Sensei
-      footnote: ''
+          venue_tag: ''
+      footnote: Event Check-in will be available during the Morning Open Mat and 30 minutes before the evening seminar with Hirayama Sensei
     - name: Saturday
       date: Sep 12
       venue: Japanese Cultural & Community Center
