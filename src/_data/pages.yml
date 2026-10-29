@@ -6,6 +6,6 @@
 camp: false
 sensei: true
 join: true
-interview: true
+interview: false
 newsletter: true
 privacy: true
