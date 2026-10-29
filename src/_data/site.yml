@@ -19,7 +19,7 @@ join_url: "https://app.jackrabbitclass.com/regv2.asp?id=557815&preLoadClassID=21
 # Site-wide announcement banner (shows above the hero on Home + Instructors).
 # Set `enabled: false` to hide it everywhere without deleting the copy.
 camp_banner:
-  enabled: true
+  enabled: false
   href: "/camp"
   tag: "Now open"
   text: "<strong>Yuko Hirayama Camp 2026</strong> &middot; Sept 11-13 &middot; Register now"

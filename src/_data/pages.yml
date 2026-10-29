@@ -3,7 +3,7 @@
 # longer works — and it is removed from the navigation, the footer, and any
 # on-site links that point to it. Turn it back ON (true) to restore it.
 # The home page is always on and cannot be hidden here.
-camp: true
+camp: false
 sensei: true
 join: true
 interview: true
